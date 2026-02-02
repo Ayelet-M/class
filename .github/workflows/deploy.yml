@@ -40,14 +40,21 @@ jobs:
                 pushd "$folder"
                 npm ci || npm install
                 
+                # Calculate PUBLIC_URL based on folder depth for GitHub Pages
+                # Count slashes to determine path depth
+                DEPTH=$(echo "$folder" | tr -cd '/' | wc -c)
+                PUBLIC_PATH=$(printf '../%.0s' $(seq 1 $((DEPTH - 1))))
+                PUBLIC_PATH="${PUBLIC_PATH:-.}"
+                echo "Calculated PUBLIC_PATH: $PUBLIC_PATH"
+                
                 # Determine build tool and set PUBLIC_URL accordingly
                 if grep -q '"vite"' "$folder/package.json"; then
                   echo "Building with Vite"
                   npm run build
-                  BUILD_OUTPUT="build"
+                  BUILD_OUTPUT="dist"
                 else
                   echo "Building with React Scripts"
-                  PUBLIC_URL=. npm run build
+                  PUBLIC_URL="$PUBLIC_PATH" npm run build
                   BUILD_OUTPUT="build"
                 fi
                 
@@ -55,6 +62,7 @@ jobs:
                 rm -rf index.html *.js *.css *.map asset-manifest.json || true
                 if [ -d "$BUILD_OUTPUT" ]; then
                   cp -r "$BUILD_OUTPUT"/* .
+                  rm -rf "$BUILD_OUTPUT"
                 fi
                 popd
               else
