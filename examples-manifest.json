@@ -1,0 +1,51 @@
+[
+  {
+    "week": "week1",
+    "folder": "7_13",
+    "examples": [
+      {
+        "folder": "activity1_3d-example",
+        "name": "3D Activity Example"
+      },
+      {
+        "folder": "activity1_example2",
+        "name": "Example 2"
+      }
+    ]
+  },
+  {
+    "week": "week1",
+    "folder": "7_14",
+    "examples": []
+  },
+  {
+    "week": "week1",
+    "folder": "7_15_16",
+    "examples": []
+  },
+  {
+    "week": "week2",
+    "folder": "7_20",
+    "examples": []
+  },
+  {
+    "week": "week2",
+    "folder": "7_21",
+    "examples": []
+  },
+  {
+    "week": "week2",
+    "folder": "7_22_23",
+    "examples": []
+  },
+  {
+    "week": "week3",
+    "folder": "7_27",
+    "examples": []
+  },
+  {
+    "week": "week3",
+    "folder": "7_28_30",
+    "examples": []
+  }
+]

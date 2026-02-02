@@ -349,116 +349,92 @@
         };
 
         async function loadExamples(weekFolder, folder) {
+            console.log(`🔍 Attempting to load examples for ${weekFolder}/${folder}`);
             try {
-                const response = await fetch(`${weekFolder}/${folder}/examples/`);
-                if (!response.ok) {
+                // Load the manifest
+                const manifestResponse = await fetch('./examples-manifest.json');
+                if (!manifestResponse.ok) {
+                    console.warn('⚠️ Could not load examples manifest');
                     return [];
                 }
                 
-                // Parse the directory listing from HTML response
-                const text = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(text, 'text/html');
+                const manifest = await manifestResponse.json();
+                console.log(`  → Loaded manifest with ${manifest.length} entries`);
                 
-                const exampleFolders = [];
-                const links = doc.querySelectorAll('a');
-
-                for (const link of links) {
-                    const href = link.getAttribute('href');
-                    if (!href) {
-                        continue;
-                    }
-
-                    if (
-                        href === '../' ||
-                        href.startsWith('.') ||
-                        href.startsWith('/') ||
-                        href.startsWith('?') ||
-                        href.includes('?') ||
-                        !href.endsWith('/')
-                    ) {
-                        continue;
-                    }
-
-                    const folderName = decodeURIComponent(href.replace(/\/$/, '')).trim();
-                    if (!folderName) {
-                        continue;
-                    }
-
-                    if (folderName === 'log_deliverable' || folderName === 'code_deliverable') {
-                        continue;
-                    }
-
-                    exampleFolders.push(folderName);
+                // Find entry for this week/folder
+                const entry = manifest.find(m => m.week === weekFolder && m.folder === folder);
+                if (!entry || !entry.examples || entry.examples.length === 0) {
+                    console.log(`  → No examples found in manifest for ${weekFolder}/${folder}`);
+                    return [];
                 }
-
-                const examplesWithNames = await Promise.all(exampleFolders.map(async (exampleFolder) => {
-                    const basePath = `${weekFolder}/${folder}/examples/${exampleFolder}/code_deliverable/`;
-                    try {
-                        const packageResponse = await fetch(`${basePath}package.json`);
-                        if (packageResponse.ok) {
-                            const packageJson = await packageResponse.json();
-                            return {
-                                path: basePath,
-                                name: packageJson.name || exampleFolder
-                            };
-                        }
-                    } catch (e) {
-                        // ignore
-                    }
-
+                
+                console.log(`  → Found ${entry.examples.length} examples in manifest`);
+                
+                // Load each example
+                const examples = await Promise.all(entry.examples.map(async (example) => {
+                    const basePath = `${weekFolder}/${folder}/examples/${example.folder}/code_deliverable/`;
+                    console.log(`    → Checking: ${basePath}`);
+                    
                     try {
                         const indexResponse = await fetch(`${basePath}index.html`);
                         if (indexResponse.ok) {
-                            const indexText = await indexResponse.text();
-                            const indexDoc = parser.parseFromString(indexText, 'text/html');
-                            const title = indexDoc.querySelector('title')?.textContent?.trim();
+                            console.log(`      ✓ Found index.html`);
                             return {
                                 path: basePath,
-                                name: title || exampleFolder
+                                name: example.name || example.folder
                             };
                         }
                     } catch (e) {
-                        // ignore
+                        console.log(`      ✗ Fetch failed: ${e.message}`);
                     }
-
+                    
                     return null;
                 }));
-
-                let validExamples = examplesWithNames.filter(ex => ex !== null);
-
-                // If no subfolders found, support examples/ with direct code_deliverable
-                if (validExamples.length === 0) {
-                    const directBasePath = `${weekFolder}/${folder}/examples/code_deliverable/`;
-                    try {
-                        const packageResponse = await fetch(`${directBasePath}package.json`);
-                        if (packageResponse.ok) {
-                            const packageJson = await packageResponse.json();
-                            validExamples = [{
-                                path: directBasePath,
-                                name: packageJson.name || 'Example'
-                            }];
-                        } else {
-                            const indexResponse = await fetch(`${directBasePath}index.html`);
-                            if (indexResponse.ok) {
-                                const indexText = await indexResponse.text();
-                                const indexDoc = parser.parseFromString(indexText, 'text/html');
-                                const title = indexDoc.querySelector('title')?.textContent?.trim();
-                                validExamples = [{
-                                    path: directBasePath,
-                                    name: title || 'Example'
-                                }];
-                            }
-                        }
-                    } catch (e) {
-                        // ignore
-                    }
-                }
-
-                return validExamples.sort((a, b) => a.name.localeCompare(b.name));
+                
+                const validExamples = examples.filter(e => e !== null);
+                console.log(`  ✓ Loaded ${validExamples.length} valid examples`);
+                return validExamples;
             } catch (error) {
+                console.error(`✗ Error loading examples for ${weekFolder}/${folder}:`, error);
                 return [];
             }
+        }
+
+        async function tryLoadExample(basePath) {
+            console.log(`    → Trying: ${basePath}`);
+            try {
+                const packageResponse = await fetch(`${basePath}package.json`);
+                if (packageResponse.ok) {
+                    const packageJson = await packageResponse.json();
+                    console.log(`      ✓ Found package.json, name: ${packageJson.name}`);
+                    return [{
+                        path: basePath,
+                        name: packageJson.name || 'Example'
+                    }];
+                }
+            } catch (e) {
+                console.log(`      ✗ package.json fetch failed: ${e.message}`);
+            }
+
+            try {
+                const indexResponse = await fetch(`${basePath}index.html`);
+                if (indexResponse.ok) {
+                    const indexText = await indexResponse.text();
+                    const parser = new DOMParser();
+                    const indexDoc = parser.parseFromString(indexText, 'text/html');
+                    const title = indexDoc.querySelector('title')?.textContent?.trim();
+                    console.log(`      ✓ Found index.html, title: ${title}`);
+                    return [{
+                        path: basePath,
+                        name: title || 'Example'
+                    }];
+                }
+            } catch (e) {
+                console.log(`      ✗ index.html fetch failed: ${e.message}`);
+            }
+
+            console.log(`      ✗ No valid content found at ${basePath}`);
+            return [];
         }
 
         async function generateWeeksHTML() {
@@ -572,6 +548,7 @@
         }
 
         loadStudentName();
+        console.log('🚀 Starting to generate weeks HTML...');
         generateWeeksHTML();
     </script>
 </body>

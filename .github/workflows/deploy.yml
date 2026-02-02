@@ -79,6 +79,63 @@ jobs:
             process_directory "$folder"
           done < <(find . -type d -path '*/code_deliverable' -print0)
 
+          # Generate examples manifest for GitHub Pages (which doesn't support directory listings)
+          echo "=== Generating examples manifest ==="
+          cat > examples-manifest.json << 'MANIFEST_EOF'
+[
+  {
+    "week": "week1",
+    "folder": "7_13",
+    "examples": [
+      {
+        "folder": "activity1_3d-example",
+        "name": "3D Activity Example"
+      },
+      {
+        "folder": "activity1_example2",
+        "name": "Example 2"
+      }
+    ]
+  },
+  {
+    "week": "week1",
+    "folder": "7_14",
+    "examples": []
+  },
+  {
+    "week": "week1",
+    "folder": "7_15_16",
+    "examples": []
+  },
+  {
+    "week": "week2",
+    "folder": "7_20",
+    "examples": []
+  },
+  {
+    "week": "week2",
+    "folder": "7_21",
+    "examples": []
+  },
+  {
+    "week": "week2",
+    "folder": "7_22_23",
+    "examples": []
+  },
+  {
+    "week": "week3",
+    "folder": "7_27",
+    "examples": []
+  },
+  {
+    "week": "week3",
+    "folder": "7_28_30",
+    "examples": []
+  }
+]
+MANIFEST_EOF
+          echo "✓ Manifest generated"
+          
           echo "Listing 7_14 code_deliverable contents after build:"
           ls -la week1/7_14/code_deliverable || true
           
