@@ -24,12 +24,15 @@ class/
 ## How It Works
 
 ### Landing Page
+
 The root `index.html` displays a directory of all student submissions organized by week. Each submission links to its `code_deliverable` folder.
 
 ### Supported Site Types
 
 #### Static HTML/CSS/JS
+
 Place your HTML files directly in the `code_deliverable` folder:
+
 ```
 week1/7_13/code_deliverable/
 ├── index.html
@@ -38,7 +41,9 @@ week1/7_13/code_deliverable/
 ```
 
 #### React Apps
+
 If your submission is a React app with a `package.json`:
+
 ```
 week1/7_13/code_deliverable/
 ├── package.json
@@ -64,12 +69,14 @@ The GitHub Actions workflow will automatically build it and serve the build outp
 
 The site automatically deploys when you push to `main` or `master` branch.
 
-### Your GitHub Pages URL will be:
+### Your GitHub Pages URL will be
+
 ```
 https://username.github.io/repo-name/
 ```
 
 The landing page will be at the root, and submissions will be accessible at:
+
 ```
 https://username.github.io/repo-name/week1/7_13/code_deliverable/
 ```

@@ -69,6 +69,13 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
+            align-items: start;
+        }
+
+        .assignment-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
         .assignment {
@@ -109,13 +116,140 @@
             color: #667eea;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 10px;
+            margin-bottom: 12px;
             font-size: 0.95em;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
 
         .assignment:hover .view-link {
             color: white;
+        }
+
+        .submission-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .submission-btn {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85em;
+            padding: 8px 12px;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .submission-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .assignment:hover .submission-btn {
+            border-color: white;
+            color: white;
+        }
+
+        .assignment:hover .submission-btn:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .examples-section {
+            width: 100%;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            min-height: auto;
+        }
+
+        .examples-section:empty {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .assignment-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .examples-section {
+            padding: 12px 16px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .examples-section:empty {
+            display: none;
+        }
+
+        .examples-title {
+            font-size: 0.75em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 12px;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .examples-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .example-link-btn {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9em;
+            padding: 10px 16px;
+            background: transparent;
+            border: 1px solid #667eea;
+            border-radius: 6px;
+            transition: all 0.25s ease;
+            text-align: center;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example-link-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: left 0.25s ease;
+            z-index: -1;
+            border-radius: 6px;
+        }
+
+        .example-link-btn:hover {
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .example-link-btn:hover::before {
+            left: 0;
         }
 
         footer {
@@ -174,6 +308,101 @@
             '7_28_30': 'July 28-30'
         };
 
+        async function loadExamples(weekFolder, folder) {
+            try {
+                const response = await fetch(`${weekFolder}/${folder}/examples/`);
+                if (!response.ok) {
+                    return [];
+                }
+                
+                // Parse the directory listing from HTML response
+                const text = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                
+                const exampleFolders = [];
+                const links = doc.querySelectorAll('a');
+                
+                for (const link of links) {
+                    const href = link.getAttribute('href');
+                    // Filter out parent directory, hidden files, and deliverable folders
+                    if (href && href !== '../' && !href.startsWith('.') && href !== '/' && href !== '') {
+                        const folderName = href.replace(/\/$/, '');
+                        if (folderName && folderName !== 'log_deliverable' && folderName !== 'code_deliverable') {
+                            exampleFolders.push(folderName);
+                        }
+                    }
+                }
+
+                const examplesWithNames = await Promise.all(exampleFolders.map(async (exampleFolder) => {
+                    const basePath = `${weekFolder}/${folder}/examples/${exampleFolder}/code_deliverable/`;
+                    try {
+                        const packageResponse = await fetch(`${basePath}package.json`);
+                        if (packageResponse.ok) {
+                            const packageJson = await packageResponse.json();
+                            return {
+                                path: basePath,
+                                name: packageJson.name || exampleFolder
+                            };
+                        }
+                    } catch (e) {
+                        // ignore
+                    }
+
+                    try {
+                        const indexResponse = await fetch(`${basePath}index.html`);
+                        if (indexResponse.ok) {
+                            const indexText = await indexResponse.text();
+                            const indexDoc = parser.parseFromString(indexText, 'text/html');
+                            const title = indexDoc.querySelector('title')?.textContent?.trim();
+                            return {
+                                path: basePath,
+                                name: title || exampleFolder
+                            };
+                        }
+                    } catch (e) {
+                        // ignore
+                    }
+
+                    return null;
+                }));
+
+                let validExamples = examplesWithNames.filter(ex => ex !== null);
+
+                // If no subfolders found, support examples/ with direct code_deliverable
+                if (validExamples.length === 0) {
+                    const directBasePath = `${weekFolder}/${folder}/examples/code_deliverable/`;
+                    try {
+                        const packageResponse = await fetch(`${directBasePath}package.json`);
+                        if (packageResponse.ok) {
+                            const packageJson = await packageResponse.json();
+                            validExamples = [{
+                                path: directBasePath,
+                                name: packageJson.name || 'Example'
+                            }];
+                        } else {
+                            const indexResponse = await fetch(`${directBasePath}index.html`);
+                            if (indexResponse.ok) {
+                                const indexText = await indexResponse.text();
+                                const indexDoc = parser.parseFromString(indexText, 'text/html');
+                                const title = indexDoc.querySelector('title')?.textContent?.trim();
+                                validExamples = [{
+                                    path: directBasePath,
+                                    name: title || 'Example'
+                                }];
+                            }
+                        }
+                    } catch (e) {
+                        // ignore
+                    }
+                }
+
+                return validExamples.sort((a, b) => a.name.localeCompare(b.name));
+            } catch (error) {
+                return [];
+            }
+        }
+
         async function generateWeeksHTML() {
             const container = document.getElementById('weeksContainer');
             
@@ -191,24 +420,58 @@
                 for (const folder of folders) {
                     // Determine week folder name
                     const weekFolder = week.toLowerCase().replace(' ', '');
-                    const packagePath = `${weekFolder}/${folder}/package.json`;
                     const dateLabel = dateMap[folder];
                     
-                    const link = document.createElement('a');
-                    link.href = `${weekFolder}/${folder}/code_deliverable/`;
-                    link.className = 'assignment';
+                    // Create a wrapper for assignment and its examples
+                    const assignmentGroup = document.createElement('div');
+                    assignmentGroup.className = 'assignment-group';
+                    
+                    const assignment = document.createElement('div');
+                    assignment.className = 'assignment';
                     
                     const dateSpan = document.createElement('div');
                     dateSpan.className = 'date';
                     dateSpan.textContent = dateLabel;
+                    assignment.appendChild(dateSpan);
                     
-                    const viewLink = document.createElement('div');
+                    const viewLink = document.createElement('a');
+                    viewLink.href = `${weekFolder}/${folder}/code_deliverable/`;
                     viewLink.className = 'view-link';
                     viewLink.textContent = 'View Submission';
+                    assignment.appendChild(viewLink);
                     
-                    link.appendChild(dateSpan);
-                    link.appendChild(viewLink);
-                    assignmentsDiv.appendChild(link);
+                    assignmentGroup.appendChild(assignment);
+                    
+                    const examplesSection = document.createElement('div');
+                    examplesSection.className = 'examples-section';
+                    examplesSection.id = `examples-${weekFolder}-${folder}`;
+                    
+                    // Load examples asynchronously
+                    loadExamples(weekFolder, folder).then(examples => {
+                    if (examples.length > 0) {
+                        const examplesTitle = document.createElement('div');
+                        examplesTitle.className = 'examples-title';
+                        examplesTitle.textContent = 'Examples';
+                        examplesSection.appendChild(examplesTitle);
+                        
+                        const examplesList = document.createElement('div');
+                        examplesList.className = 'examples-list';
+                        
+                        examples.forEach((example) => {
+                            const exampleLink = document.createElement('a');
+                            exampleLink.href = example.path;
+                            exampleLink.className = 'example-link-btn';
+                            exampleLink.textContent = example.name;
+                            
+                            examplesList.appendChild(exampleLink);
+                        });
+                        
+                        examplesSection.appendChild(examplesList);
+                    }
+                    });
+                    
+                    assignmentGroup.appendChild(examplesSection);
+                    assignmentsDiv.appendChild(assignmentGroup);
                 }
                 
                 weekDiv.appendChild(weekTitle);
