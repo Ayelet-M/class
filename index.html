@@ -380,16 +380,18 @@
                         // Direct structure: week/date/examples/code_deliverable/
                         basePath = `${weekFolder}/${folder}/examples/${example.folder}/`;
                     }
-                    console.log(`    → Checking: ${basePath}`);
+                    console.log(`    → Checking: ${basePath} (nested=${example.nested})`);
                     
                     try {
                         const indexResponse = await fetch(`${basePath}index.html`);
                         if (indexResponse.ok) {
-                            console.log(`      ✓ Found index.html`);
+                            console.log(`      ✓ Found index.html at ${basePath}index.html`);
                             return {
                                 path: basePath,
                                 name: example.name || example.folder
                             };
+                        } else {
+                            console.log(`      ✗ index.html returned ${indexResponse.status}`);
                         }
                     } catch (e) {
                         console.log(`      ✗ Fetch failed: ${e.message}`);

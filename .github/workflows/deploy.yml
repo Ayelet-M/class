@@ -75,78 +75,108 @@ jobs:
 
           # Generate examples manifest for GitHub Pages (which doesn't support directory listings)
           echo "=== Generating examples manifest ==="
-          
-          # Build JSON using bash - collect all examples
-          MANIFEST="["
-          FIRST_ENTRY=true
-          
-          # Find all week folders
-          for WEEK_DIR in week*; do
-            for DATE_DIR in "$WEEK_DIR"/*/ ; do
-              if [ -d "$DATE_DIR/examples" ]; then
-                DATE_NAME=$(basename "$DATE_DIR")
-                
-                if [ "$FIRST_ENTRY" = false ]; then
-                  MANIFEST+=","
-                fi
-                
-                MANIFEST+="
-    {
-      \"week\": \"$WEEK_DIR\",
-      \"folder\": \"$DATE_NAME\",
-      \"examples\": ["
-                
-                FIRST_EXAMPLE=true
-                
-                # Check for nested examples (activity*/code_deliverable)
-                if [ -d "$DATE_DIR/examples" ] && [ "$(find "$DATE_DIR/examples" -maxdepth 1 -type d | wc -l)" -gt 1 ]; then
-                  for ACTIVITY_DIR in "$DATE_DIR/examples"/*/; do
-                    if [ -f "$ACTIVITY_DIR/code_deliverable/index.html" ]; then
-                      ACTIVITY_NAME=$(basename "$ACTIVITY_DIR")
-                      if [ "$FIRST_EXAMPLE" = false ]; then
-                        MANIFEST+=","
-                      fi
-                      MANIFEST+="
-        {
-          \"folder\": \"$ACTIVITY_NAME\",
-          \"name\": \"$ACTIVITY_NAME\",
-          \"nested\": true
-        }"
-                      FIRST_EXAMPLE=false
-                    fi
-                  done
-                fi
-                
-                # Check for direct examples (examples/code_deliverable)
-                if [ -f "$DATE_DIR/examples/code_deliverable/index.html" ]; then
-                  if [ "$FIRST_EXAMPLE" = false ]; then
-                    MANIFEST+=","
-                  fi
-                  MANIFEST+="
-        {
-          \"folder\": \"code_deliverable\",
-          \"name\": \"Example\",
-          \"nested\": false
-        }"
-                  FIRST_EXAMPLE=false
-                fi
-                
-                MANIFEST+="
-      ]
-    }"
-                FIRST_ENTRY=false
-              fi
-            done
-          done
-          
-          MANIFEST+="]"
-          echo "$MANIFEST" > examples-manifest.json
+          cat > examples-manifest.json << 'MANIFEST_EOF'
+[
+  {
+    "week": "week1",
+    "folder": "7_13",
+    "examples": [
+      {
+        "folder": "activity1_3d-example",
+        "name": "3D Activity Example",
+        "nested": true
+      },
+      {
+        "folder": "activity1_example2",
+        "name": "Example 2",
+        "nested": true
+      }
+    ]
+  },
+  {
+    "week": "week1",
+    "folder": "7_14",
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
+  },
+  {
+    "week": "week1",
+    "folder": "7_15_16",
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
+  },
+  {
+    "week": "week2",
+    "folder": "7_20",
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
+  },
+  {
+    "week": "week2",
+    "folder": "7_21",
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
+  },
+  {
+    "week": "week2",
+    "folder": "7_22_23",
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
+  },
+  {
+    "week": "week3",
+    "folder": "7_27",
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
+  },
+  {
+    "week": "week3",
+    "folder": "7_28_30",
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
+  }
+]
+MANIFEST_EOF
           echo "✓ Manifest generated"
-          cat examples-manifest.json
-          ls -la week1/7_14/code_deliverable || true
           
-          echo "Listing 7_13 examples 3d-example contents after build:"
-          ls -la week1/7_13/examples/activity1_3d-example/code_deliverable || true
+          echo "=== Verifying built files ==="
+          ls -la week1/7_14/code_deliverable/ | head -10 || echo "7_14 not built yet"
+          ls -la week1/7_13/examples/activity1_3d-example/code_deliverable/ | head -10 || echo "3d-example not built yet"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
