@@ -34,41 +34,48 @@ jobs:
             local folder="$1"
             echo "Processing $folder"
             if [ -f "$folder/package.json" ]; then
-              if grep -q '"react"' "$folder/package.json" || grep -q '"react-scripts"' "$folder/package.json"; then
-                echo "Detected React app in $folder"
+              # Check if it's a React project
+              if grep -q '"react"' "$folder/package.json" || grep -q '"react-scripts"' "$folder/package.json" || grep -q '"vite"' "$folder/package.json"; then
+                echo "Detected React/Vite app in $folder"
                 pushd "$folder"
                 npm ci || npm install
-                # Ensure relative asset paths when served from a subfolder
-                PUBLIC_URL=. npm run build
-                # Serve the built app at the folder root
-                rm -f index.html || true
-                cp -r build/* .
+                
+                # Determine build tool and set PUBLIC_URL accordingly
+                if grep -q '"vite"' "$folder/package.json"; then
+                  echo "Building with Vite"
+                  npm run build
+                  BUILD_OUTPUT="build"
+                else
+                  echo "Building with React Scripts"
+                  PUBLIC_URL=. npm run build
+                  BUILD_OUTPUT="build"
+                fi
+                
+                # Copy build output to folder root
+                rm -rf index.html *.js *.css *.map asset-manifest.json || true
+                if [ -d "$BUILD_OUTPUT" ]; then
+                  cp -r "$BUILD_OUTPUT"/* .
+                fi
                 popd
               else
-                echo "package.json present but React not detected; leaving static files as-is in $folder"
+                echo "package.json present but not React/Vite; leaving static files as-is in $folder"
               fi
             else
               echo "Static site detected (no package.json) in $folder; no build needed"
             fi
           }
           
-          # Process all code_deliverable directories
-          echo "=== Processing code_deliverable directories ==="
+          # Process ALL code_deliverable directories (includes examples recursively)
+          echo "=== Processing all code_deliverable directories ==="
           while IFS= read -r -d '' folder; do
             process_directory "$folder"
           done < <(find . -type d -path '*/code_deliverable' -print0)
-          
-          # Process all examples/code_deliverable directories
-          echo "=== Processing examples/code_deliverable directories ==="
-          while IFS= read -r -d '' folder; do
-            process_directory "$folder"
-          done < <(find . -type d -path '*/examples/code_deliverable' -print0)
 
           echo "Listing 7_14 code_deliverable contents after build:"
           ls -la week1/7_14/code_deliverable || true
           
-          echo "Listing 7_13 examples/code_deliverable contents after build:"
-          ls -la week1/7_13/examples/code_deliverable || true
+          echo "Listing 7_13 examples 3d-example contents after build:"
+          ls -la week1/7_13/examples/activity1_3d-example/code_deliverable || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
