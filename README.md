@@ -79,34 +79,6 @@ week1/7_13/code_deliverable/
 
 The GitHub Actions workflow will automatically build it and serve the build output.
 
-## GitHub Pages Setup
-
-1. **Enable GitHub Pages**
-   - Go to your repository Settings
-   - Navigate to Pages
-   - Select "Deploy from a branch"
-   - Select `gh-pages` branch
-   - Select `/ (root)` directory
-
-2. **Configure Secrets (if needed)**
-   - The workflow uses the default `GITHUB_TOKEN` which is automatically provided
-
-## Deployment
-
-The site automatically deploys when you push to `main` or `master` branch.
-
-### Your GitHub Pages URL will be
-
-```bash
-https://username.github.io/repo-name/
-```
-
-The landing page will be at the root, and submissions will be accessible at:
-
-```bash
-https://username.github.io/repo-name/week1/7_13/code_deliverable/
-```
-
 ## Important Notes
 
 - The workflow publishes the entire repository to GitHub Pages
