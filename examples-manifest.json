@@ -5,12 +5,12 @@
     "examples": [
       {
         "folder": "activity1_3d-example",
-        "name": "3D Activity Example",
+        "name": "activity1_3d-example",
         "nested": true
       },
       {
         "folder": "activity1_example2",
-        "name": "Example 2",
+        "name": "activity1_example2",
         "nested": true
       }
     ]
