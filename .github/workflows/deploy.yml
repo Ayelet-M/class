@@ -28,8 +28,10 @@ jobs:
       - name: Build React apps (auto-detect) and prepare folders
         run: |
           set -e
-          # Iterate all code_deliverable directories
-          while IFS= read -r -d '' folder; do
+          
+          # Function to process a directory
+          process_directory() {
+            local folder="$1"
             echo "Processing $folder"
             if [ -f "$folder/package.json" ]; then
               if grep -q '"react"' "$folder/package.json" || grep -q '"react-scripts"' "$folder/package.json"; then
@@ -48,10 +50,25 @@ jobs:
             else
               echo "Static site detected (no package.json) in $folder; no build needed"
             fi
+          }
+          
+          # Process all code_deliverable directories
+          echo "=== Processing code_deliverable directories ==="
+          while IFS= read -r -d '' folder; do
+            process_directory "$folder"
           done < <(find . -type d -path '*/code_deliverable' -print0)
+          
+          # Process all examples/code_deliverable directories
+          echo "=== Processing examples/code_deliverable directories ==="
+          while IFS= read -r -d '' folder; do
+            process_directory "$folder"
+          done < <(find . -type d -path '*/examples/code_deliverable' -print0)
 
           echo "Listing 7_14 code_deliverable contents after build:"
           ls -la week1/7_14/code_deliverable || true
+          
+          echo "Listing 7_13 examples/code_deliverable contents after build:"
+          ls -la week1/7_13/examples/code_deliverable || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
