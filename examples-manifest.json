@@ -5,47 +5,91 @@
     "examples": [
       {
         "folder": "activity1_3d-example",
-        "name": "3D Activity Example"
+        "name": "3D Activity Example",
+        "nested": true
       },
       {
         "folder": "activity1_example2",
-        "name": "Example 2"
+        "name": "Example 2",
+        "nested": true
       }
     ]
   },
   {
     "week": "week1",
     "folder": "7_14",
-    "examples": []
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
   },
   {
     "week": "week1",
     "folder": "7_15_16",
-    "examples": []
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
   },
   {
     "week": "week2",
     "folder": "7_20",
-    "examples": []
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
   },
   {
     "week": "week2",
     "folder": "7_21",
-    "examples": []
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
   },
   {
     "week": "week2",
     "folder": "7_22_23",
-    "examples": []
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
   },
   {
     "week": "week3",
     "folder": "7_27",
-    "examples": []
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
   },
   {
     "week": "week3",
     "folder": "7_28_30",
-    "examples": []
+    "examples": [
+      {
+        "folder": "code_deliverable",
+        "name": "Example",
+        "nested": false
+      }
+    ]
   }
 ]
