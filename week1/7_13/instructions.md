@@ -35,9 +35,17 @@ Once your page is ready, you need to make it live:
 - **Vanilla JS/Static Pages**: Use **GitHub Pages**. Go to your repository settings > Pages and enable it for the `main` branch.
 - **Frameworks (React, Vue, etc.)**: Use **Vercel**. Connect your GitHub repository to Vercel for automatic deployment.
 
-## Reflection
+---
 
-After completing your page, reflect on the process in your `deliverable_1.md` file:
-1. How did vibe coding change your approach to building a website compared to traditional coding?
+## Submission
+
+After completing your page, document your process and reflect on your experience in a new file named `vibe-report.md` in your project folder. You can use [vibe-report-template.md](vibe-report-template.md) as a starting point.
+
+### Reflection Questions:
+1. How did vibe coding change your approach to building a website compared to traditional coding, or website builders?
 2. What "structural elements" did you borrow from elsewhere? Did you feel a need to attribute them?
 3. What was the most surprising thing you learned about the AI tool's capabilities or limitations?
+4. How closely does the final website match your original vision? Does it feel authentic to you? How do you see yourself in it?
+
+Your final `vibe-report.md` should include your live links, screenshots, reflection, and your full **AI Interaction Trace** (linked to your `log_deliverable/history.md`).
+
