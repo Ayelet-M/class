@@ -37,15 +37,36 @@ Once your page is ready, you need to make it live:
 
 ---
 
-## Submission
+## Submission: The Vibe Report
 
-After completing your page, document your process and reflect on your experience in a new file named `vibe-report.md` in your project folder. You can use [vibe-report-template.md](vibe-report-template.md) as a starting point.
+After completing your page, you must document your journey in a new file named `vibe-report.md` in your project folder. Use [vibe-report-template.md](vibe-report-template.md) as your starting point.
 
-### Reflection Questions:
+A complete Vibe Report includes:
+
+### 1. 📸 Showcase
+Screenshots, GIFs, or a short video walkthrough of your final site. This documents the final product in case the live link is inaccessible later.
+
+### 2. 🎯 The Vibe (Planning)
+Before you start coding, document your intent. What is the inspiration? What should the user feel? Use moodboards, sketches, or verbal descriptions to capture the intended "vibe."
+
+### 3. 👣 Process & Explorations
+Transparency is key. Document your research, the different pathways you explored, the ideas you dropped, and the "happy accidents" that shaped the final product.
+
+### 4. 💭 Reflection
+Answer the following prompts:
 1. How did vibe coding change your approach to building a website compared to traditional coding, or website builders?
 2. What "structural elements" did you borrow from elsewhere? Did you feel a need to attribute them?
 3. What was the most surprising thing you learned about the AI tool's capabilities or limitations?
 4. How closely does the final website match your original vision? Does it feel authentic to you? How do you see yourself in it?
 
-Your final `vibe-report.md` should include your live links, screenshots, reflection, and your full **AI Interaction Trace** (linked to your `log_deliverable/history.md`).
+### 5. 📜 AI Usage Trace
+Link to your [local history log](log_deliverable/history.md) and any external AI tool histories (e.g., ChatGPT, Claude) used during the project.
+
+### 6. 🙋 Authenticity Statement
+You must include the Authenticity Statement from the template:
+- **Responsibility**: Acknowledging that you are the sole architect and bear full responsibility.
+- **Attribution**: Listing all human collaborators and inspirations.
+
+---
+*Your reflection and documentation matter more than the code. This class is about the process, not just the product.*
 
