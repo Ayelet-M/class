@@ -69,9 +69,15 @@ jobs:
           
           # Process ALL code_deliverable directories (includes examples recursively)
           echo "=== Processing all code_deliverable directories ==="
+          echo "🔍 Finding all code_deliverable directories..."
+          find . -type d -path '*/code_deliverable' | head -20
+          echo "---"
+          
           while IFS= read -r -d '' folder; do
             process_directory "$folder"
           done < <(find . -type d -path '*/code_deliverable' -print0)
+          
+          echo "=== Build processing complete ==="
 
           # Generate examples manifest for GitHub Pages (which doesn't support directory listings)
           echo "=== Generating examples manifest ==="
