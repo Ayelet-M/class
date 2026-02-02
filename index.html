@@ -372,26 +372,17 @@
                 
                 // Load each example
                 const examples = await Promise.all(entry.examples.map(async (example) => {
-                    let basePath;
-                    if (example.nested) {
-                        // Nested structure: week/date/examples/activity/code_deliverable/
-                        basePath = `${weekFolder}/${folder}/examples/${example.folder}/code_deliverable/`;
-                    } else {
-                        // Direct structure: week/date/examples/code_deliverable/
-                        basePath = `${weekFolder}/${folder}/examples/${example.folder}/`;
-                    }
-                    console.log(`    → Checking: ${basePath} (nested=${example.nested})`);
+                    const basePath = `${weekFolder}/${folder}/examples/${example.folder}/code_deliverable/`;
+                    console.log(`    → Checking: ${basePath}`);
                     
                     try {
                         const indexResponse = await fetch(`${basePath}index.html`);
                         if (indexResponse.ok) {
-                            console.log(`      ✓ Found index.html at ${basePath}index.html`);
+                            console.log(`      ✓ Found index.html`);
                             return {
                                 path: basePath,
                                 name: example.name || example.folder
                             };
-                        } else {
-                            console.log(`      ✗ index.html returned ${indexResponse.status}`);
                         }
                     } catch (e) {
                         console.log(`      ✗ Fetch failed: ${e.message}`);
