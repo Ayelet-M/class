@@ -10,8 +10,13 @@ export default function App() {
 
   return (
     <div className="w-full h-full bg-[#050505]">
-      <Canvas shadows dpr={[1, 2]}>
+      <Canvas shadows dpr={[1, 2]} bg="#050505">
         <CameraRig target={target} />
+
+        {/* Lights */}
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
+        <pointLight position={[-10, 5, -5]} intensity={0.5} />
         <Environment preset="city" />
 
         <Suspense fallback={null}>
