@@ -10,6 +10,22 @@ Sign up for github and fork this repository.
 
 Use of other tools may be appropriate, but need to be configured using rules, to instruct the AI to log vibe coding prompts .agent/rules/vibe-trace.md (other tools such as Github Copilot and Cursor are not configured to do this by default, and may require additional setup)
 
+### Folder Structure
+
+To keep your deliverables organized and compatible with the course's automated tools, please use the following structure in your project directory:
+
+```text
+week1/7_13/
+├── code_deliverable/    # Your website source code (HTML, CSS, JS)
+├── log_deliverable/     # Your interaction logs (history.md)
+└── vibe-report.md       # Your final documentation and reflection
+```
+
+> [!IMPORTANT]
+> Ensure all your website assets (images, fonts, etc.) are saved within the `code_deliverable/` folder or referenced via URL.
+
+---
+
 ## Vibe Off 
 
 **Project: Your Digital Vibe.** Welcome to the course! Your first task is to create a personal "About Me" page.
