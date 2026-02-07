@@ -1,17 +1,55 @@
 import React, { useState, Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, PerspectiveCamera, Environment, ContactShadows } from '@react-three/drei'
+import { OrbitControls, PerspectiveCamera, Environment, ContactShadows, GizmoHelper, GizmoViewport } from '@react-three/drei'
 import { Desk } from './components/Desk'
 import { CameraRig } from './components/CameraRig'
+import { SceneInspector } from './components/SceneInspector'
 import './index.css'
+
+const INITIAL_CONFIG = {
+  showGizmos: true,
+  monitor: {
+    position: [-0.546, 1.48, -4.84],
+    rotation: [0, 0, 0],
+    distanceFactor: 1.2
+  },
+  phone: {
+    position: [-0.721, 0.925, -5.252],
+    rotation: [-Math.PI / 2, 0, 1.096],
+    distanceFactor: 0.15
+  },
+  camera: {
+    initial: [5, 2, 5], // Adjusted for 90deg turn
+    pc: {
+      position: [1.4, 1.4, -3.5],
+      lookAt: [-4.9, 1.4, -0.55]
+    },
+    phone: {
+      position: [1.2, 1.2, -4.5],
+      lookAt: [-5.25, 0.9, -0.72]
+    },
+    papers: {
+      position: [1.3, 1.3, -4.8],
+      lookAt: [-5.54, 0.95, -1.01]
+    }
+  }
+}
 
 export default function App() {
   const [target, setTarget] = useState(null)
+  const [config, setConfig] = useState(INITIAL_CONFIG)
 
   return (
-    <div className="w-full h-full bg-[#050505]">
+    <div className="w-full h-full bg-[#050505] overflow-hidden">
+      <SceneInspector config={config} setConfig={setConfig} />
+
       <Canvas shadows dpr={[1, 2]} bg="#050505">
-        <CameraRig target={target} />
+        <CameraRig target={target} config={config.camera} />
+
+        {/* Helper Gizmos */}
+        <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
+          <GizmoViewport axisColors={['#9d4b4b', '#2f7f4f', '#3b5b9d']} labelColor="white" />
+        </GizmoHelper>
 
         {/* Lights */}
         <ambientLight intensity={0.5} />
@@ -20,8 +58,8 @@ export default function App() {
         <Environment preset="city" />
 
         <Suspense fallback={null}>
-          <group position={[0, -0.5, 0]}>
-            <Desk onFocus={setTarget} />
+          <group position={[0, -0.5, 0]} rotation={[0, Math.PI / 2, 0]}>
+            <Desk onFocus={setTarget} config={config} />
             <ContactShadows
               opacity={0.4}
               scale={20}

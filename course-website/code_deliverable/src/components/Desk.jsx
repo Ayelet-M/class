@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { useGLTF, Html, useCursor } from '@react-three/drei'
+import { useGLTF, Html, useCursor, PivotControls, DragControls } from '@react-three/drei'
 import { MonitorContent } from './MonitorContent'
 import { PhoneContent } from './PhoneContent'
 import { NotepadContent } from './NotepadContent'
 import * as THREE from 'three'
 
-export function Desk({ onFocus }) {
+export function Desk({ onFocus, config, setConfig }) {
     const { nodes, materials } = useGLTF('/Desk.glb')
     const [hovered, setHovered] = useState(null)
 
@@ -29,63 +29,73 @@ export function Desk({ onFocus }) {
 
     return (
         <group dispose={null}>
-            {/* 
-        This is a condensed version of the Model.js file.
-        I am grouping related meshes and adding interactive wrappers.
-      */}
-
             {/* PC / Monitor Section */}
-            <group
-                onPointerOver={(e) => handlePointerOver(e, 'pc')}
-                onPointerOut={handlePointerOut}
-                onClick={(e) => handleClick(e, 'pc')}
+            <PivotControls
+                visible={config.showGizmos}
+                activeAxes={[true, true, true]}
+                depthTest={false}
+                scale={0.5}
+                anchor={[0, 0, 0]}
             >
-                <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes['Monitor001|iMac|Dupli|'].geometry}
-                    material={materials['Mat.008']}
-                    position={[-0.546, 0.913, -4.926]}
-                    rotation={[-Math.PI / 2, 0, 3.105]}
-                    scale={1.135}
-                />
-                <Html
-                    transform
-                    distanceFactor={1.2}
-                    position={[-0.546, 1.48, -4.84]}
-                    rotation={[0, 0, 0]}
-                    portal={null}
-                    occlude
+                <group
+                    onPointerOver={(e) => handlePointerOver(e, 'pc')}
+                    onPointerOut={handlePointerOut}
+                    onClick={(e) => handleClick(e, 'pc')}
                 >
-                    <div style={{ opacity: hovered === 'pc' ? 1 : 0.9, transition: 'opacity 0.2s', pointerEvents: 'auto' }}>
-                        <MonitorContent />
-                    </div>
-                </Html>
-            </group>
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes['Monitor001|iMac|Dupli|'].geometry}
+                        material={materials['Mat.008']}
+                        position={[-0.546, 0.913, -4.926]}
+                        rotation={[-Math.PI / 2, 0, 3.105]}
+                        scale={1.135}
+                    />
+                    <Html
+                        transform
+                        distanceFactor={config.monitor.distanceFactor}
+                        position={config.monitor.position}
+                        rotation={config.monitor.rotation}
+                        portal={null}
+                        occlude
+                    >
+                        <div style={{ opacity: hovered === 'pc' ? 1 : 0.9, transition: 'opacity 0.2s', pointerEvents: 'auto' }}>
+                            <MonitorContent />
+                        </div>
+                    </Html>
+                </group>
+            </PivotControls>
 
             {/* Smartphone Section */}
-            <group
-                onPointerOver={(e) => handlePointerOver(e, 'phone')}
-                onPointerOut={handlePointerOut}
-                onClick={(e) => handleClick(e, 'phone')}
+            <PivotControls
+                visible={config.showGizmos}
+                activeAxes={[true, true, true]}
+                depthTest={false}
+                scale={0.2}
             >
-                <group position={[-0.721, 0.921, -5.252]} rotation={[Math.PI / 2, 0, 1.096]} scale={5618.099}>
-                    <mesh castShadow receiveShadow geometry={nodes.Phone_1.geometry} material={materials['White.001']} />
-                    <mesh castShadow receiveShadow geometry={nodes.Phone_2.geometry} material={materials['Grey.001']} />
-                    <mesh castShadow receiveShadow geometry={nodes.Phone_3.geometry} material={materials['Black.003']} />
-                </group>
-                <Html
-                    transform
-                    distanceFactor={0.15}
-                    position={[-0.721, 0.925, -5.252]}
-                    rotation={[-Math.PI / 2, 0, 1.096]}
-                    portal={null}
+                <group
+                    onPointerOver={(e) => handlePointerOver(e, 'phone')}
+                    onPointerOut={handlePointerOut}
+                    onClick={(e) => handleClick(e, 'phone')}
                 >
-                    <div style={{ opacity: hovered === 'phone' ? 1 : 0.8, transition: 'opacity 0.2s', pointerEvents: 'auto' }}>
-                        <PhoneContent />
-                    </div>
-                </Html>
-            </group>
+                    <group position={[-0.721, 0.921, -5.252]} rotation={[Math.PI / 2, 0, 1.096]} scale={5618.099}>
+                        <mesh castShadow receiveShadow geometry={nodes.Phone_1.geometry} material={materials['White.001']} />
+                        <mesh castShadow receiveShadow geometry={nodes.Phone_2.geometry} material={materials['Grey.001']} />
+                        <mesh castShadow receiveShadow geometry={nodes.Phone_3.geometry} material={materials['Black.003']} />
+                    </group>
+                    <Html
+                        transform
+                        distanceFactor={config.phone.distanceFactor}
+                        position={config.phone.position}
+                        rotation={config.phone.rotation}
+                        portal={null}
+                    >
+                        <div style={{ opacity: hovered === 'phone' ? 1 : 0.8, transition: 'opacity 0.2s', pointerEvents: 'auto' }}>
+                            <PhoneContent />
+                        </div>
+                    </Html>
+                </group>
+            </PivotControls>
 
             {/* Paper Stack */}
             <group
@@ -113,7 +123,7 @@ export function Desk({ onFocus }) {
                 </Html>
             </group>
 
-            {/* Notepad Section (Using Picture Frame geometry as base) */}
+            {/* Notepad Section */}
             <group
                 onPointerOver={(e) => handlePointerOver(e, 'papers')}
                 onPointerOut={handlePointerOut}
@@ -143,9 +153,6 @@ export function Desk({ onFocus }) {
             <group>
                 {/* Keyboard and Mouse */}
                 <group position={[-1.036, 0.921, -4.943]} rotation={[-Math.PI / 2, 0, -1.61]} scale={20.517}>
-                    {/* ... we'll add simplified keyboard/mouse if needed, 
-               but for now just the nodes directly from nodes object to keep file size sane ... */}
-                    {/* Rendering Keyboard meshes... (truncated for brevity in drafting, building intelligently) */}
                     {Object.keys(nodes).filter(k => k.startsWith('Keyboard')).map(key => (
                         <mesh key={key} geometry={nodes[key].geometry} material={materials[nodes[key].material?.name || 'mat21.013']} />
                     ))}
@@ -199,13 +206,15 @@ export function Desk({ onFocus }) {
                 />
 
                 {/* Mouse */}
-                <mesh
-                    geometry={nodes.Mouse.geometry}
-                    material={materials['Material.001']}
-                    position={[-1.038, 0.913, -4.453]}
-                    rotation={[-Math.PI / 2, 0, -1.417]}
-                    scale={14736.426}
-                />
+                <DragControls>
+                    <mesh
+                        geometry={nodes.Mouse.geometry}
+                        material={materials['Material.001']}
+                        position={[-1.038, 0.913, -4.453]}
+                        rotation={[-Math.PI / 2, 0, -1.417]}
+                        scale={14736.426}
+                    />
+                </DragControls>
             </group>
         </group>
     )

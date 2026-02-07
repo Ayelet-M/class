@@ -1,3 +1,26 @@
+## [Local Time: 2026-02-06 20:25:00]
+
+**Action Summary**:
+- **Desk Rotation**: Turned the entire desk group 90 degrees (`Math.PI / 2`) in `App.jsx`.
+- **PivotControls**: Wrapped Monitor and Phone in `PivotControls` for visual translation and rotation handles.
+- **DragControls**: Added `DragControls` to desk props (Mouse) to allow for vibe customization.
+- **GizmoHelper**: Integrated `GizmoHelper` and `GizmoViewport` in the bottom-right for orientation.
+- **Inspector Update**: Added a "Gizmos" toggle to the `SceneInspector` header to hide/show handles.
+- **Coordinate Recalibration**: Adjusted initial camera and focus targets to account for the new 90-degree desk orientation.
+
+---
+
+## [Local Time: 2026-02-06 20:10:00]
+
+**Action Summary**:
+- **Implemented Scene Inspector**: Created a floating UI in `SceneInspector.jsx` to live-tweak 3D parameters.
+- **Dynamic Config State**: Refactored `App.jsx` to manage a reactive `config` object for transforms and camera targets.
+- **Configurable Camera**: Updated `CameraRig` to consume dynamic focus targets and initial positions.
+- **Interactive Fine-Tuning**: Connected `MonitorContent` and `PhoneContent` transforms to the inspector.
+- **Data Handoff**: Added a "Copy Configuration" feature for the user to share optimized values back to the agent.
+
+---
+
 ## [Local Time: 2026-02-06 15:08:00]
 
 **Action Summary**:
