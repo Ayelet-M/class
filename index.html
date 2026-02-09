@@ -352,7 +352,7 @@
             console.log(`🔍 Attempting to load examples for ${weekFolder}/${folder}`);
             try {
                 // Load the manifest
-                const manifestResponse = await fetch('./examples-manifest.json');
+                const manifestResponse = await fetch(`./examples-manifest.json?t=${Date.now()}`); // Cache busting
                 if (!manifestResponse.ok) {
                     console.warn('⚠️ Could not load examples manifest');
                     return [];
@@ -388,7 +388,8 @@
                     console.log(`    → Checking: ${basePath} (Nested: ${example.nested}, Folder: ${example.folder})`);
                     
                     try {
-                        const indexResponse = await fetch(`${basePath}index.html`);
+                        // Check if index.html exists (HEAD request or GET with cache busting)
+                        const indexResponse = await fetch(`${basePath}index.html`, { method: 'HEAD' });
                         if (indexResponse.ok) {
                             console.log(`      ✓ Found index.html`);
                             return {

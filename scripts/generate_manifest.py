@@ -3,22 +3,23 @@ from pathlib import Path
 
 manifest = []
 
-# Find all week directories
-for week_dir in sorted(Path(".").glob("week*")):
-    if not week_dir.is_dir():
-        continue
+def process_directory(parent_dir, label, folder_prefix=""):
+    if not parent_dir.exists():
+        return
 
-    week_name = week_dir.name
-
-    # Find all date subdirectories
-    for date_dir in sorted(week_dir.glob("*/")):
-        if not date_dir.is_dir():
+    for folder_dir in sorted(parent_dir.glob("*/")):
+        if not folder_dir.is_dir():
             continue
 
-        date_name = date_dir.name
+        folder_name = folder_dir.name
+        # Skip hidden folders
+        if folder_name.startswith('.'):
+            continue
+            
         examples = []
 
-        examples_dir = date_dir / "examples"
+        # Check for examples subfolder
+        examples_dir = folder_dir / "examples"
         if examples_dir.exists():
             # Check for nested examples (activity*/code_deliverable)
             for activity_dir in sorted(examples_dir.glob("*/")):
@@ -48,28 +49,32 @@ for week_dir in sorted(Path(".").glob("week*")):
                     }
                 )
 
-        # Check for direct submission (date_dir/code_deliverable)
-        # This handles cases where the main assignment is in the date folder, not inside examples
-        if (date_dir / "code_deliverable" / "index.html").exists():
-            # Check if we already added a "code_deliverable" from examples to avoid duplicates if they point to the same thing (unlikely but safe)
-            # Actually, we should probably prefer the one in the date_dir if it's the main submission, or include both with distinct names.
-            # Let's call this one "Main Submission" or similar if explicit naming is needed, or just "code_deliverable"
-            
-            examples.append(
+        # Check for direct submission (folder_dir/code_deliverable)
+        if (folder_dir / "code_deliverable" / "index.html").exists():
+             examples.append(
                 {
                     "folder": "code_deliverable",
                     "name": "Main Submission", 
                     "nested": False,
-                    "path": str(date_dir / "code_deliverable") + "/"
+                    "path": str(folder_dir / "code_deliverable") + "/"
                 }
             )
 
-        entry = {
-            "week": week_name,
-            "folder": date_name,
-            "examples": examples,
-        }
-        manifest.append(entry)
+        if examples:
+            entry = {
+                "week": label,
+                "folder": folder_name,
+                "examples": examples,
+            }
+            manifest.append(entry)
+
+# Process Weeks
+for week_dir in sorted(Path(".").glob("week*")):
+    if week_dir.is_dir():
+        process_directory(week_dir, week_dir.name)
+
+# Process Extra
+process_directory(Path("extra"), "extra")
 
 # Write manifest
 with open("examples-manifest.json", "w") as f:
