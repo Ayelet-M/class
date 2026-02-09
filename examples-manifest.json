@@ -25,7 +25,8 @@
         "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
-        "path": "week1/7_13/code_deliverable/"
+        "path": "week1/7_13/code_deliverable/",
+        "isMain": true
       }
     ]
   },
@@ -43,7 +44,8 @@
         "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
-        "path": "week1/7_14/code_deliverable/"
+        "path": "week1/7_14/code_deliverable/",
+        "isMain": true
       }
     ]
   },
@@ -61,7 +63,8 @@
         "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
-        "path": "week1/7_15_16/code_deliverable/"
+        "path": "week1/7_15_16/code_deliverable/",
+        "isMain": true
       }
     ]
   },
@@ -79,7 +82,8 @@
         "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
-        "path": "week2/7_20/code_deliverable/"
+        "path": "week2/7_20/code_deliverable/",
+        "isMain": true
       }
     ]
   },
@@ -97,7 +101,8 @@
         "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
-        "path": "week2/7_21/code_deliverable/"
+        "path": "week2/7_21/code_deliverable/",
+        "isMain": true
       }
     ]
   },
@@ -115,7 +120,8 @@
         "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
-        "path": "week2/7_22_23/code_deliverable/"
+        "path": "week2/7_22_23/code_deliverable/",
+        "isMain": true
       }
     ]
   },
@@ -133,7 +139,8 @@
         "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
-        "path": "week3/7_27/code_deliverable/"
+        "path": "week3/7_27/code_deliverable/",
+        "isMain": true
       }
     ]
   },
@@ -151,7 +158,8 @@
         "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
-        "path": "week3/7_28_30/code_deliverable/"
+        "path": "week3/7_28_30/code_deliverable/",
+        "isMain": true
       }
     ]
   }

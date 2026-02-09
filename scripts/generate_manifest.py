@@ -56,7 +56,8 @@ def process_directory(parent_dir, label, folder_prefix=""):
                     "folder": "code_deliverable",
                     "name": "Main Submission", 
                     "nested": False,
-                    "path": str(folder_dir / "code_deliverable") + "/"
+                    "path": str(folder_dir / "code_deliverable") + "/",
+                    "isMain": True
                 }
             )
 

@@ -514,10 +514,13 @@
                         examplesList.className = 'examples-list';
                         
                         examples.forEach((example) => {
+                            // Don't show Main Submission in dropdown if it's already the primary button
+                            if (example.isMain) return;
+
                             const exampleLink = document.createElement('a');
                             exampleLink.href = example.path;
                             exampleLink.className = 'example-link-btn';
-                            exampleLink.textContent = example.name;
+                            exampleLink.textContent = example.name === 'Main Submission' ? 'Main Submission' : example.name;
                             
                             examplesList.appendChild(exampleLink);
                         });
