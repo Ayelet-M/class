@@ -2,7 +2,6 @@
   "name": "@class/7_14",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
   "type": "module",
   "scripts": {
     "start": "vite",

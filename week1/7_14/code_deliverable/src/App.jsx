@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Hello React! 🚀</h1>
+        <h1>Hello React! (Vite) 🚀</h1>
         <p>This is a simple React website for testing GitHub Pages deployment.</p>
         
         <div className="counter">
