@@ -1,12 +1,28 @@
 import React, { useState } from 'react'
-import { useGLTF, Html, useCursor, PivotControls, DragControls } from '@react-three/drei'
+import { useGLTF, Html, useCursor, PivotControls, DragControls, useTexture } from '@react-three/drei'
 import { MonitorContent } from './MonitorContent'
 import { PhoneContent } from './PhoneContent'
 import { NotepadContent } from './NotepadContent'
 import * as THREE from 'three'
 
-export function Desk({ onFocus, config, setConfig }) {
+export function Desk({ onFocus, config, handlePivotEnd }) {
     const { nodes, materials } = useGLTF('/Desk.glb')
+
+    // Load new assets
+    const gavel = useGLTF('/Gavel.glb')
+    const msgBoard = useGLTF('/Message board.glb')
+    const notebook = useGLTF('/Notebook.glb')
+    const thinBook = useGLTF('/Thin Book.glb')
+
+    // Load textures
+    const vapCover = useTexture('/VAP-cover.jpg')
+    const ctSky = useTexture('/cornell-tech-sky.jpg')
+
+    // Reverse texture Y-axis for standard mapping if needed, 
+    // but typically useTexture handles this.
+    vapCover.flipY = false
+    ctSky.flipY = false
+
     const [hovered, setHovered] = useState(null)
 
     // Use cursor pointer when hovering interactive elements
@@ -29,73 +45,105 @@ export function Desk({ onFocus, config, setConfig }) {
 
     return (
         <group dispose={null}>
-            {/* PC / Monitor Section */}
-            <PivotControls
-                visible={config.showGizmos}
-                activeAxes={[true, true, true]}
-                depthTest={false}
-                scale={0.5}
-                anchor={[0, 0, 0]}
-            >
-                <group
-                    onPointerOver={(e) => handlePointerOver(e, 'pc')}
-                    onPointerOut={handlePointerOut}
-                    onClick={(e) => handleClick(e, 'pc')}
-                >
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes['Monitor001|iMac|Dupli|'].geometry}
-                        material={materials['Mat.008']}
-                        position={[-0.546, 0.913, -4.926]}
-                        rotation={[-Math.PI / 2, 0, 3.105]}
-                        scale={1.135}
-                    />
-                    <Html
-                        transform
-                        distanceFactor={config.monitor.distanceFactor}
-                        position={config.monitor.position}
-                        rotation={config.monitor.rotation}
-                        portal={null}
-                        occlude
-                    >
-                        <div style={{ opacity: hovered === 'pc' ? 1 : 0.9, transition: 'opacity 0.2s', pointerEvents: 'auto' }}>
-                            <MonitorContent />
-                        </div>
-                    </Html>
-                </group>
-            </PivotControls>
+            {/* PC / Monitor Section - INDEPENDENT MESH AND SCREEN */}
+            <group position={config.monMeshPos} rotation={config.monMeshRot}>
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes['Monitor001|iMac|Dupli|'].geometry}
+                    material={materials['Mat.008']}
+                    scale={1.135}
+                />
+            </group>
 
-            {/* Smartphone Section */}
-            <PivotControls
-                visible={config.showGizmos}
-                activeAxes={[true, true, true]}
-                depthTest={false}
-                scale={0.2}
-            >
-                <group
-                    onPointerOver={(e) => handlePointerOver(e, 'phone')}
-                    onPointerOut={handlePointerOut}
-                    onClick={(e) => handleClick(e, 'phone')}
+            <group position={config.monScreenPos} rotation={config.monScreenRot}>
+                <PivotControls
+                    visible={config.showGizmos}
+                    activeAxes={[true, true, true]}
+                    depthTest={false}
+                    scale={0.5}
+                    onDragEnd={(matrix) => handlePivotEnd('monitor', matrix)}
                 >
-                    <group position={[-0.721, 0.921, -5.252]} rotation={[Math.PI / 2, 0, 1.096]} scale={5618.099}>
-                        <mesh castShadow receiveShadow geometry={nodes.Phone_1.geometry} material={materials['White.001']} />
-                        <mesh castShadow receiveShadow geometry={nodes.Phone_2.geometry} material={materials['Grey.001']} />
-                        <mesh castShadow receiveShadow geometry={nodes.Phone_3.geometry} material={materials['Black.003']} />
-                    </group>
-                    <Html
-                        transform
-                        distanceFactor={config.phone.distanceFactor}
-                        position={config.phone.position}
-                        rotation={config.phone.rotation}
-                        portal={null}
+                    <group
+                        onPointerOver={(e) => handlePointerOver(e, 'pc')}
+                        onPointerOut={handlePointerOut}
+                        onClick={(e) => handleClick(e, 'pc')}
                     >
-                        <div style={{ opacity: hovered === 'phone' ? 1 : 0.8, transition: 'opacity 0.2s', pointerEvents: 'auto' }}>
-                            <PhoneContent />
-                        </div>
-                    </Html>
+                        <Html
+                            transform
+                            distanceFactor={config.monDist}
+                            portal={null}
+                            occlude
+                        >
+                            <div style={{ opacity: hovered === 'pc' ? 1 : 0.9, transition: 'opacity 0.2s', pointerEvents: 'auto' }}>
+                                <MonitorContent />
+                            </div>
+                        </Html>
+                    </group>
+                </PivotControls>
+            </group>
+
+            {/* Smartphone Section - INDEPENDENT MESH AND SCREEN */}
+            <group position={config.phoneMeshPos} rotation={config.phoneMeshRot}>
+                <group scale={5618.099}>
+                    <mesh castShadow receiveShadow geometry={nodes.Phone_1.geometry} material={materials['White.001']} />
+                    <mesh castShadow receiveShadow geometry={nodes.Phone_2.geometry} material={materials['Grey.001']} />
+                    <mesh castShadow receiveShadow geometry={nodes.Phone_3.geometry} material={materials['Black.003']} />
                 </group>
-            </PivotControls>
+            </group>
+
+            <group position={config.phoneScreenPos} rotation={config.phoneScreenRot}>
+                <PivotControls
+                    visible={config.showGizmos}
+                    activeAxes={[true, true, true]}
+                    depthTest={false}
+                    scale={0.2}
+                    onDragEnd={(matrix) => handlePivotEnd('phone', matrix)}
+                >
+                    <group
+                        onPointerOver={(e) => handlePointerOver(e, 'phone')}
+                        onPointerOut={handlePointerOut}
+                        onClick={(e) => handleClick(e, 'phone')}
+                    >
+                        <Html
+                            transform
+                            distanceFactor={config.phoneDist}
+                            portal={null}
+                        >
+                            <div style={{ opacity: hovered === 'phone' ? 1 : 0.8, transition: 'opacity 0.2s', pointerEvents: 'auto' }}>
+                                <PhoneContent />
+                            </div>
+                        </Html>
+                    </group>
+                </PivotControls>
+            </group>
+
+            {/* NEW ASSETS INTEGRATION */}
+
+            {/* Gavel */}
+            <group position={config.gavelPos}>
+                <primitive object={gavel.scene} scale={0.5} />
+            </group>
+
+            {/* Message Board */}
+            <group position={config.msgBoardPos}>
+                <primitive object={msgBoard.scene} scale={1} />
+            </group>
+
+            {/* Notebook */}
+            <group position={config.notebookPos}>
+                <primitive object={notebook.scene} scale={1} />
+            </group>
+
+            {/* Thin Book with Custom VAP Cover */}
+            <group position={config.thinBookPos} rotation={config.thinBookRot}>
+                <primitive object={thinBook.scene} />
+                {/* Find the cover mesh and apply texture - assuming it's the first mesh for now */}
+                <mesh position={[0, 0, 0]} rotation={[0, 0, 0]} scale={1.01}>
+                    <planeGeometry args={[0.2, 0.3]} />
+                    <meshStandardMaterial map={vapCover} />
+                </mesh>
+            </group>
 
             {/* Paper Stack */}
             <group
@@ -123,30 +171,15 @@ export function Desk({ onFocus, config, setConfig }) {
                 </Html>
             </group>
 
-            {/* Notepad Section */}
-            <group
-                onPointerOver={(e) => handlePointerOver(e, 'papers')}
-                onPointerOut={handlePointerOut}
-                onClick={(e) => handleClick(e, 'papers')}
-            >
-                <group position={[-0.536, 1.037, -4.292]} rotation={[-Math.PI / 2, 0, 1.37]} scale={48.098}>
-                    <mesh castShadow receiveShadow geometry={nodes['Blank_Picture_Frame|Node007|Dupli|_1'].geometry} material={materials['mat21.009']} />
-                    <mesh castShadow receiveShadow geometry={nodes['Blank_Picture_Frame|Node007|Dupli|_2'].geometry} material={materials['mat22.006']} />
-                    <mesh castShadow receiveShadow geometry={nodes['Blank_Picture_Frame|Node007|Dupli|_3'].geometry} material={materials['mat15.007']} />
-                    <mesh castShadow receiveShadow geometry={nodes['Blank_Picture_Frame|Node007|Dupli|_4'].geometry} material={materials['mat24.003']} />
-                </group>
-                <Html
-                    transform
-                    distanceFactor={0.5}
-                    position={[-0.536, 1.05, -4.292]}
-                    rotation={[-Math.PI / 2, 0, 1.37]}
-                    portal={null}
-                    occlude
-                >
-                    <div style={{ pointerEvents: 'auto' }}>
-                        <NotepadContent />
-                    </div>
-                </Html>
+            {/* Photo Frame Section with Custom Sky Texture */}
+            <group position={[-0.536, 1.037, -4.292]} rotation={[-Math.PI / 2, 0, 1.37]} scale={48.098}>
+                <mesh castShadow receiveShadow geometry={nodes['Blank_Picture_Frame|Node007|Dupli|_1'].geometry} material={materials['mat21.009']} />
+                <mesh castShadow receiveShadow geometry={nodes['Blank_Picture_Frame|Node007|Dupli|_2'].geometry} material={materials['mat22.006']} />
+                {/* Photo part - replacing with sky texture */}
+                <mesh castShadow receiveShadow geometry={nodes['Blank_Picture_Frame|Node007|Dupli|_3'].geometry}>
+                    <meshStandardMaterial map={ctSky} />
+                </mesh>
+                <mesh castShadow receiveShadow geometry={nodes['Blank_Picture_Frame|Node007|Dupli|_4'].geometry} material={materials['mat24.003']} />
             </group>
 
             {/* Static / Non-interactive parts grouped for performance */}
@@ -167,20 +200,24 @@ export function Desk({ onFocus, config, setConfig }) {
                 </group>
 
                 {/* Desk Lamp */}
-                <group position={[-0.564, 1.162, -5.526]} rotation={[-Math.PI / 2, 0, 2.301]} scale={[8561.474, 8561.474, 8561.471]}>
-                    <mesh geometry={nodes.Light_Desk001_1.geometry} material={materials['Black.097']} />
-                    <mesh geometry={nodes.Light_Desk001_2.geometry} material={materials['LightMetal.027']} />
-                    <mesh geometry={nodes.Light_Desk001_3.geometry} material={materials['White.053']} />
-                </group>
+                <DragControls>
+                    <group position={[-0.564, 1.162, -5.526]} rotation={[-Math.PI / 2, 0, 2.301]} scale={[8561.474, 8561.474, 8561.471]}>
+                        <mesh geometry={nodes.Light_Desk001_1.geometry} material={materials['Black.097']} />
+                        <mesh geometry={nodes.Light_Desk001_2.geometry} material={materials['LightMetal.027']} />
+                        <mesh geometry={nodes.Light_Desk001_3.geometry} material={materials['White.053']} />
+                    </group>
+                </DragControls>
 
                 {/* Cup */}
-                <mesh
-                    geometry={nodes['Cup001|Cup|Dupli|'].geometry}
-                    material={materials['Mat.006']}
-                    position={[-0.8, 0.909, -4.316]}
-                    rotation={[-Math.PI / 2, 0, -0.522]}
-                    scale={0.219}
-                />
+                <DragControls>
+                    <mesh
+                        geometry={nodes['Cup001|Cup|Dupli|'].geometry}
+                        material={materials['Mat.006']}
+                        position={[-0.8, 0.909, -4.316]}
+                        rotation={[-Math.PI / 2, 0, -0.522]}
+                        scale={0.219}
+                    />
+                </DragControls>
 
                 {/* Table / Cabinet Base */}
                 <group position={[-0.897, 0.308, -3.493]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={212.203}>
@@ -190,11 +227,13 @@ export function Desk({ onFocus, config, setConfig }) {
                 </group>
 
                 {/* Plant */}
-                <group position={[-1.037, 0.957, -2.813]} rotation={[Math.PI, 0, 0]} scale={10000}>
-                    <mesh geometry={nodes['Houseplant-bfLOqIV5uP_1'].geometry} material={materials['Black.081']} />
-                    <mesh geometry={nodes['Houseplant-bfLOqIV5uP_2'].geometry} material={materials['Brown.033']} />
-                    <mesh geometry={nodes['Houseplant-bfLOqIV5uP_3'].geometry} material={materials['Plant_Green.033']} />
-                </group>
+                <DragControls>
+                    <group position={[-1.037, 0.957, -2.813]} rotation={[Math.PI, 0, 0]} scale={10000}>
+                        <mesh geometry={nodes['Houseplant-bfLOqIV5uP_1'].geometry} material={materials['Black.081']} />
+                        <mesh geometry={nodes['Houseplant-bfLOqIV5uP_2'].geometry} material={materials['Brown.033']} />
+                        <mesh geometry={nodes['Houseplant-bfLOqIV5uP_3'].geometry} material={materials['Plant_Green.033']} />
+                    </group>
+                </DragControls>
 
                 {/* Mousepad */}
                 <mesh
@@ -221,3 +260,7 @@ export function Desk({ onFocus, config, setConfig }) {
 }
 
 useGLTF.preload('/Desk.glb')
+useGLTF.preload('/Gavel.glb')
+useGLTF.preload('/Message board.glb')
+useGLTF.preload('/Notebook.glb')
+useGLTF.preload('/Thin Book.glb')
