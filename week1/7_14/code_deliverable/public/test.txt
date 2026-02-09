@@ -1,0 +1,2 @@
+This is a test file to verify directory access.
+If you can read this, the directory mapping is correct.
