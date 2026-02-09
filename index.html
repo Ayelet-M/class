@@ -373,13 +373,18 @@
                 // Load each example
                 const examples = await Promise.all(entry.examples.map(async (example) => {
                     let basePath;
-                    // Fix: Check for nested flag, but also explicitly handle the 'code_deliverable' folder name case
-                    // which corresponds to the flattened structure
-                    if (example.nested && example.folder !== 'code_deliverable') {
-                        basePath = `${weekFolder}/${folder}/examples/${example.folder}/code_deliverable/`;
+                    
+                    if (example.path) {
+                        basePath = example.path;
                     } else {
-                        basePath = `${weekFolder}/${folder}/examples/code_deliverable/`;
+                        // Fallback for older logic
+                        if (example.nested && example.folder !== 'code_deliverable') {
+                            basePath = `${weekFolder}/${folder}/examples/${example.folder}/code_deliverable/`;
+                        } else {
+                            basePath = `${weekFolder}/${folder}/examples/code_deliverable/`;
+                        }
                     }
+                    
                     console.log(`    → Checking: ${basePath} (Nested: ${example.nested}, Folder: ${example.folder})`);
                     
                     try {

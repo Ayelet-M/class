@@ -6,17 +6,20 @@
       {
         "folder": "activity1-jonathan",
         "name": "activity1-jonathan",
-        "nested": true
+        "nested": true,
+        "path": "week1/7_13/examples/activity1-jonathan/code_deliverable/"
       },
       {
         "folder": "activity1_3d-example",
         "name": "activity1_3d-example",
-        "nested": true
+        "nested": true,
+        "path": "week1/7_13/examples/activity1_3d-example/code_deliverable/"
       },
       {
         "folder": "activity1_basic-example",
         "name": "activity1_basic-example",
-        "nested": true
+        "nested": true,
+        "path": "week1/7_13/examples/activity1_basic-example/code_deliverable/"
       }
     ]
   },
@@ -27,7 +30,8 @@
       {
         "folder": "code_deliverable",
         "name": "Example",
-        "nested": false
+        "nested": false,
+        "path": "week1/7_14/examples/code_deliverable/"
       }
     ]
   },
@@ -38,7 +42,8 @@
       {
         "folder": "code_deliverable",
         "name": "Example",
-        "nested": false
+        "nested": false,
+        "path": "week1/7_15_16/examples/code_deliverable/"
       }
     ]
   },
@@ -49,7 +54,8 @@
       {
         "folder": "code_deliverable",
         "name": "Example",
-        "nested": false
+        "nested": false,
+        "path": "week2/7_20/examples/code_deliverable/"
       }
     ]
   },
@@ -60,7 +66,8 @@
       {
         "folder": "code_deliverable",
         "name": "Example",
-        "nested": false
+        "nested": false,
+        "path": "week2/7_21/examples/code_deliverable/"
       }
     ]
   },
@@ -71,7 +78,8 @@
       {
         "folder": "code_deliverable",
         "name": "Example",
-        "nested": false
+        "nested": false,
+        "path": "week2/7_22_23/examples/code_deliverable/"
       }
     ]
   },
@@ -82,7 +90,8 @@
       {
         "folder": "code_deliverable",
         "name": "Example",
-        "nested": false
+        "nested": false,
+        "path": "week3/7_27/examples/code_deliverable/"
       }
     ]
   },
@@ -93,7 +102,8 @@
       {
         "folder": "code_deliverable",
         "name": "Example",
-        "nested": false
+        "nested": false,
+        "path": "week3/7_28_30/examples/code_deliverable/"
       }
     ]
   }

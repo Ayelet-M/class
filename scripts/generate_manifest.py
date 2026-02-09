@@ -33,6 +33,7 @@ for week_dir in sorted(Path(".").glob("week*")):
                                 "folder": activity_name,
                                 "name": activity_name,
                                 "nested": True,
+                                "path": str(activity_dir / "code_deliverable") + "/"
                             }
                         )
 
@@ -43,6 +44,7 @@ for week_dir in sorted(Path(".").glob("week*")):
                         "folder": "code_deliverable",
                         "name": "Example",
                         "nested": False,
+                        "path": str(examples_dir / "code_deliverable") + "/"
                     }
                 )
 
