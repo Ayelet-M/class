@@ -1,5 +1,6 @@
 # Student Submissions -  Setup
 
+
 This directory is configured to automatically deploy to GitHub Pages with a landing page that links to all student homework submissions.
 
 ## Directory Structure
