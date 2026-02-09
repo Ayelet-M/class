@@ -48,6 +48,22 @@ for week_dir in sorted(Path(".").glob("week*")):
                     }
                 )
 
+        # Check for direct submission (date_dir/code_deliverable)
+        # This handles cases where the main assignment is in the date folder, not inside examples
+        if (date_dir / "code_deliverable" / "index.html").exists():
+            # Check if we already added a "code_deliverable" from examples to avoid duplicates if they point to the same thing (unlikely but safe)
+            # Actually, we should probably prefer the one in the date_dir if it's the main submission, or include both with distinct names.
+            # Let's call this one "Main Submission" or similar if explicit naming is needed, or just "code_deliverable"
+            
+            examples.append(
+                {
+                    "folder": "code_deliverable",
+                    "name": "Main Submission", 
+                    "nested": False,
+                    "path": str(date_dir / "code_deliverable") + "/"
+                }
+            )
+
         entry = {
             "week": week_name,
             "folder": date_name,
