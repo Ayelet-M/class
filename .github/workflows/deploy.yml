@@ -31,37 +31,58 @@ jobs:
           process_directory() {
             local folder="$1"
             echo "Processing $folder"
+            echo "Listing $folder:"
+            ls -la "$folder"
+
             if [ -f "$folder/package.json" ]; then
               # Check if it's a React project
               if grep -q '"react"' "$folder/package.json" || grep -q '"react-scripts"' "$folder/package.json" || grep -q '"vite"' "$folder/package.json"; then
                 echo "Detected React/Vite app in $folder"
                 pushd "$folder"
-                npm ci || npm install
+                
+                # Install dependencies
+                if [ -f "package-lock.json" ]; then
+                  npm ci --legacy-peer-deps || npm install --legacy-peer-deps
+                else
+                  npm install --legacy-peer-deps
+                fi
 
                 # Determine build tool and set PUBLIC_URL accordingly
+                local build_dir=""
                 if grep -q '"vite"' "package.json"; then
                   echo "Building with Vite"
                   npm run build -- --base=./
                   if [ -d "dist" ]; then
-                    BUILD_OUTPUT="dist"
+                    build_dir="dist"
                   elif [ -d "build" ]; then
-                    BUILD_OUTPUT="build"
+                    build_dir="build"
                   else
-                    echo "No Vite build output found"
-                    BUILD_OUTPUT=""
+                    echo "ERROR: No Vite build output found in dist/ or build/"
+                    ls -la
                   fi
                 else
                   echo "Building with React Scripts"
                   # PUBLIC_URL=. means assets load from current directory
                   PUBLIC_URL=. npm run build
-                  BUILD_OUTPUT="build"
+                  build_dir="build"
                 fi
 
                 # Copy build output to folder root
-                rm -rf index.html *.js *.css *.map asset-manifest.json || true
-                if [ -n "$BUILD_OUTPUT" ] && [ -d "$BUILD_OUTPUT" ]; then
-                  cp -r "$BUILD_OUTPUT"/* .
-                  rm -rf "$BUILD_OUTPUT"
+                if [ -n "$build_dir" ] && [ -d "$build_dir" ]; then
+                  echo "Deploying build artifact from $build_dir to root"
+                  ls -la "$build_dir"
+                  
+                  # Remove existing assets to prevent conflicts
+                  rm -rf index.html *.js *.css *.map asset-manifest.json || true
+                  
+                  # Copy new assets
+                  cp -r "$build_dir"/* .
+                  rm -rf "$build_dir"
+                  
+                  echo "Deployment complete for $folder. Content of root:"
+                  ls -la .
+                else
+                  echo "WARNING: Build directory '$build_dir' missing. Skipping deployment for $folder."
                 fi
                 popd
               else
