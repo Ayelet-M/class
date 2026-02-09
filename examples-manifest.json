@@ -4,13 +4,18 @@
     "folder": "7_13",
     "examples": [
       {
+        "folder": "activity1-jonathan",
+        "name": "activity1-jonathan",
+        "nested": true
+      },
+      {
         "folder": "activity1_3d-example",
         "name": "activity1_3d-example",
         "nested": true
       },
       {
-        "folder": "activity1_example2",
-        "name": "activity1_example2",
+        "folder": "activity1_basic-example",
+        "name": "activity1_basic-example",
         "nested": true
       }
     ]
