@@ -394,7 +394,8 @@
                             console.log(`      ✓ Found index.html`);
                             return {
                                 path: basePath,
-                                name: example.name || example.folder
+                                name: example.name || example.folder,
+                                isMain: example.isMain === true
                             };
                         }
                     } catch (e) {
@@ -504,7 +505,9 @@
                     
                     // Load examples asynchronously
                     loadExamples(weekFolder, folder).then(examples => {
-                        if (examples.length > 0) {
+                        const visibleExamples = examples.filter(example => !example.isMain);
+
+                        if (visibleExamples.length > 0) {
                         const examplesTitle = document.createElement('div');
                         examplesTitle.className = 'examples-title';
                         examplesTitle.textContent = 'Examples';
@@ -513,10 +516,7 @@
                         const examplesList = document.createElement('div');
                         examplesList.className = 'examples-list';
                         
-                        examples.forEach((example) => {
-                            // Don't show Main Submission in dropdown if it's already the primary button
-                            if (example.isMain) return;
-
+                        visibleExamples.forEach((example) => {
                             const exampleLink = document.createElement('a');
                             exampleLink.href = example.path;
                             exampleLink.className = 'example-link-btn';
