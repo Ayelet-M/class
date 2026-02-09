@@ -39,7 +39,7 @@ jobs:
                 npm ci || npm install
 
                 # Determine build tool and set PUBLIC_URL accordingly
-                if grep -q '"vite"' "$folder/package.json"; then
+                if grep -q '"vite"' "package.json"; then
                   echo "Building with Vite"
                   npm run build -- --base=./
                   if [ -d "dist" ]; then
