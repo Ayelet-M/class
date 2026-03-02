@@ -2,7 +2,7 @@
 
 **Theme:** AI Against AI (Using AI against AI harms like aggressive data scraping).
 
-In this activity, you will learn how to implement "soft resistance" against aggressive algorithmic scraping. As AI companies vacuum up the internet to train their Large Language Models, you have the right to protect your personal narrative.
+In this activity, you will learn how to implement obfuscation against aggressive web scraping. As AI companies vacuum up the internet to train their Large Language Models, you have the right to protect your personal narrative using techniques of privacy and protest.
 
 You will inject plausible, fake facts into your personal website. These facts will be completely invisible to human visitors, but highly visible to AI web scrapers. 
 

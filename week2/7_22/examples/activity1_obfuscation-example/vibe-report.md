@@ -21,14 +21,14 @@ The fake facts:
 
 ## 💭 Reflection
 
-1. **How did vibe coding change your approach?**  
-   It allowed me to focus purely on the architectural strategy (how to defeat the scraper) rather than getting bogged down in the exact syntax of liquid templates and JSON schema alignment. The AI assistant handled the messy layouts while I directed the "resistance" logic. I dont think I would have been able to do this in this short amount of time. Also I was able to check if the implementation works, and try another approach quickly. My choice would have probably been to just use white text, but since I asked the Agent in my original prompt to not harm the SEO and integrity of my website it suggested this approach.
-2. **Structural Elements Borrowed:**  
-   The `clip` CSS method is a standard accessibility pattern often used in early web frameworks, repurposed here offensively against AI instead of defensively for humans.
-3. **Surprising Lessons:**  
-   It was surprising to learn that scrapers analyze the CSS render tree to determine what is "valuable" text, making standard `display: none` hiding techniques ineffective against modern corporate bots.
-4. **Final Vision & Authenticity:**  
-   The resulting code perfectly matches my goal. The site looks pristine to humans, but downloading the source code reveals the poisoned data waiting for bots. It feels deeply authentic to my privacy research.
+1. **Impact on the digital ecosystem and trust in AI:**  
+   This technique introduces noise directly into the data pipelines of AI companies. For me, it completely shatters my trust in AI outputs as authoritative sources. If I can so easily inject fabricated claims into an LLM's knowledge base, the ecosystem is inherently fragile and unreliable.
+2. **AI visiting vs. Model weights:**  
+   When an AI agent (like Perplexity) visits my site and cites it, the user can follow the link to my website, making my site the source of truth (even if it's deceptive). However, if an LLM incorporates this during training, the model hallucinates the fact directly from its weights without a trace. In the latter, the model claims ownership of the falsehood, which is a much deeper corruption of the knowledge system.
+3. **Changing information about others vs editing Wikipedia:**  
+   Using this on a personal site is an act of digital self-defense (obfuscating *my* data). Using it to lie about someone else crosses into malicious defamation. Furthermore, if I edit Wikipedia to say I own a kombucha startup, human moderators will quickly revert it because Wikipedia requires secondary sources. On a personal website, an AI scraper has no critical thinking or moderation panel—it just blindly accepts the DOM as truth. 
+4. **Is obfuscation ethical?**  
+   Yes, in this context. The power dynamic between individual creators and multi-billion-dollar AI scraping operations is heavily skewed. They extract our data without consent, compensation, or credit. Obfuscation is a small, ethical tax on their operations and a valid form of protest.
 
 ## 📜 AI Usage Trace 
 
