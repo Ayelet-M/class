@@ -1,9 +1,9 @@
 /**
- * Assignment: 7_28_30 - Week 3 Days 2-4
+ * Assignment: 7_28 - Week 3 Day 2
  * Total Points: 30
  */
 
-describe('7_28_30', () => {
+describe('7_28', () => {
     it('Sample test (5 pts)', () => {
         expect(true).toBe(true);
     });

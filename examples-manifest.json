@@ -51,19 +51,19 @@
   },
   {
     "week": "week1",
-    "folder": "7_15_16",
+    "folder": "7_15",
     "examples": [
       {
         "folder": "code_deliverable",
         "name": "Example",
         "nested": false,
-        "path": "week1/7_15_16/examples/code_deliverable/"
+        "path": "week1/7_15/examples/code_deliverable/"
       },
       {
         "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
-        "path": "week1/7_15_16/code_deliverable/",
+        "path": "week1/7_15/code_deliverable/",
         "isMain": true
       }
     ]
@@ -108,19 +108,19 @@
   },
   {
     "week": "week2",
-    "folder": "7_22_23",
+    "folder": "7_22",
     "examples": [
       {
         "folder": "code_deliverable",
         "name": "Example",
         "nested": false,
-        "path": "week2/7_22_23/examples/code_deliverable/"
+        "path": "week2/7_22/examples/code_deliverable/"
       },
       {
         "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
-        "path": "week2/7_22_23/code_deliverable/",
+        "path": "week2/7_22/code_deliverable/",
         "isMain": true
       }
     ]
@@ -146,19 +146,19 @@
   },
   {
     "week": "week3",
-    "folder": "7_28_30",
+    "folder": "7_28",
     "examples": [
       {
         "folder": "code_deliverable",
         "name": "Example",
         "nested": false,
-        "path": "week3/7_28_30/examples/code_deliverable/"
+        "path": "week3/7_28/examples/code_deliverable/"
       },
       {
         "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
-        "path": "week3/7_28_30/code_deliverable/",
+        "path": "week3/7_28/code_deliverable/",
         "isMain": true
       }
     ]

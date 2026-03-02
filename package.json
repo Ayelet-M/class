@@ -17,12 +17,12 @@
     "test:all": "npm run test --workspaces --if-present",
     "test:7_13": "npm run test -w @class/7_13",
     "test:7_14": "npm run test -w @class/7_14",
-    "test:7_15_16": "npm run test -w @class/7_15_16",
+    "test:7_15": "npm run test -w @class/7_15",
     "test:7_20": "npm run test -w @class/7_20",
     "test:7_21": "npm run test -w @class/7_21",
-    "test:7_22_23": "npm run test -w @class/7_22_23",
+    "test:7_22": "npm run test -w @class/7_22",
     "test:7_27": "npm run test -w @class/7_27",
-    "test:7_28_30": "npm run test -w @class/7_28_30"
+    "test:7_28": "npm run test -w @class/7_28"
   },
   "dependencies": {
     "csv-writer": "^1.6.0"

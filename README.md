@@ -18,7 +18,7 @@ class/
 │   │   ├── code_deliverable/
 │   │   ├── log_deliverable/
 │   │   ├── examples/
-│   └── 7_15_16/
+│   └── 7_15/
 │   │   ├── code_deliverable/
 │   │   ├── log_deliverable/
 │   │   ├── examples/
@@ -31,7 +31,7 @@ class/
 │   │   ├── code_deliverable/
 │   │   ├── log_deliverable/
 │   │   ├── examples/
-│   └── 7_22_23/
+│   └── 7_22/
 │   │   ├── code_deliverable/
 │   │   ├── log_deliverable/
 │   │   ├── examples/
@@ -40,7 +40,7 @@ class/
     │   ├── code_deliverable/
     │   ├── log_deliverable/
     │   ├── examples/
-    └── 7_28_30/
+    └── 7_28/
         ├── code_deliverable/
         ├── log_deliverable/
         ├── examples/
