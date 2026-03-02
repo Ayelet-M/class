@@ -1,10 +1,10 @@
 {
-  "name": "@class/7_28_30",
+  "name": "@class/7_28",
   "version": "1.0.0",
-  "description": "Week 3 Day 2-4 - 7/28-30",
+  "description": "Week 3 Day 2 - 7/28",
   "private": true,
   "scripts": {
-    "test": "cd ../.. && jest tests/7_28_30"
+    "test": "cd ../.. && jest tests/7_28"
   },
   "keywords": [],
   "author": "Hauke Sandhaus and Jonathan Segal"
