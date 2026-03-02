@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Instructions</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #202124;
+            min-height: 100vh;
+            padding: 28px 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+            overflow: hidden;
+        }
+
+        .header {
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .meta {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            margin-bottom: 8px;
+        }
+
+        .notice {
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+
+        .notice strong {
+            font-weight: 700;
+        }
+
+        .notice a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 22px;
+            line-height: 1.65;
+        }
+
+        .content h1,
+        .content h2,
+        .content h3,
+        .content h4,
+        .content h5,
+        .content h6 {
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+
+        .content p {
+            margin: 10px 0;
+        }
+
+        .content ul,
+        .content ol {
+            margin: 10px 0 10px 24px;
+        }
+
+        .content li {
+            margin: 6px 0;
+        }
+
+        .content code {
+            background: #f3f4f6;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+            font-size: 0.93em;
+        }
+
+        .content pre {
+            background: #111827;
+            color: #f9fafb;
+            border-radius: 8px;
+            padding: 12px;
+            overflow-x: auto;
+            margin: 12px 0;
+        }
+
+        .content pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            padding: 8px 12px;
+            margin: 12px 0;
+            color: #374151;
+            background: #f8f9ff;
+        }
+
+        .error {
+            color: #b91c1c;
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <div class="title">Student Instructions</div>
+                <div class="meta" id="projectMeta">Loading project...</div>
+                <div class="notice" id="roleNotice">This page renders the project’s <strong>instructions.md</strong> file.</div>
+            </div>
+            <div class="content" id="content"></div>
+        </div>
+    </div>
+
+    <script>
+        function escapeHtml(value) {
+            return value
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/\"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function renderInline(text) {
+            let result = escapeHtml(text);
+            result = result.replace(/`([^`]+)`/g, '<code>$1</code>');
+            result = result.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            result = result.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+            result = result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+            return result;
+        }
+
+        function renderMarkdown(markdown) {
+            const lines = markdown.replace(/\r\n/g, '\n').split('\n');
+            const html = [];
+            let inCode = false;
+            let inUl = false;
+            let inOl = false;
+            let paragraphBuffer = [];
+
+            const flushParagraph = () => {
+                if (paragraphBuffer.length > 0) {
+                    html.push(`<p>${renderInline(paragraphBuffer.join(' '))}</p>`);
+                    paragraphBuffer = [];
+                }
+            };
+
+            const closeLists = () => {
+                if (inUl) {
+                    html.push('</ul>');
+                    inUl = false;
+                }
+                if (inOl) {
+                    html.push('</ol>');
+                    inOl = false;
+                }
+            };
+
+            for (const line of lines) {
+                if (line.startsWith('```')) {
+                    flushParagraph();
+                    closeLists();
+                    if (!inCode) {
+                        inCode = true;
+                        html.push('<pre><code>');
+                    } else {
+                        inCode = false;
+                        html.push('</code></pre>');
+                    }
+                    continue;
+                }
+
+                if (inCode) {
+                    html.push(`${escapeHtml(line)}\n`);
+                    continue;
+                }
+
+                if (!line.trim()) {
+                    flushParagraph();
+                    closeLists();
+                    continue;
+                }
+
+                const headingMatch = line.match(/^(#{1,6})\s+(.*)$/);
+                if (headingMatch) {
+                    flushParagraph();
+                    closeLists();
+                    const level = headingMatch[1].length;
+                    html.push(`<h${level}>${renderInline(headingMatch[2].trim())}</h${level}>`);
+                    continue;
+                }
+
+                const blockquoteMatch = line.match(/^>\s?(.*)$/);
+                if (blockquoteMatch) {
+                    flushParagraph();
+                    closeLists();
+                    html.push(`<blockquote>${renderInline(blockquoteMatch[1])}</blockquote>`);
+                    continue;
+                }
+
+                const ulMatch = line.match(/^[-*]\s+(.*)$/);
+                if (ulMatch) {
+                    flushParagraph();
+                    if (inOl) {
+                        html.push('</ol>');
+                        inOl = false;
+                    }
+                    if (!inUl) {
+                        html.push('<ul>');
+                        inUl = true;
+                    }
+                    html.push(`<li>${renderInline(ulMatch[1])}</li>`);
+                    continue;
+                }
+
+                const olMatch = line.match(/^\d+\.\s+(.*)$/);
+                if (olMatch) {
+                    flushParagraph();
+                    if (inUl) {
+                        html.push('</ul>');
+                        inUl = false;
+                    }
+                    if (!inOl) {
+                        html.push('<ol>');
+                        inOl = true;
+                    }
+                    html.push(`<li>${renderInline(olMatch[1])}</li>`);
+                    continue;
+                }
+
+                paragraphBuffer.push(line.trim());
+            }
+
+            flushParagraph();
+            closeLists();
+
+            return html.join('\n');
+        }
+
+        async function init() {
+            const params = new URLSearchParams(window.location.search);
+            const week = params.get('week');
+            const project = params.get('project');
+
+            const content = document.getElementById('content');
+            const meta = document.getElementById('projectMeta');
+
+            if (!week || !project) {
+                meta.textContent = 'Unknown project';
+                content.innerHTML = '<div class="error">Missing query parameters. Expected <code>?week=week1&project=7_13</code>.</div><a class="back-link" href="./index.html">← Back to submissions</a>';
+                return;
+            }
+
+            const instructionsPath = `./${week}/${project}/instructions.md`;
+
+            meta.textContent = `${week}/${project}`;
+
+            try {
+                const response = await fetch(instructionsPath);
+                if (!response.ok) {
+                    throw new Error(`Unable to load ${instructionsPath}`);
+                }
+
+                const markdown = await response.text();
+                content.innerHTML = `${renderMarkdown(markdown)}<a class="back-link" href="./index.html">← Back to submissions</a>`;
+            } catch (error) {
+                content.innerHTML = `<div class="error">${escapeHtml(error.message)}</div><a class="back-link" href="./index.html">← Back to submissions</a>`;
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>

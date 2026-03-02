@@ -157,6 +157,14 @@
             cursor: pointer;
         }
 
+        .instructions-link {
+            border: 1px solid #667eea;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 0.8em;
+            margin-left: 4px;
+        }
+
         .submission-row {
             display: flex;
             align-items: center;
@@ -487,9 +495,18 @@
                     viewLink.className = 'view-link';
                     viewLink.textContent = 'View Submission';
 
+                    const instructionsLink = document.createElement('a');
+                    instructionsLink.href = `instructions.html?week=${weekFolder}&project=${folder}`;
+                    instructionsLink.className = 'view-link instructions-link';
+                    instructionsLink.textContent = 'Instructions';
+                    instructionsLink.addEventListener('click', (event) => {
+                        event.stopPropagation();
+                    });
+
                     const submissionRow = document.createElement('div');
                     submissionRow.className = 'submission-row';
                     submissionRow.appendChild(viewLink);
+                    submissionRow.appendChild(instructionsLink);
 
                     assignment.appendChild(submissionRow);
 

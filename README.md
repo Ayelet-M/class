@@ -87,6 +87,14 @@ The GitHub Actions workflow will automatically build it and serve the build outp
 - Static HTML sites don't need any special configuration
 - Each submission can be a completely independent project
 
+## Instructions Files
+
+Each project folder has one instruction file:
+
+- `instructions.md` → guidance for completing the assignment
+
+The site renders student-facing instructions through `instructions.html` and links to it from the overview page and each submission page.
+
 ## Testing Locally
 
 To test the landing page locally, open `index.html` in your browser or use a local server:
