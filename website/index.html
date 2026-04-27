@@ -4,11 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Redirecting to website</title>
-  <meta http-equiv="refresh" content="0; url=https://cornell-tech-vibe-coding-summer-2026.github.io/website/" />
   <link rel="canonical" href="https://cornell-tech-vibe-coding-summer-2026.github.io/website/" />
   <script>
-    window.location.replace("https://cornell-tech-vibe-coding-summer-2026.github.io/website/");
+    var target = "https://cornell-tech-vibe-coding-summer-2026.github.io/website/" +
+                 window.location.search +
+                 window.location.hash;
+    window.location.replace(target);
   </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=https://cornell-tech-vibe-coding-summer-2026.github.io/website/" />
+  </noscript>
 </head>
 <body>
   <p>Redirecting to website…</p>
