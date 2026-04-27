@@ -30,21 +30,23 @@
 
 **Course Staff/Teaching Assistants:** Hauke Sandhaus, M.Sc. [hgs52@cornell.edu](mailto:hgs52@cornell.edu), Jonathan Segal, M.Sc. [jis62@cornell.edu](mailto:jis62@cornell.edu)
 
-**(Optional) Office Hours:** Not available
+**Office Hours:** Afternoons
 
-**(Optional) Expectations and Resources for Student Success:** Add website, Github for labs
+**Expectations and Resources for Student Success:** [Vibe Showcase Website](https://cornell-tech-vibe-coding-summer-2026.github.io/website/), [Examples](https://cornell-tech-vibe-coding-summer-2026.github.io/), [GitHub Classroom Repository](https://classroom.github.com/classrooms/245015926-cornell-tech-vibe-coding-summer-2026/assignments/class-repo)
 
-**Assignments, Exams, and Projects:**   
-Please provide a detailed overview of projects, assignments, and other deliverables due for your class. Include percentages of how much each item allocates for the overall final class course grade.
+**Assignments, Exams, and Projects:**
 
-| Activity | Overview | Point Values |
+| Activity | Overview | Grade Percentage |
 | :---- | :---- | :---- |
-| In-Class Participation | This is an interactive class, and students are expected to contribute to the discussion, ask questions about the content, and fully engage with the material. | 10% |
-| Project/Activities (1-5) | Students will complete in-class activities in class (individually or small groups, depending on the activity) and then reflect on these activities and turn in both the project and write-up. | 70%. Projects and write-ups will be due in class after the project is done in class. |
-| Final Project/Presentation | Final projects will consist of students working in small groups to complete a final in-class activity and create a presentation to present to the class. | 20%. Presentations will be on the final day of class. |
+| Project 1 | Project from Week 1, due Monday of Week 2 before class | 15% |
+| Project 2 | Project from Week 2, due Monday of Week 3 before class | 15% |
+| Final Project | Group project benefiting someone outside the class | 25% |
+| Final Presentation | Presented on the last day of class | 15% |
+| In-Class Activities | Daily individual or small-group activities and write-ups | 20% |
+| Class Participation | In-person attendance and meaningful participation in dialog (in-class and online) | 10% |
+| **Total** |  | **100%** |
 
-**Typical Topics Covered:**  
-Please provide at least three major topics that students will learn and discuss. These refer to the main subjects and themes that will be explored. Examples might include key concepts, theories, practices, and case studies relevant to the course's focus area.
+**Typical Topics Covered:**
 
 * AI-assisted prototyping and development  
   * Vibe Coding tools  
@@ -54,8 +56,7 @@ Please provide at least three major topics that students will learn and discuss.
   * User Centered Design  
   * Bias in technology development
 
-**Method of Assessing Student Achievement:**  
-**Please provide a rubric of how grades are assessed for each activity:**
+**Method of Assessing Student Achievement:**
 
 Project Rubric:
 
@@ -87,7 +88,7 @@ Project Rubric:
 | **F** | **0.0** |
 
 **Academic Integrity**  
-All students should abide by the [Cornell University Code of Academic Integrity](https://theuniversityfaculty.cornell.edu/dean/academic-integrity/code-of-academic-integrity/), and all writing submitted should be one’s own writing. While discussing course concepts with other students is highly encouraged, and the course makes heavy use of AI for the vibe coding components plagiarism (including the use of unattributed AI tools such as ChatGPT for writing) will result in zero credit and/or a referral to the Office of Student & Academic Affairs. Please reach out if you have any additional questions about what is or is not permitted. 
+All students should abide by the [Cornell University Code of Academic Integrity](https://theuniversityfaculty.cornell.edu/dean/academic-integrity/code-of-academic-integrity/), and all writing submitted should be one's own writing. While discussing course concepts with other students is highly encouraged, and the course makes heavy use of AI for the vibe coding components plagiarism (including the use of unattributed AI tools such as ChatGPT for writing) will result in zero credit and/or a referral to the Office of Student & Academic Affairs. Please reach out if you have any additional questions about what is or is not permitted. 
 
 **Academic Misconduct**  
 A faculty member may impose a grade penalty for any misconduct in the classroom or examination room. Examples of academic misconduct include, but are not limited to, talking during an exam, bringing unauthorized materials into the exam room, and disruptive behavior in the classroom.
@@ -107,8 +108,7 @@ Cornell Tech students: This link provides a list of resources for Cornell Tech s
 **Religious Observances**  
 Cornell University is committed to supporting students who wish to practice their religious beliefs. Students are advised to discuss religious absences with their instructors well in advance of the religious holiday so that arrangements for making up work can be resolved before the absence. Students are encouraged to anticipate their religious/spiritual needs early in the semester, and at least two weeks before the observance, leaving plenty of time for the professor and student to reach a reasonable accommodation.
 
-**Weekly Schedule Topic/Readings:**  
-Below you can outline meeting to meeting topics and specific readings needed to achieve for that lecture.
+**Weekly Schedule Topic/Readings:**
 
 Topics covered:
 
@@ -116,29 +116,19 @@ Topics covered:
 * Ethics: Doing the right thing  
 * Outcomes: Designing systems that are useful and empowering
 
-| Theme | Weekday | Topic | Project/Activity |  |
-| :---- | :---- | :---- | :---- | :---- |
-| Vibe Coding: Gaining Control | Week 1Monday | What is vibe coding? | Activity: Making something and submitting it on Canvas  |  |
-|  | Week 1 Tuesday | Prompt Engineering | Activity: Test different prompts and compare outcomes |  |
-|  | Week 1 Wednesday | Bias in vibe coding  | Activity: Test different tools and compare outcomes |  |
-|  | Week 1 Thursday | Project Day | Project: How to vibe code? Make something that you want/need |  |
-|  |  |  |  |  |
-| Ethics: Doing the right thing | Week 2 Monday | AI for good \- Values in Technology (VAP) | Activity: Use the Values at Play framework to plan  |  |
-|  | Week 2 Tuesday | AI safety | Activity: Test the limits of the technology (push it to do risky things) |  |
-|  | Week 2 Wednesday | AI against AI  | Activity: Use AI against AI harms (e.g., AI for privacy protection) |  |
-|  | Week 2 Thursday | Project Day | Project: Make something that purposefully supports a human value |  |
-|  |  |  |  |  |
-| Outcomes: Designing systems that are useful and empowering | Week 3 Monday | Understanding users (UCD \- HCD) | Activity: Split the class into 2; the first half will so live user evaluation, development, and validation | Note: user-centered design, vs. human and humanity-centered. What do people *need* from technology? |
-|  | Week 3 Tuesday | Validation and testing (VAP) | Activity: The same activity as the previous day, but the groups will switch | Note: Either user testing, or a more value-centered verification process (did the technology achieve the value)  |
-| Final Project | Week 3 Wednesday | Working Day | Final project working day |  |
-|  | Week 3 Thursday | Final Project Presentations | Project: Make something that benefits someone else, and society benefits from even after class |  |
-
-| Activity | Overview | Grade Percentage |
-| :---- | :---- | :---- |
-| Project 1 | Projects are due Monday before class | 15% |
-| Project 2 | Projects are due Monday before class | 15% |
-| Final Project |  | 25% |
-| Final Presentation |  | 15% |
-| In-Class Activities |  | 20% |
-| Class Participation | Attend in-person class and have meaningful participation in dialog and in class in-person and online community | 10% |
-| Total Points |  | 100% |
+| Theme | Weekday | Topic | Project/Activity | Speaker | Reading |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| Vibe Coding: Gaining Control | Week 1 Monday | What is vibe coding? | Activity: Build and submit a personal "about you" page (hosted on GitHub) on Canvas | TBD | TBD |
+|  | Week 1 Tuesday | Prompt Engineering | Activity: Test different prompts and compare outcomes | Heonjun Park — Cornell graduate lawyer who vibe coded [CityDogs](https://apps.apple.com/us/app/citydogs/id6761141597), a dog-meetup platform | [Why Johnny Can't Prompt (CHI 2023)](https://dl.acm.org/doi/10.1145/3544548.3581388) |
+|  | Week 1 Wednesday | Bias in vibe coding | Activity: Test different vibe coding tools and compare outcomes | TBD | TBD |
+|  | Week 1 Thursday | Project Day | **Project 1:** Vibe code something you want or need | — | — |
+|  |  |  |  |  |  |
+| Ethics: Doing the right thing | Week 2 Monday | AI for good — Values in Technology (VAP) | Activity: Apply the VAP Ethics thinking canvas developed for the [Public Interest Summer Tech Workshop](https://pitechethics.github.io/) | Ria Gualano — Cornell Communication PhD student working on accessible technology | TBD |
+|  | Week 2 Tuesday | AI safety | Activity: Red-team and adversarially test the AI — push it to produce dark patterns or manipulate users. Where does safety/ethics blur? | TBD | TBD |
+|  | Week 2 Wednesday | AI against AI | Activity: Use AI against AI harms — e.g., [obfuscation for privacy protection](https://direct.mit.edu/books/book/3112/ObfuscationA-User-s-Guide-for-Privacy-and-Protest), or [protection from work automation](https://officechai.com/ai/chinas-workers-are-weaponizing-ai-against-each-other-through-colleague-skill-files-and-fighting-back/) | TBD | TBD |
+|  | Week 2 Thursday | Project Day | **Project 2:** Make something that purposefully supports a human value | — | — |
+|  |  |  |  |  |  |
+| Outcomes: Designing systems that are useful and empowering | Week 3 Monday | Understanding users (UCD — HCD) | Activity: Split the class in 2; first half does live user evaluation, development, and validation. *(User-centered vs. human/humanity-centered: what do people need from technology?)* | TBD | TBD |
+|  | Week 3 Tuesday | Validation and testing (VAP) | Activity: Same as Monday, groups switch. *(Either user testing or value-centered verification — did the technology achieve the value?)* | TBD | TBD |
+| Final Project | Week 3 Wednesday | Working Day | Final project working day | — | — |
+|  | Week 3 Thursday | Final Project Presentations | **Final Project:** Make something that benefits someone else, and that society continues to benefit from after class | — | — |
