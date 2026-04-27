@@ -8,6 +8,8 @@ Download and install Google antigravity IDE. Set up chrome extension for antigra
 
 Sign up for github and fork this repository. 
 
+Join the course GitHub Classroom for this assignment here: [https://classroom.github.com/a/8NQcxGyr](https://classroom.github.com/a/8NQcxGyr). Add yourself to the classroom before you begin the project.
+
 Use of other tools may be appropriate, but need to be configured using rules, to instruct the AI to log vibe coding prompts .agent/rules/vibe-trace.md (other tools such as Github Copilot and Cursor are not configured to do this by default, and may require additional setup)
 
 ### Folder Structure
@@ -50,6 +52,12 @@ We encourage you to look for inspiration online. Check out sites like [Awwwards]
 Once your page is ready, you need to make it live:
 - **Vanilla JS/Static Pages**: Use **GitHub Pages**. Go to your repository settings > Pages and enable it for the `main` branch.
 - **Frameworks (React, Vue, etc.)**: Use **Vercel**. Connect your GitHub repository to Vercel for automatic deployment.
+
+When you submit on Canvas, upload a zip of the entire `week1/7_13/` folder and copy and paste the link to your deployed version of the class page: [https://vibe-coding-ethics.tech.cornell.edu/week1/7_13/code_deliverable/](https://vibe-coding-ethics.tech.cornell.edu/week1/7_13/code_deliverable/).
+
+The zip upload is the only file submission we need on Canvas. We will review the corresponding GitHub commit history for your work, and we will use the commit state that matches the time you submit the link.
+
+If you submit late, only commits made up to the time you submit the Canvas link will count toward the graded submission. Any commits pushed after that submission time will not be included, even if they are in the zip you upload later.
 
 ---
 

@@ -51,3 +51,11 @@ Your Vibe Report must include:
    - Ultimately, is obfuscation ethical? Why or why not?
 5. **AI Usage Trace**: Link to your `log_deliverable/history.md`.
 6. **Authenticity Statement**: Include the standard course authenticity statement.
+
+## Canvas Submission
+
+When you submit on Canvas, upload a zip of the entire `week2/7_22/` folder and copy and paste the link to your deployed page.
+
+The zip upload is the only file submission we need on Canvas. We will review the corresponding GitHub commit history for your work, and we will use the commit state that matches the time you submit the link.
+
+If you submit late, only commits made up to the time you submit the Canvas link will count toward the graded submission. Any commits pushed after that submission time will not be included, even if they are in the zip you upload later.

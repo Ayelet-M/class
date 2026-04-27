@@ -133,6 +133,14 @@ Answer in `vibe-report.md`:
 - [ ] `code_deliverable/` contains outputs from at least 3 tools
 - [ ] Comparison explicitly connects tool structure/system prompt to usability, control, and output
 
+## Canvas Submission
+
+When you submit on Canvas, upload a zip of the entire `week1/7_15/` folder and copy and paste the link to your deployed page.
+
+The zip upload is the only file submission we need on Canvas. We will review the corresponding GitHub commit history for your work, and we will use the commit state that matches the time you submit the link.
+
+If you submit late, only commits made up to the time you submit the Canvas link will count toward the graded submission. Any commits pushed after that submission time will not be included, even if they are in the zip you upload later.
+
 ---
 
 > Focus on **analysis quality** over "winning tool" arguments. The strongest submissions show clear evidence, fair methodology, and nuanced reasoning about why each tool behaves the way it does.
