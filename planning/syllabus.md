@@ -125,12 +125,12 @@ Topics covered:
 |  | Week 1 Wednesday | Bias in vibe coding | Activity: Test different vibe coding tools and compare outcomes | TBD | TBD |
 |  | Week 1 Thursday | Project Day | **Project 1:** Vibe code something you want or need | — | — |
 |  |  |  |  |  |  |
-| Ethics: Doing the right thing | Week 2 Monday | AI for good — Values in Technology (VAP) | Activity: Apply the VAP Ethics thinking canvas developed for the [Public Interest Summer Tech Workshop](https://pitechethics.github.io/) | Ria Gualano — Cornell Communication PhD student working on accessible technology | TBD |
+| Ethics: Doing the right thing | Week 2 Monday | Values in Vibe Coding (Light) — AI as Moral Assistant | Activity: Lightweight discussion of what moral, ethical, and political values get embedded in the tools we use, then build a personal Vibe Coding Footprint Calculator (CO₂, energy, water from your last week of AI use, compared to meal references such as tofu vs. beef) | Ria Gualano — Cornell Communication PhD student working on accessible technology | TBD |
 |  | Week 2 Tuesday | AI safety | Activity: Red-team and adversarially test the AI — push it to produce dark patterns or manipulate users. Where does safety/ethics blur? | TBD | TBD |
 |  | Week 2 Wednesday | AI against AI | Activity: Use AI against AI harms — e.g., [obfuscation for privacy protection](https://direct.mit.edu/books/book/3112/ObfuscationA-User-s-Guide-for-Privacy-and-Protest), or [protection from work automation](https://officechai.com/ai/chinas-workers-are-weaponizing-ai-against-each-other-through-colleague-skill-files-and-fighting-back/) | TBD | TBD |
 |  | Week 2 Thursday | Project Day | **Project 2:** Make something that purposefully supports a human value | — | — |
 |  |  |  |  |  |  |
 | Outcomes: Designing systems that are useful and empowering | Week 3 Monday | Understanding users (UCD — HCD) | Activity: Split the class in 2; first half does live user evaluation, development, and validation. *(User-centered vs. human/humanity-centered: what do people need from technology?)* | TBD | TBD |
-|  | Week 3 Tuesday | Validation and testing (VAP) | Activity: Same as Monday, groups switch. *(Either user testing or value-centered verification — did the technology achieve the value?)* | TBD | TBD |
+|  | Week 3 Tuesday | Values at Play — Full Canvas + Evaluation Switch | Activity: Apply the full Values at Play canvas (from the [PIT Tech Ethics workshop](https://pitechethics.github.io/)) to your final project — identify embedded values, conflicts, and stakeholders. Round 2 of user testing with roles reversed. | TBD | TBD |
 | Final Project | Week 3 Wednesday | Working Day | Final project working day | — | — |
 |  | Week 3 Thursday | Final Project Presentations | **Final Project:** Make something that benefits someone else, and that society continues to benefit from after class | — | — |
