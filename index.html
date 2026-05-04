@@ -3,586 +3,520 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Submissions</title>
+    <title>Individual Activities · TECHIE 1121 Ethical Vibe Coding</title>
+    <link rel="icon" type="image/png" href="assets/T-Neon-Green.png">
+    <link rel="apple-touch-icon" href="assets/T-Neon-Green.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg: #050505;
+            --bg-elev: #0e101a;
+            --paper: #f4e4bc;
+            --paper-soft: #faf3df;
+            --ink: #1a1a1a;
+            --ink-soft: #4b4b4b;
+            --neon: #00ff41;
+            --neon-soft: #00ff4126;
+            --neon-strong: #39ff14;
+            --rule: rgba(255, 255, 255, 0.08);
+            --rule-paper: rgba(0, 0, 0, 0.12);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            background: var(--bg);
+            color: rgba(255, 255, 255, 0.92);
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: "ss01", "cv11";
+            line-height: 1.5;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 28px 20px 80px;
+            background:
+                radial-gradient(1200px 600px at 80% -10%, rgba(0, 255, 65, 0.06), transparent 60%),
+                radial-gradient(900px 500px at -10% 110%, rgba(0, 255, 65, 0.04), transparent 60%),
+                var(--bg);
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 36px;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
-        h1 {
-            color: white;
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.78);
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
 
-        .weeks {
+        .brand:hover { color: var(--neon); }
+
+        .brand img { width: 24px; height: 24px; display: block; }
+
+        .brand .term { color: rgba(255, 255, 255, 0.45); font-weight: 500; }
+
+        .top-link {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--neon);
+            text-decoration: none;
+            border: 1px solid rgba(0, 255, 65, 0.35);
+            padding: 6px 12px;
+            border-radius: 999px;
+            transition: all 0.2s ease;
+        }
+
+        .top-link:hover {
+            background: var(--neon-soft);
+            border-color: var(--neon);
+        }
+
+        h1.page-title {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            margin-bottom: 12px;
+        }
+
+        h1.page-title .you {
+            color: var(--neon);
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-weight: 600;
+        }
+
+        .lede {
+            color: rgba(255, 255, 255, 0.62);
+            max-width: 60ch;
+            font-size: 1.05rem;
+            margin-bottom: 48px;
+        }
+
+        .week-section { margin-bottom: 48px; }
+
+        .week-header {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .week-label {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            color: var(--neon);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            font-size: 0.95rem;
+        }
+
+        .week-theme {
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .activities {
             display: grid;
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 18px;
+            align-items: start;
         }
 
-        .week {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: slideIn 0.6s ease-out;
+        .activity-group { display: flex; flex-direction: column; gap: 0; }
+
+        .activity {
+            background: var(--paper);
+            color: var(--ink);
+            border-radius: 12px;
+            padding: 18px 18px 16px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.04) inset,
+                0 8px 24px rgba(0, 0, 0, 0.35);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .activity:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.04) inset,
+                0 14px 32px rgba(0, 0, 0, 0.45),
+                0 0 0 1px rgba(0, 255, 65, 0.35);
+        }
+
+        .activity-meta {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+
+        .activity-title {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+            letter-spacing: -0.005em;
+        }
+
+        .activity-desc {
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+
+        .actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 6px;
+            margin-top: 6px;
+        }
+
+        .action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 8px 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--ink);
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--rule-paper);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.18s ease;
+            cursor: pointer;
+            letter-spacing: 0.01em;
+        }
+
+        .action:hover {
+            background: var(--ink);
+            color: var(--neon);
+            border-color: var(--ink);
+        }
+
+        .action.primary {
+            background: var(--ink);
+            color: var(--paper);
+            border-color: var(--ink);
+        }
+
+        .action.primary:hover {
+            background: var(--neon);
+            color: var(--ink);
+            border-color: var(--neon);
         }
 
         .examples-toggle {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            margin-top: 4px;
-            padding: 4px 8px;
-            border-radius: 999px;
-            border: 1px solid rgba(102, 126, 234, 0.35);
+            padding: 6px 10px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--ink-soft);
             background: transparent;
-            color: rgba(102, 126, 234, 0.9);
-            font-size: 0.75em;
+            border: 1px dashed var(--rule-paper);
+            border-radius: 999px;
             cursor: pointer;
+            align-self: flex-start;
             transition: all 0.2s ease;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
 
         .examples-toggle:hover {
-            background: rgba(102, 126, 234, 0.12);
-            border-color: rgba(102, 126, 234, 0.7);
+            color: var(--ink);
+            border-color: var(--ink);
         }
 
         .examples-toggle .arrow {
             display: inline-block;
-            font-size: 11px;
             transition: transform 0.2s ease;
+            font-size: 0.7rem;
         }
 
-        .examples-toggle.is-open .arrow {
-            transform: rotate(180deg);
-        }
-
-        .assignment:hover .examples-toggle {
-            color: rgba(255, 255, 255, 0.9);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-        .week-title {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            font-size: 1.5em;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .assignments {
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            align-items: start;
-        }
-
-        .assignment-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .assignment {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 16px;
-            background: #f7f7f7;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #333;
-            transition: all 0.25s ease;
-            border: 1px solid #e6e6e6;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-            cursor: pointer;
-        }
-
-        .assignment:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: transparent;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 24px rgba(102, 126, 234, 0.3);
-        }
-
-        .date {
-            font-size: 1.1em;
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 6px;
-            transition: color 0.25s ease;
-        }
-
-        .assignment:hover .date {
-            color: white;
-        }
-
-        .view-link {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 2px;
-            font-size: 0.9em;
-            transition: color 0.25s ease;
-            cursor: pointer;
-        }
-
-        .instructions-link {
-            border: 1px solid #667eea;
-            border-radius: 999px;
-            padding: 4px 10px;
-            font-size: 0.8em;
-            margin-left: 4px;
-        }
-
-        .submission-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .examples-hint {
-            font-size: 0.75em;
-            color: rgba(102, 126, 234, 0.8);
-            margin-top: 4px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .assignment:hover .examples-hint {
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .toggle-examples {
-            width: 22px;
-            height: 22px;
-            border-radius: 999px;
-            border: 1px solid #667eea;
-            background: transparent;
-            color: #667eea;
-            font-size: 12px;
-            line-height: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .toggle-examples:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        .toggle-examples.is-open {
-            transform: rotate(180deg);
-        }
-
-        .assignment:hover .view-link {
-            color: white;
-        }
+        .examples-toggle.is-open .arrow { transform: rotate(180deg); }
 
         .examples-section {
-            width: 100%;
-            margin-top: 0;
-            padding: 12px 16px;
-            background: #f9f9f9;
-            border-radius: 0 0 8px 8px;
-            border: 1px solid #e6e6e6;
+            background: var(--paper-soft);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             border-top: 0;
+            border-radius: 0 0 12px 12px;
+            padding: 12px 18px 14px;
         }
 
-        .assignment-group.examples-open .assignment {
+        .examples-section.examples-collapsed { display: none; }
+
+        .activity-group.examples-open .activity {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
             border-bottom: 0;
         }
 
-        .assignment-group.examples-open .examples-section {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-        }
-
-        .examples-section:empty {
-            display: none;
-        }
-
         .examples-title {
-            font-size: 0.7em;
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 8px;
-            text-align: left;
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
-            opacity: 0.7;
+            letter-spacing: 0.1em;
+            color: var(--ink-soft);
+            margin-bottom: 8px;
         }
 
-        .examples-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            width: 100%;
-        }
+        .examples-list { display: flex; flex-direction: column; gap: 6px; }
 
-        .example-link-btn {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.85em;
-            padding: 8px 12px;
-            background: transparent;
-            border: 1px solid #667eea;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            text-align: center;
+        .example-link {
             display: block;
-            position: relative;
-            overflow: hidden;
+            padding: 8px 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--ink);
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--rule-paper);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.18s ease;
         }
 
-        .example-link-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: left 0.25s ease;
-            z-index: -1;
-            border-radius: 6px;
-        }
-
-        .example-link-btn:hover {
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 6px 14px rgba(102, 126, 234, 0.25);
-            transform: translateY(-1px);
-        }
-
-        .examples-collapsed {
-            display: none;
-        }
-
-        .example-link-btn:hover::before {
-            left: 0;
+        .example-link:hover {
+            background: var(--ink);
+            color: var(--neon);
+            border-color: var(--ink);
         }
 
         footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9em;
             margin-top: 60px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
         }
 
-        footer p {
-            margin: 5px 0;
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 255, 65, 0.4);
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover { color: var(--neon); }
+
+        .error {
+            background: rgba(255, 80, 80, 0.1);
+            border: 1px solid rgba(255, 80, 80, 0.3);
+            color: rgba(255, 200, 200, 0.95);
+            padding: 14px 16px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 520px) {
+            .actions { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 id="studentName">Student Submissions</h1>
-        <div class="weeks" id="weeksContainer"></div>
+        <div class="top-bar">
+            <a class="brand" href="https://cornell-tech-vibe-coding-summer-2026.github.io/website/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/T-Neon-Green.png" alt="Cornell T">
+                <span>TECHIE 1121 Ethical Vibe Coding <span class="term">· Cornell Tech 2026SU</span></span>
+            </a>
+            <a class="top-link" href="https://cornell-tech-vibe-coding-summer-2026.github.io/website/" target="_blank" rel="noopener noreferrer">Course site →</a>
+        </div>
+
+        <h1 class="page-title">Individual Activities <span class="you" id="studentName"></span></h1>
+        <p class="lede">Daily in-class activities. Each card links to your hosted submission, the activity instructions, and your reflection — graded against the rubric in <a href="planning/activity_rubric.md" style="color:var(--neon);">activity_rubric.md</a>.</p>
+
+        <div id="weeksContainer"></div>
+
+        <div id="errorSlot"></div>
     </div>
 
     <footer>
-        <p>Cornell Tech Vibe Coding Summer 2026</p>
+        <p>Cornell Tech · Summer 2026 · <a href="https://cornell-tech-vibe-coding-summer-2026.github.io/website/">Course site</a></p>
     </footer>
 
     <script>
         async function loadStudentName() {
             try {
                 const response = await fetch('./package.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                if (!response.ok) return;
+                const pkg = await response.json();
+                if (pkg.name) {
+                    document.getElementById('studentName').textContent = `// ${pkg.name}`;
                 }
-                const packageJson = await response.json();
-                const name = packageJson.name;
-                console.log('Loaded name:', name);
-                document.getElementById('studentName').textContent = `${name}'s Submissions`;
-            } catch (error) {
-                console.error('Failed to load student name:', error);
-            }
+            } catch (_) { /* no-op */ }
         }
 
-        const submissions = {
-            'Week 1': ['7_13', '7_14', '7_15'],
-            'Week 2': ['7_20', '7_21', '7_22'],
-            'Week 3': ['7_27', '7_28']
-        };
-
-        const dateMap = {
-            '7_13': 'July 13th',
-            '7_14': 'July 14th',
-            '7_15': 'July 15th',
-            '7_20': 'July 20th',
-            '7_21': 'July 21st',
-            '7_22': 'July 22nd',
-            '7_27': 'July 27th',
-            '7_28': 'July 28th'
-        };
+        async function loadManifest() {
+            const response = await fetch('./activities-manifest.json?t=' + Date.now());
+            if (!response.ok) throw new Error('Could not load activities-manifest.json');
+            return response.json();
+        }
 
         async function loadExamples(weekFolder, folder) {
-            console.log(`🔍 Attempting to load examples for ${weekFolder}/${folder}`);
             try {
-                // Load the manifest
-                const manifestResponse = await fetch(`./examples-manifest.json?t=${Date.now()}`); // Cache busting
-                if (!manifestResponse.ok) {
-                    console.warn('⚠️ Could not load examples manifest');
-                    return [];
-                }
-                
-                const manifest = await manifestResponse.json();
-                console.log(`  → Loaded manifest with ${manifest.length} entries`);
-                
-                // Find entry for this week/folder
+                const r = await fetch('./examples-manifest.json?t=' + Date.now());
+                if (!r.ok) return [];
+                const manifest = await r.json();
                 const entry = manifest.find(m => m.week === weekFolder && m.folder === folder);
-                if (!entry || !entry.examples || entry.examples.length === 0) {
-                    console.log(`  → No examples found in manifest for ${weekFolder}/${folder}`);
-                    return [];
-                }
-                
-                console.log(`  → Found ${entry.examples.length} examples in manifest`);
-                
-                // Load each example
-                const examples = await Promise.all(entry.examples.map(async (example) => {
-                    let basePath;
-                    
-                    if (example.path) {
-                        basePath = example.path;
-                    } else {
-                        // Fallback for older logic
-                        if (example.nested && example.folder !== 'code_deliverable') {
-                            basePath = `${weekFolder}/${folder}/examples/${example.folder}/code_deliverable/`;
-                        } else {
-                            basePath = `${weekFolder}/${folder}/examples/code_deliverable/`;
-                        }
-                    }
-                    
-                    console.log(`    → Checking: ${basePath} (Nested: ${example.nested}, Folder: ${example.folder})`);
-                    
+                if (!entry || !entry.examples) return [];
+
+                const checked = await Promise.all(entry.examples.map(async (ex) => {
+                    const basePath = ex.path
+                        || (ex.nested && ex.folder !== 'code_deliverable'
+                            ? `${weekFolder}/${folder}/examples/${ex.folder}/code_deliverable/`
+                            : `${weekFolder}/${folder}/examples/code_deliverable/`);
                     try {
-                        // Check if index.html exists (HEAD request or GET with cache busting)
-                        const indexResponse = await fetch(`${basePath}index.html`, { method: 'HEAD' });
-                        if (indexResponse.ok) {
-                            console.log(`      ✓ Found index.html`);
-                            return {
-                                path: basePath,
-                                name: example.name || example.folder,
-                                isMain: example.isMain === true
-                            };
+                        const head = await fetch(`${basePath}index.html`, { method: 'HEAD' });
+                        if (head.ok) {
+                            return { path: basePath, name: ex.name || ex.folder, isMain: ex.isMain === true };
                         }
-                    } catch (e) {
-                        console.log(`      ✗ Fetch failed: ${e.message}`);
-                    }
-                    
+                    } catch (_) {}
                     return null;
                 }));
-                
-                const validExamples = examples.filter(e => e !== null);
-                console.log(`  ✓ Loaded ${validExamples.length} valid examples`);
-                return validExamples;
-            } catch (error) {
-                console.error(`✗ Error loading examples for ${weekFolder}/${folder}:`, error);
+                return checked.filter(Boolean);
+            } catch (_) {
                 return [];
             }
         }
 
-        async function tryLoadExample(basePath) {
-            console.log(`    → Trying: ${basePath}`);
-            try {
-                const packageResponse = await fetch(`${basePath}package.json`);
-                if (packageResponse.ok) {
-                    const packageJson = await packageResponse.json();
-                    console.log(`      ✓ Found package.json, name: ${packageJson.name}`);
-                    return [{
-                        path: basePath,
-                        name: packageJson.name || 'Example'
-                    }];
-                }
-            } catch (e) {
-                console.log(`      ✗ package.json fetch failed: ${e.message}`);
+        function el(tag, props = {}, children = []) {
+            const node = document.createElement(tag);
+            for (const [k, v] of Object.entries(props)) {
+                if (k === 'class') node.className = v;
+                else if (k === 'text') node.textContent = v;
+                else if (k.startsWith('on') && typeof v === 'function') node.addEventListener(k.slice(2).toLowerCase(), v);
+                else node.setAttribute(k, v);
             }
-
-            try {
-                const indexResponse = await fetch(`${basePath}index.html`);
-                if (indexResponse.ok) {
-                    const indexText = await indexResponse.text();
-                    const parser = new DOMParser();
-                    const indexDoc = parser.parseFromString(indexText, 'text/html');
-                    const title = indexDoc.querySelector('title')?.textContent?.trim();
-                    console.log(`      ✓ Found index.html, title: ${title}`);
-                    return [{
-                        path: basePath,
-                        name: title || 'Example'
-                    }];
-                }
-            } catch (e) {
-                console.log(`      ✗ index.html fetch failed: ${e.message}`);
+            for (const child of children) {
+                if (child) node.appendChild(child);
             }
-
-            console.log(`      ✗ No valid content found at ${basePath}`);
-            return [];
+            return node;
         }
 
-        async function generateWeeksHTML() {
-            const container = document.getElementById('weeksContainer');
-            
-            for (const [week, folders] of Object.entries(submissions)) {
-                const weekDiv = document.createElement('div');
-                weekDiv.className = 'week';
-                
-                const weekTitle = document.createElement('div');
-                weekTitle.className = 'week-title';
-                weekTitle.textContent = week;
-                
-                const assignmentsDiv = document.createElement('div');
-                assignmentsDiv.className = 'assignments';
-                
-                for (const folder of folders) {
-                    // Determine week folder name
-                    const weekFolder = week.toLowerCase().replace(' ', '');
-                    const dateLabel = dateMap[folder];
-                    
-                    // Create a wrapper for assignment and its examples
-                    const assignmentGroup = document.createElement('div');
-                    assignmentGroup.className = 'assignment-group';
-                    
-                    const assignment = document.createElement('div');
-                    assignment.className = 'assignment';
-                    
-                    const dateSpan = document.createElement('div');
-                    dateSpan.className = 'date';
-                    dateSpan.textContent = dateLabel;
-                    assignment.appendChild(dateSpan);
-                    
-                    const viewLink = document.createElement('a');
-                    viewLink.href = `${weekFolder}/${folder}/code_deliverable/`;
-                    viewLink.className = 'view-link';
-                    viewLink.textContent = 'View Submission';
+        function buildActivityCard(weekId, activity) {
+            const submissionHref = `${weekId}/${activity.folder}/code_deliverable/`;
+            const instructionsHref = `instructions.html?week=${weekId}&project=${activity.folder}`;
+            const reflectionHref = `instructions.html?week=${weekId}&project=${activity.folder}&doc=reflection`;
 
-                    const instructionsLink = document.createElement('a');
-                    instructionsLink.href = `instructions.html?week=${weekFolder}&project=${folder}`;
-                    instructionsLink.className = 'view-link instructions-link';
-                    instructionsLink.textContent = 'Instructions';
-                    instructionsLink.addEventListener('click', (event) => {
-                        event.stopPropagation();
-                    });
+            const card = el('div', { class: 'activity' }, [
+                el('div', { class: 'activity-meta', text: activity.date }),
+                el('div', { class: 'activity-title', text: activity.title }),
+                el('div', { class: 'activity-desc', text: activity.shortDescription }),
+                (() => {
+                    const actions = el('div', { class: 'actions' });
+                    actions.appendChild(el('a', { class: 'action primary', href: submissionHref, text: 'Submission' }));
+                    actions.appendChild(el('a', { class: 'action', href: instructionsHref, text: 'Instructions' }));
+                    actions.appendChild(el('a', { class: 'action', href: reflectionHref, text: 'Reflection' }));
+                    return actions;
+                })(),
+            ]);
 
-                    const submissionRow = document.createElement('div');
-                    submissionRow.className = 'submission-row';
-                    submissionRow.appendChild(viewLink);
-                    submissionRow.appendChild(instructionsLink);
+            const group = el('div', { class: 'activity-group' });
+            group.appendChild(card);
 
-                    assignment.appendChild(submissionRow);
+            const examplesSection = el('div', { class: 'examples-section examples-collapsed' });
+            group.appendChild(examplesSection);
 
-                    assignment.addEventListener('click', () => {
-                        window.location.href = viewLink.href;
-                    });
-                    
-                    assignmentGroup.appendChild(assignment);
-                    
-                    const examplesSection = document.createElement('div');
-                    examplesSection.className = 'examples-section examples-collapsed';
-                    examplesSection.id = `examples-${weekFolder}-${folder}`;
-                    
-                    // Load examples asynchronously
-                    loadExamples(weekFolder, folder).then(examples => {
-                        const visibleExamples = examples.filter(example => !example.isMain);
+            loadExamples(weekId, activity.folder).then(examples => {
+                const visible = examples.filter(e => !e.isMain);
+                if (visible.length === 0) return;
 
-                        if (visibleExamples.length > 0) {
-                        const examplesTitle = document.createElement('div');
-                        examplesTitle.className = 'examples-title';
-                        examplesTitle.textContent = 'Examples';
-                        examplesSection.appendChild(examplesTitle);
-                        
-                        const examplesList = document.createElement('div');
-                        examplesList.className = 'examples-list';
-                        
-                        visibleExamples.forEach((example) => {
-                            const exampleLink = document.createElement('a');
-                            exampleLink.href = example.path;
-                            exampleLink.className = 'example-link-btn';
-                            exampleLink.textContent = example.name === 'Main Submission' ? 'Main Submission' : example.name;
-                            
-                            examplesList.appendChild(exampleLink);
-                        });
-                        
-                        examplesSection.appendChild(examplesList);
-                            const examplesToggle = document.createElement('button');
-                            examplesToggle.type = 'button';
-                            examplesToggle.className = 'examples-toggle';
-                            examplesToggle.setAttribute('aria-label', 'Toggle examples');
+                const toggle = el('button', { class: 'examples-toggle', type: 'button', 'aria-label': 'Toggle examples' });
+                const arrow = el('span', { class: 'arrow', text: '▾' });
+                const label = el('span', { text: `Show ${visible.length} example${visible.length === 1 ? '' : 's'}` });
+                toggle.appendChild(arrow);
+                toggle.appendChild(label);
+                card.appendChild(toggle);
 
-                            const arrow = document.createElement('span');
-                            arrow.className = 'arrow';
-                            arrow.textContent = '▾';
+                examplesSection.appendChild(el('div', { class: 'examples-title', text: 'Examples' }));
+                const list = el('div', { class: 'examples-list' });
+                visible.forEach(ex => {
+                    list.appendChild(el('a', { class: 'example-link', href: ex.path, text: ex.name }));
+                });
+                examplesSection.appendChild(list);
 
-                            const toggleText = document.createElement('span');
-                            toggleText.textContent = 'Show examples';
+                toggle.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const collapsed = examplesSection.classList.toggle('examples-collapsed');
+                    group.classList.toggle('examples-open', !collapsed);
+                    toggle.classList.toggle('is-open', !collapsed);
+                    label.textContent = collapsed
+                        ? `Show ${visible.length} example${visible.length === 1 ? '' : 's'}`
+                        : `Hide example${visible.length === 1 ? '' : 's'}`;
+                });
+            });
 
-                            examplesToggle.appendChild(arrow);
-                            examplesToggle.appendChild(toggleText);
-                            assignment.appendChild(examplesToggle);
+            return group;
+        }
 
-                            examplesToggle.addEventListener('click', (event) => {
-                                event.preventDefault();
-                                event.stopPropagation();
-                                const isCollapsed = examplesSection.classList.toggle('examples-collapsed');
-                                assignmentGroup.classList.toggle('examples-open', !isCollapsed);
-                                examplesToggle.classList.toggle('is-open', !isCollapsed);
-                                toggleText.textContent = isCollapsed ? 'Show examples' : 'Hide examples';
-                            });
-                        }
-                    });
-                    
-                    assignmentGroup.appendChild(examplesSection);
-                    assignmentsDiv.appendChild(assignmentGroup);
-                }
-                
-                weekDiv.appendChild(weekTitle);
-                weekDiv.appendChild(assignmentsDiv);
-                container.appendChild(weekDiv);
+        function buildWeekSection(week) {
+            const section = el('section', { class: 'week-section' });
+
+            const header = el('div', { class: 'week-header' }, [
+                el('span', { class: 'week-label', text: week.label }),
+                el('span', { class: 'week-theme', text: week.theme }),
+            ]);
+            section.appendChild(header);
+
+            const grid = el('div', { class: 'activities' });
+            week.activities.forEach(activity => {
+                grid.appendChild(buildActivityCard(week.id, activity));
+            });
+            section.appendChild(grid);
+
+            return section;
+        }
+
+        async function init() {
+            loadStudentName();
+            try {
+                const manifest = await loadManifest();
+                const container = document.getElementById('weeksContainer');
+                manifest.weeks.forEach(week => {
+                    container.appendChild(buildWeekSection(week));
+                });
+            } catch (error) {
+                document.getElementById('errorSlot').innerHTML =
+                    `<div class="error">${error.message}</div>`;
             }
         }
 
-        loadStudentName();
-        console.log('🚀 Starting to generate weeks HTML...');
-        generateWeeksHTML();
+        init();
     </script>
 </body>
 </html>

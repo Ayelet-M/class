@@ -1,0 +1,79 @@
+{
+  "course": {
+    "code": "TECHIE 1121",
+    "title": "Ethical Vibe Coding",
+    "term": "Cornell Tech 2026SU",
+    "websiteUrl": "https://cornell-tech-vibe-coding-summer-2026.github.io/website/"
+  },
+  "weeks": [
+    {
+      "id": "week1",
+      "label": "Week 1",
+      "theme": "Vibe Coding: Gaining Control",
+      "activities": [
+        {
+          "folder": "7_13",
+          "date": "Mon · Jul 13",
+          "title": "Personal Portfolio / About Me",
+          "shortDescription": "Set up Antigravity + GitHub and vibe code a hosted \"about you\" page — then debate whether copying a classmate's structure counts as plagiarism when an AI did the work."
+        },
+        {
+          "folder": "7_14",
+          "date": "Tue · Jul 14",
+          "title": "Prompts that Steer the Vibe",
+          "shortDescription": "Run the same task through 2+ vibe coding tools with varied prompt strategies; document which prompting moves change the output the most and why."
+        },
+        {
+          "folder": "7_15",
+          "date": "Wed · Jul 15",
+          "title": "Bias in Vibe Coding",
+          "shortDescription": "Probe several vibe coding tools for biased defaults — whose UI patterns, stock images, names, and example data show up when you don't specify?"
+        }
+      ]
+    },
+    {
+      "id": "week2",
+      "label": "Week 2",
+      "theme": "Ethics: Doing the Right Thing",
+      "activities": [
+        {
+          "folder": "7_20",
+          "date": "Mon · Jul 20",
+          "title": "Values in Vibe Coding (Light) — AI as Moral Assistant",
+          "shortDescription": "Lightweight intro to values embedded in technology, then build a Vibe Coding Footprint Calculator using validated CO₂/energy/water data and compare against meal references (e.g., tofu vs. beef)."
+        },
+        {
+          "folder": "7_21",
+          "date": "Tue · Jul 21",
+          "title": "Red-Teaming AI Safety: Dark Patterns On Purpose",
+          "shortDescription": "Adversarially push your tools to produce dark patterns and manipulative UI; document where the guardrails kick in, where they don't, and where \"safety\" and \"ethics\" diverge."
+        },
+        {
+          "folder": "7_22",
+          "date": "Wed · Jul 22",
+          "title": "AI Against AI",
+          "shortDescription": "Use AI to defend against AI harms — poison scrapers with hidden facts, build privacy obfuscation, or protect against work-automation surveillance."
+        }
+      ]
+    },
+    {
+      "id": "week3",
+      "label": "Week 3",
+      "theme": "Outcomes: Designing Systems That Are Useful and Empowering",
+      "activities": [
+        {
+          "folder": "7_27",
+          "date": "Mon · Jul 27",
+          "title": "User-Centered Evaluation (Half 1)",
+          "shortDescription": "Half the class runs live user tests of their projects with classmates; the other half observes and acts as users. Document what users actually do vs. what you assumed."
+        },
+        {
+          "folder": "7_28",
+          "date": "Tue · Jul 28",
+          "title": "Values at Play — Full Canvas + Evaluation Switch",
+          "shortDescription": "Groups switch user-test roles from Monday; in parallel, work the full VAP discovery canvas on your final project to surface the values you're embedding (and missing)."
+        }
+      ]
+    }
+  ]
+}

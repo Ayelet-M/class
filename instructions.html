@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Instructions</title>
+    <title>Activity Reader</title>
     <style>
         * {
             box-sizing: border-box;
@@ -148,9 +148,9 @@
     <div class="container">
         <div class="card">
             <div class="header">
-                <div class="title">Student Instructions</div>
-                <div class="meta" id="projectMeta">Loading project...</div>
-                <div class="notice" id="roleNotice">This page renders the project’s <strong>instructions.md</strong> file.</div>
+                <div class="title" id="docTitle">Activity Reader</div>
+                <div class="meta" id="projectMeta">Loading...</div>
+                <div class="notice" id="roleNotice">This page renders the activity's <strong>instructions.md</strong> file.</div>
             </div>
             <div class="content" id="content"></div>
         </div>
@@ -282,34 +282,66 @@
             return html.join('\n');
         }
 
+        const DOC_PROFILES = {
+            instructions: {
+                title: 'Activity Instructions',
+                notice: "This page renders the activity's <strong>instructions.md</strong> file.",
+                paths: (week, project) => [`./${week}/${project}/instructions.md`],
+            },
+            reflection: {
+                title: 'Reflection (Vibe Report)',
+                notice: "This page renders the student's <strong>vibe-report.md</strong> reflection. If the student hasn't started one yet, the activity template is shown instead.",
+                paths: (week, project) => [
+                    `./${week}/${project}/vibe-report.md`,
+                    `./${week}/${project}/vibe-report-template.md`,
+                ],
+            },
+        };
+
+        async function fetchFirstAvailable(paths) {
+            for (const path of paths) {
+                try {
+                    const response = await fetch(path);
+                    if (response.ok) {
+                        return { path, markdown: await response.text() };
+                    }
+                } catch (_) {
+                    // try next
+                }
+            }
+            throw new Error(`Could not load any of: ${paths.join(', ')}`);
+        }
+
         async function init() {
             const params = new URLSearchParams(window.location.search);
             const week = params.get('week');
             const project = params.get('project');
+            const docKey = params.get('doc') || 'instructions';
+            const profile = DOC_PROFILES[docKey] || DOC_PROFILES.instructions;
 
             const content = document.getElementById('content');
             const meta = document.getElementById('projectMeta');
+            const titleEl = document.getElementById('docTitle');
+            const noticeEl = document.getElementById('roleNotice');
+
+            titleEl.textContent = profile.title;
+            noticeEl.innerHTML = profile.notice;
+            document.title = `${profile.title} — Vibe Coding`;
 
             if (!week || !project) {
-                meta.textContent = 'Unknown project';
-                content.innerHTML = '<div class="error">Missing query parameters. Expected <code>?week=week1&project=7_13</code>.</div><a class="back-link" href="./index.html">← Back to submissions</a>';
+                meta.textContent = 'Unknown activity';
+                content.innerHTML = '<div class="error">Missing query parameters. Expected <code>?week=week1&project=7_13</code>.</div><a class="back-link" href="./index.html">← Back to activities</a>';
                 return;
             }
-
-            const instructionsPath = `./${week}/${project}/instructions.md`;
 
             meta.textContent = `${week}/${project}`;
 
             try {
-                const response = await fetch(instructionsPath);
-                if (!response.ok) {
-                    throw new Error(`Unable to load ${instructionsPath}`);
-                }
-
-                const markdown = await response.text();
-                content.innerHTML = `${renderMarkdown(markdown)}<a class="back-link" href="./index.html">← Back to submissions</a>`;
+                const { path, markdown } = await fetchFirstAvailable(profile.paths(week, project));
+                meta.textContent = `${week}/${project} — ${path.replace(/^\.\//, '')}`;
+                content.innerHTML = `${renderMarkdown(markdown)}<a class="back-link" href="./index.html">← Back to activities</a>`;
             } catch (error) {
-                content.innerHTML = `<div class="error">${escapeHtml(error.message)}</div><a class="back-link" href="./index.html">← Back to submissions</a>`;
+                content.innerHTML = `<div class="error">${escapeHtml(error.message)}</div><a class="back-link" href="./index.html">← Back to activities</a>`;
             }
         }
 
