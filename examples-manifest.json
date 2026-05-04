@@ -73,8 +73,14 @@
     "folder": "7_20",
     "examples": [
       {
+        "folder": "protein-suffering-calculator",
+        "name": "Protein Suffering Index",
+        "nested": true,
+        "path": "week2/7_20/examples/protein-suffering-calculator/code_deliverable/"
+      },
+      {
         "folder": "code_deliverable",
-        "name": "Example",
+        "name": "Example 2 (coming soon)",
         "nested": false,
         "path": "week2/7_20/examples/code_deliverable/"
       },
