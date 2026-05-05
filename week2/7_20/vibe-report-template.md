@@ -1,4 +1,4 @@
-# Vibe Report: Vibe Coding Footprint Calculator
+# Vibe Report: AI as Moral Assistant
 
 Student Name: [Your Name]
 
@@ -7,40 +7,43 @@ This activity is graded against the In-Class Activity Rubric: 40% Completion, 30
 -->
 
 ## 📸 Showcase
-<!-- Screenshot or short GIF of your hosted calculator. -->
-![Calculator Screenshot](media/screenshot.png)
+<!-- Screenshot or short GIF of your hosted tool. -->
+![Tool Screenshot](media/screenshot.png)
 
 **Live URL:** [paste deployed link]
 
-## 🎯 The Value You Argued For
+**Tool name and one-line pitch:** [e.g., "Reply Check — scores my draft messages against the values I said I care about"]
+
+## 🎯 The Value Your Tool Argues For
 <!--
-One or two sentences naming what your calculator pushes the user (you) toward — and why that value over a competing one. Examples: "switch from a frontier model to a smaller one for simple tasks", "batch prompts", "swap one beef meal for tofu per week", etc. The value should be specific enough to act on.
+One or two sentences naming what your tool pushes the user toward. Be specific enough to act on. "Be more ethical" is not a value; "spend less time defending positions you no longer believe" is.
+
+Why this value over a competing one? What did you NOT prioritize?
 -->
 
 [Your value claim here.]
 
-## 📊 The Number
+**Competing values you didn't prioritize:**
+[e.g., "I prioritized honesty over kindness. A friend giving warm reassurance is a different tool."]
+
+## 🛠 The Output
 <!--
-Your week's vibe coding footprint and the reference comparison. Include both the raw number and the comparison anchor.
+What does the tool actually show the user? Walk through one realistic interaction in 3–5 sentences or a short numbered flow. Use a screenshot if it helps.
 -->
 
-- **CO₂e this week from AI use:** [X] g
-- **Energy:** [X] Wh / kWh
-- **Water:** [X] litres
-- **Reference meal comparison:** [e.g., "= one beef meal" / "= 12 tofu meals"]
+[Walk through here.]
 
-## 📚 Data Sources Used
+## 📚 Sources & Methodology
 <!--
-Link every source you cited in the calculator UI. Note any that you struggled to find, and what you fell back to. If you used a number that didn't come from the recommended sources in the instructions, justify it here.
+Link every source you cited in the tool's UI. Note any you struggled to find, and what you fell back to. If you used a number or framing that didn't come from the recommended sources in the instructions, justify it.
 -->
 
-- AI energy per request: [source link]
-- AI water per request: [source link]
-- Reference meal CO₂/water/land: [source link]
-- Other: [source link]
+- [source link 1] — what it gave you
+- [source link 2] — what it gave you
+- [...]
 
 **Gaps and judgment calls:**
-[What did you have to estimate? What did you have to skip? What's the largest source of uncertainty in your number?]
+[What did you have to estimate, skip, or invent? What's the largest source of uncertainty in your tool's claims? Where would a critical reader push back hardest?]
 
 ## 💭 Did Knowing Change Anything?
 <!--
@@ -71,4 +74,4 @@ Optional: what you tried, what you dropped, what surprised you while vibe coding
 > I [Your Name] acknowledge that I am the sole architect of this work. While I leveraged AI as a creative collaborator, every design choice, code correction, and final output was orchestrated and approved by me. I bear full responsibility for the integrity of this project, including any errors or hallucinations I may have overlooked. I have not plagiarized or misrepresented other human and AI-generated content as my own unassisted work.
 
 #### Attribution
-> *Collaborators & Inspirations: [list any human collaborators, source repos, or specific examples you drew from — including the Protein Suffering Index in `examples/` if it shaped your thinking]*
+> *Collaborators & Inspirations: [list any human collaborators, source repos, or specific examples you drew from — including the W2 Mon precedent examples (`vibe-coding-offset-calculator`, `protein-suffering-calculator`) if they shaped your thinking]*
