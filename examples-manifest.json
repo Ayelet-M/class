@@ -73,16 +73,16 @@
     "folder": "7_20",
     "examples": [
       {
+        "folder": "vibe-coding-offset-calculator",
+        "name": "Vibe Coding Offset Calculator",
+        "nested": true,
+        "path": "week2/7_20/examples/vibe-coding-offset-calculator/code_deliverable/"
+      },
+      {
         "folder": "protein-suffering-calculator",
         "name": "Protein Suffering Index",
         "nested": true,
         "path": "week2/7_20/examples/protein-suffering-calculator/code_deliverable/"
-      },
-      {
-        "folder": "code_deliverable",
-        "name": "Example 2 (coming soon)",
-        "nested": false,
-        "path": "week2/7_20/examples/code_deliverable/"
       },
       {
         "folder": "code_deliverable",

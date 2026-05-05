@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vibe Coding Offset Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .card { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.08); border-color: #fcd34d; }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    input[type="number"] { -moz-appearance: textfield; }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <main class="max-w-5xl mx-auto px-6 py-12 md:py-16 space-y-12">
+
+    <!-- Hero -->
+    <header class="space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-[10px] font-black uppercase tracking-[0.2em] text-amber-900">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+        What this tool argues
+      </div>
+      <h1 class="text-4xl md:text-5xl font-black leading-[1.05] tracking-tight">
+        Vibe coding has a footprint. <span class="text-amber-500">Pay it down somewhere else.</span>
+      </h1>
+      <p class="text-stone-600 text-lg max-w-2xl leading-relaxed">
+        Estimate the carbon, water, and energy your week of AI use spends — then see how many everyday swaps it would take to break even. Numbers are honest order-of-magnitude estimates from cited public research, not auditable totals.
+      </p>
+    </header>
+
+    <!-- Inputs -->
+    <section class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-stone-100">
+      <div class="text-[11px] font-black uppercase tracking-[0.2em] text-stone-400 mb-6">Step 1 · Your week of AI</div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <label class="block">
+          <div class="text-sm font-bold text-stone-700 flex items-center gap-2 mb-2">
+            <span class="text-2xl">💬</span> Chat queries
+          </div>
+          <input id="queries" type="number" min="0" value="200" class="w-full text-3xl font-black bg-transparent border-b-2 border-stone-200 focus:border-amber-500 outline-none pb-1">
+          <div class="text-xs text-stone-400 mt-1">ChatGPT-class messages</div>
+        </label>
+        <label class="block">
+          <div class="text-sm font-bold text-stone-700 flex items-center gap-2 mb-2">
+            <span class="text-2xl">⌨️</span> Vibe coding hours
+          </div>
+          <input id="hours" type="number" min="0" value="10" class="w-full text-3xl font-black bg-transparent border-b-2 border-stone-200 focus:border-amber-500 outline-none pb-1">
+          <div class="text-xs text-stone-400 mt-1">Antigravity / Cursor / Lovable</div>
+        </label>
+        <label class="block">
+          <div class="text-sm font-bold text-stone-700 flex items-center gap-2 mb-2">
+            <span class="text-2xl">🎨</span> Image generations
+          </div>
+          <input id="images" type="number" min="0" value="20" class="w-full text-3xl font-black bg-transparent border-b-2 border-stone-200 focus:border-amber-500 outline-none pb-1">
+          <div class="text-xs text-stone-400 mt-1">Midjourney / DALL·E / SDXL</div>
+        </label>
+      </div>
+    </section>
+
+    <!-- Footprint -->
+    <section class="bg-stone-900 text-white rounded-3xl p-6 md:p-10 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+      <div class="relative">
+        <div class="text-[11px] font-black uppercase tracking-[0.2em] text-stone-500 mb-6">Step 2 · This week's footprint</div>
+        <div class="grid grid-cols-3 gap-6 md:gap-12">
+          <div>
+            <div class="text-[10px] font-black uppercase tracking-widest text-stone-500 mb-1">Carbon</div>
+            <div class="flex items-baseline gap-2">
+              <div id="co2" class="text-4xl md:text-6xl font-black mono">0</div>
+              <div class="text-sm text-stone-400">g CO₂e</div>
+            </div>
+          </div>
+          <div>
+            <div class="text-[10px] font-black uppercase tracking-widest text-stone-500 mb-1">Water</div>
+            <div class="flex items-baseline gap-2">
+              <div id="water" class="text-4xl md:text-6xl font-black mono">0</div>
+              <div class="text-sm text-stone-400">litres</div>
+            </div>
+          </div>
+          <div>
+            <div class="text-[10px] font-black uppercase tracking-widest text-stone-500 mb-1">Energy</div>
+            <div class="flex items-baseline gap-2">
+              <div id="energy" class="text-4xl md:text-6xl font-black mono">0</div>
+              <div class="text-sm text-stone-400">Wh</div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 text-xs text-stone-400" id="annualHint"></div>
+      </div>
+    </section>
+
+    <!-- Offsets -->
+    <section class="space-y-6">
+      <div>
+        <div class="text-[11px] font-black uppercase tracking-[0.2em] text-stone-400 mb-2">Step 3 · Pick one swap to break even</div>
+        <h2 class="text-2xl md:text-3xl font-black tracking-tight">Offset this week's CO₂ by doing —</h2>
+        <p class="text-stone-500 text-sm mt-2 max-w-2xl">Each card shows how many of that swap it takes to cancel out your week's carbon. When the number is small, that's the point: one common swap can cover many weeks of typical vibe coding.</p>
+      </div>
+      <div id="offsetsGrid" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"></div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="bg-white rounded-3xl p-6 md:p-8 border border-stone-100 text-sm">
+      <details>
+        <summary class="cursor-pointer text-[11px] font-black uppercase tracking-[0.2em] text-stone-400 select-none">How the numbers work · click to expand</summary>
+        <div class="grid md:grid-cols-2 gap-8 mt-6 text-stone-600">
+          <div>
+            <h3 class="font-bold text-stone-900 mb-2 text-sm uppercase tracking-wider">AI side (per unit)</h3>
+            <ul class="space-y-2">
+              <li><strong>Chat query:</strong> 0.3 Wh, ~40 ml water, ~0.15 g CO₂e<br><span class="text-xs">— <a class="underline hover:text-amber-600" href="https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use" target="_blank" rel="noopener">Epoch AI 2025</a></span></li>
+              <li><strong>Vibe coding hour:</strong> ~50 Wh, ~2.5 L water, ~20 g CO₂e<br><span class="text-xs">— extrapolated from <a class="underline hover:text-amber-600" href="https://dl.acm.org/doi/10.1145/3630106.3658542" target="_blank" rel="noopener">Luccioni et al., FAccT '24</a> (code generation ~5–10× text classification)</span></li>
+              <li><strong>Image generation:</strong> ~1.5 Wh, ~50 ml water, ~0.6 g CO₂e<br><span class="text-xs">— Luccioni 2024 (image gen ~5–20× text)</span></li>
+              <li><strong>Water per query:</strong> ~10–50 ml midpoint<br><span class="text-xs">— <a class="underline hover:text-amber-600" href="https://dl.acm.org/doi/10.1145/3724499" target="_blank" rel="noopener">Li et al., CACM 2025 ("Making AI Less Thirsty")</a></span></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-stone-900 mb-2 text-sm uppercase tracking-wider">Offset side (per swap)</h3>
+            <ul class="space-y-2">
+              <li><strong>Beef → veggie meal:</strong> ~9 kg CO₂e<br><span class="text-xs">— <a class="underline hover:text-amber-600" href="https://www.science.org/doi/10.1126/science.aaq0216" target="_blank" rel="noopener">Poore &amp; Nemecek, Science 2018</a></span></li>
+              <li><strong>Chicken → tofu meal:</strong> ~1.4 kg CO₂e<br><span class="text-xs">— Poore &amp; Nemecek 2018 via <a class="underline hover:text-amber-600" href="https://ourworldindata.org/environmental-impacts-of-food" target="_blank" rel="noopener">Our World in Data</a></span></li>
+              <li><strong>Car mile → bike mile:</strong> ~380 g CO₂e<br><span class="text-xs">— <a class="underline hover:text-amber-600" href="https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle" target="_blank" rel="noopener">EPA, typical passenger vehicle</a> (~404 g/mi) minus bike LCA ~21 g/km</span></li>
+              <li><strong>Skip a NYC–Boston flight:</strong> ~75 kg CO₂e per passenger<br><span class="text-xs">— <a class="underline hover:text-amber-600" href="https://www.icao.int/environmental-protection/Carbonoffset/Pages/default.aspx" target="_blank" rel="noopener">ICAO Carbon Calculator</a> (~0.25 kg/passenger-km × 300 km)</span></li>
+              <li><strong>5-min shorter shower:</strong> ~500 g CO₂e<br><span class="text-xs">— ~9 L/min × 5 min, 30°C heating ≈ 1.4 kWh × 400 g/kWh (US grid)</span></li>
+              <li><strong>Cold-wash a load:</strong> ~1.5 kg CO₂e<br><span class="text-xs">— hot vs. cold ΔE ~4 kWh × 400 g/kWh</span></li>
+              <li><strong>Plant a tree (1 yr):</strong> ~25 kg CO₂e<br><span class="text-xs">— <a class="underline hover:text-amber-600" href="https://www.fs.usda.gov/" target="_blank" rel="noopener">USDA Forest Service</a> mature-tree annual sequestration</span></li>
+              <li><strong>Swap incandescent → LED (1 yr):</strong> ~22 kg CO₂e<br><span class="text-xs">— 60 W → 9 W × 3 hr/day × 365 d × 400 g/kWh</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-xs text-stone-400 mt-6">All numbers are public-domain order-of-magnitude estimates and round generously. Per-query AI footprint varies 2–4× by region (water especially) and by model size. Offsets vary 2–5× by route, vehicle, diet substitution, climate, and heating fuel. <strong>Do not present these as exact.</strong> If you adapt this calculator, replace the constants with values defensible for your context and cite them.</p>
+      </details>
+    </section>
+
+    <footer class="text-center text-xs text-stone-400 pt-8">
+      Vibe-coded for TECHIE 1121 · W2 Mon · <a class="underline hover:text-amber-600" href="https://github.com/Cornell-Tech-Vibe-Coding-Summer-2026/class">repo</a>
+    </footer>
+  </main>
+
+  <script>
+    const COSTS = {
+      query: { co2: 0.15, water: 0.04, energy: 0.3 },
+      hour:  { co2: 20,   water: 2.5,  energy: 50  },
+      image: { co2: 0.6,  water: 0.05, energy: 1.5 },
+    };
+
+    const OFFSETS = [
+      { id: 'beef',    icon: '🥩→🌱', label: 'Beef meal → veggie',     unit: 'meals',   per: 9000  },
+      { id: 'chicken', icon: '🍗→🌱', label: 'Chicken meal → tofu',    unit: 'meals',   per: 1400  },
+      { id: 'car',     icon: '🚗→🚲', label: 'Car mile → bike',        unit: 'miles',   per: 380   },
+      { id: 'shower',  icon: '🚿',    label: '5-min shorter shower',   unit: 'showers', per: 500   },
+      { id: 'laundry', icon: '🧺',    label: 'Cold-wash a load',       unit: 'loads',   per: 1500  },
+      { id: 'led',     icon: '💡',    label: 'Bulb → LED (1 yr)',      unit: 'bulbs',   per: 22000 },
+      { id: 'flight',  icon: '✈️',    label: 'Skip NYC–Boston flight', unit: 'flights', per: 75000 },
+      { id: 'tree',    icon: '🌳',    label: 'Plant a tree (1 yr)',    unit: 'trees',   per: 25000 },
+    ];
+
+    const $ = (id) => document.getElementById(id);
+
+    function fmt(n, digits = 0) {
+      if (!isFinite(n)) return '0';
+      return n.toLocaleString(undefined, { maximumFractionDigits: digits, minimumFractionDigits: digits });
+    }
+
+    function formatCount(count) {
+      if (count >= 100) return fmt(count);
+      if (count >= 10)  return fmt(count, 1);
+      if (count >= 1)   return fmt(count, 1);
+      if (count >= 0.1) return fmt(count, 2);
+      return fmt(count, 3);
+    }
+
+    function inverseHint(perGram, weeklyCO2) {
+      // How many weeks of vibe coding does ONE swap of this offset cover?
+      if (weeklyCO2 <= 0) return '';
+      const weeks = perGram / weeklyCO2;
+      if (weeks < 1) {
+        const swapsPerWeek = 1 / weeks;
+        return `${fmt(swapsPerWeek, swapsPerWeek >= 10 ? 0 : 1)}× per week`;
+      }
+      if (weeks < 52) {
+        return `1 covers ${fmt(weeks)} weeks`;
+      }
+      const years = weeks / 52;
+      return `1 covers ${fmt(years, years >= 10 ? 0 : 1)} years`;
+    }
+
+    function compute() {
+      const q = Math.max(0, +$('queries').value || 0);
+      const h = Math.max(0, +$('hours').value   || 0);
+      const i = Math.max(0, +$('images').value  || 0);
+
+      const co2    = q * COSTS.query.co2    + h * COSTS.hour.co2    + i * COSTS.image.co2;
+      const water  = q * COSTS.query.water  + h * COSTS.hour.water  + i * COSTS.image.water;
+      const energy = q * COSTS.query.energy + h * COSTS.hour.energy + i * COSTS.image.energy;
+
+      $('co2').textContent    = fmt(co2);
+      $('water').textContent  = fmt(water, water < 10 ? 1 : 0);
+      $('energy').textContent = fmt(energy);
+
+      const annualKgCO2 = (co2 * 52) / 1000;
+      $('annualHint').textContent = co2 > 0
+        ? `≈ ${fmt(annualKgCO2, 1)} kg CO₂e / year, ${fmt(water * 52)} L water, ${fmt(energy * 52 / 1000, 1)} kWh — at this weekly pace.`
+        : '';
+
+      const grid = $('offsetsGrid');
+      grid.innerHTML = '';
+      OFFSETS.forEach(o => {
+        const count = co2 / o.per;
+        const card = document.createElement('div');
+        card.className = 'card bg-white rounded-2xl p-4 md:p-5 border border-stone-100 shadow-sm flex flex-col gap-2';
+        card.innerHTML = `
+          <div class="text-3xl md:text-4xl">${o.icon}</div>
+          <div class="text-[10px] md:text-[11px] font-black text-stone-500 uppercase tracking-[0.12em] leading-tight">${o.label}</div>
+          <div class="text-2xl md:text-3xl font-black text-stone-900 mono">${formatCount(count)}</div>
+          <div class="text-[10px] text-stone-400 uppercase tracking-wider">${o.unit}</div>
+          <div class="text-[10px] text-amber-700/80 mt-auto pt-1 border-t border-stone-100">${inverseHint(o.per, co2)}</div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    ['queries', 'hours', 'images'].forEach(id => {
+      $(id).addEventListener('input', compute);
+    });
+
+    compute();
+  </script>
+</body>
+</html>
