@@ -44,10 +44,12 @@
           "title": "Bias in Vibe Coding",
           "shortDescription": "Probe several vibe coding tools for biased defaults — whose UI patterns, stock images, names, and example data show up when you don't specify?",
           "readings": [
-            { "role": "primary", "cite": "Hao, K. 2019. This is how AI bias really happens — and why it's so hard to fix. MIT Technology Review.", "url": "https://www.technologyreview.com/2019/02/04/137602/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/", "tag": "proposed" },
+            { "role": "primary", "cite": "Shin, S. et al. 2026. Interrogating Design Homogenization in Web Vibe Coding.", "url": "https://arxiv.org/abs/2603.13036", "tag": "provided" },
+            { "role": "reference", "cite": "Who Controls the Conversation? User Perspectives on Generative AI (LLM) System Prompts. CHI '26.", "url": "https://doi.org/10.1145/3772318.3791726", "tag": "provided" },
+            { "role": "reference", "cite": "Neumann, A. et al. 2025. Position is Power: System Prompts as a Mechanism of Bias in Large Language Models. FAccT '25.", "url": "https://doi.org/10.1145/3715275.3732038", "tag": "provided" },
+            { "role": "reference", "cite": "Hao, K. 2019. This is how AI bias really happens — and why it's so hard to fix. MIT Technology Review.", "url": "https://www.technologyreview.com/2019/02/04/137602/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/", "tag": "proposed" },
             { "role": "optional", "cite": "Buolamwini, J., Gebru, T. 2018. Gender Shades (project site + short video).", "url": "http://gendershades.org/", "tag": "proposed" },
-            { "role": "optional", "cite": "Angwin, J. et al. 2016. Machine Bias. ProPublica.", "url": "https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing", "tag": "proposed" },
-            { "role": "optional", "cite": "Eleftheriou, E. et al. 2026. Confidence without competence in AI-assisted knowledge work. CHIWORK '26.", "url": "https://arxiv.org/abs/2604.09444", "tag": "provided" }
+            { "role": "optional", "cite": "Angwin, J. et al. 2016. Machine Bias. ProPublica.", "url": "https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing", "tag": "proposed" }
           ]
         }
       ]

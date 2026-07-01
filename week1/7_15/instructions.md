@@ -143,10 +143,12 @@ This activity produces **several outputs** — save each as its own file in `cod
 
 ## 📖 Reading
 
-- **Primary** 🟡 — [Hao, K. 2019. This is how AI bias really happens — and why it's so hard to fix. MIT Technology Review.](https://www.technologyreview.com/2019/02/04/137602/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/)
+- **Primary** 🟢 — [Shin, S. et al. 2026. Interrogating Design Homogenization in Web Vibe Coding.](https://arxiv.org/abs/2603.13036)
+- **Reference** 🟢 — [Who Controls the Conversation? User Perspectives on Generative AI (LLM) System Prompts. CHI '26.](https://doi.org/10.1145/3772318.3791726)
+- **Reference** 🟢 — [Neumann, A. et al. 2025. Position is Power: System Prompts as a Mechanism of Bias in Large Language Models. FAccT '25.](https://doi.org/10.1145/3715275.3732038)
+- **Reference** 🟡 — [Hao, K. 2019. This is how AI bias really happens — and why it's so hard to fix. MIT Technology Review.](https://www.technologyreview.com/2019/02/04/137602/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/)
 - **Optional** 🟡 — [Buolamwini, J., Gebru, T. 2018. Gender Shades (project site + short video).](http://gendershades.org/)
 - **Optional** 🟡 — [Angwin, J. et al. 2016. Machine Bias. ProPublica.](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
-- **Optional** 🟢 — [Eleftheriou, E. et al. 2026. Confidence without competence in AI-assisted knowledge work. CHIWORK '26.](https://arxiv.org/abs/2604.09444)
 
 **Full course reading list:** [Course readings — all sessions](https://vibe-coding-ethics.tech.cornell.edu/instructions.html?file=planning/readings.md&title=Course%20Readings)
 <!-- READINGS:END -->
