@@ -1,13 +1,11 @@
 ## Pre-Class Setup
 
 ### Tooling Preparation
-- Bring the project you want to test with real users.
-- Be ready to watch someone else use your interface without interrupting them.
-- Save notes, screenshots, or recordings of the session.
+- Bring the project you want to test (your Project 2, or the latest version you have).
+- Be ready to watch someone use your interface **without helping them**.
+- Have a way to capture notes, screenshots, or a screen recording.
 
 ### Folder Structure
-Use this structure for your deliverables:
-
 ```text
 week3/7_27/
 ├── code_deliverable/
@@ -17,46 +15,49 @@ week3/7_27/
 
 ---
 
-## Understanding Users
+## User-Centered Evaluation (Half 1)
 
-**Project: Learn from real people.** Today you will run live user evaluation on your project and use what you learn to improve it.
+Today half the class tests; half acts as users. You watch real people use your
+project and learn where your assumptions were wrong. The rule that makes this work:
+**when they get stuck, stay silent.** A test where you rescue the user teaches you nothing.
 
-### The Task
-Test your work with at least 2 classmates or other users.
+### Roles
+- **Testers (Group A):** set up a task and observe. No hints, no "you just click there."
+- **Users (Group B):** think aloud as you go — say what you expect before you click.
+- You'll switch roles tomorrow (7/28), so both groups test and get tested.
 
-1. Give them a small task to complete with your project.
-2. Observe where they hesitate, misunderstand, or get stuck.
-3. Record what they expected versus what actually happened.
-4. Make at least one concrete improvement based on the feedback.
+### Run the test
+1. **Write one task** the user should accomplish (e.g. *"Sign up and log your first entry"*). Give them the task, not instructions.
+2. **Watch and record** where they hesitate, misread a label, or do something you didn't expect. Capture what they *expected* vs. what happened:
 
-If you do not have a finished project yet, test a prototype or the most recent version you have.
+   | # | Task step | What the user did | Where they got stuck | Your read |
+   | :- | :--- | :--- | :--- | :--- |
 
-### Submission: The Vibe Report
-Document the session in `vibe-report.md`.
+3. **Score against Nielsen's heuristics** (see reading). For each breakdown, name the heuristic it violates — e.g. *visibility of system status*, *match with the real world*, *error prevention*.
+4. **Optional quick metric:** have users rate the experience with a short [UEQ](https://www.ueq-online.org/) scale for a number you can compare tomorrow.
+5. **Make one concrete change** based on what you saw, and commit it.
 
-Your report should include:
-1. Who you tested with and what tasks they attempted.
-2. What confusion or friction you observed.
-3. What changes you made after the session.
-4. What user-centered design means in the context of your project.
-5. A link to your `log_deliverable/history.md` or other trace.
-6. The course authenticity statement.
+> **User-centered vs. humanity-centered:** as you watch, ask not only *"can they use it?"* but *"is this what this person actually needs?"* — the gap between the two is the week's theme.
+
+## Submission: The Vibe Report
+Document the session in `vibe-report.md`:
+1. Who tested it and the task you gave them.
+2. Your observation table — the breakdowns you saw.
+3. The Nielsen heuristic each breakdown violated.
+4. The change you made in response (link the commit if you can).
+5. What "user-centered design" concretely meant for your project.
+6. A link to your AI usage trace, and the course authenticity statement.
 
 ### Deliverables
-- `code_deliverable/` with the revised project
-- `log_deliverable/` with notes, transcripts, or screenshots
-- `vibe-report.md` with your reflection and trace
+- `code_deliverable/` — the revised project
+- `log_deliverable/` — observation notes, transcripts, or screenshots
+- `vibe-report.md` — reflection and trace
 
 ### Canvas Submission
-When you submit on Canvas, upload a zip of the entire `week3/7_27/` folder and copy and paste the link to your deployed project.
-
-The zip upload is the only file submission we need on Canvas. We will review the corresponding GitHub commit history for your work, and we will use the commit state that matches the time you submit the link.
-
-If you submit late, only commits made up to the time you submit the Canvas link will count toward the graded submission. Any commits pushed after that submission time will not be included, even if they are in the zip you upload later.
-
----
-
-*The point is not to defend your first idea. The point is to learn from how people actually use it.*
+Upload a zip of the entire `week3/7_27/` folder and paste the link to your deployed
+project. The zip is the only file submission needed; we review the matching GitHub
+commit history at your submission time. Commits pushed after you submit the Canvas
+link don't count.
 
 
 <!-- READINGS:START (generated by scripts/sync_readings.py — edit activities-manifest.json instead) -->

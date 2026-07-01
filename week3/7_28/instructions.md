@@ -1,13 +1,11 @@
 ## Pre-Class Setup
 
 ### Tooling Preparation
-- Continue from the project and feedback you worked on in Week 3 Day 1.
-- Bring whatever notes or user-test findings you collected yesterday.
+- Continue from the project and feedback from Week 3 Day 1.
+- Bring the notes and user-test findings you collected yesterday.
 - Keep your project easy to run so you can compare versions quickly.
 
 ### Folder Structure
-Use this structure for your deliverables:
-
 ```text
 week3/7_28/
 ├── code_deliverable/
@@ -17,46 +15,48 @@ week3/7_28/
 
 ---
 
-## Validation and Testing
+## Values at Play — Full Canvas + Evaluation Switch
 
-**Project: Check whether the design actually works.** Today you will run a second round of testing and judge whether the project supports the value or user need you intended.
+Two things today. First, groups **switch roles** from yesterday so everyone both
+tests and gets tested. Second, you run the **Values at Play discovery canvas** on your
+final project to surface the values you're building in — including the ones you didn't
+choose on purpose. The question shifts from *"does it work?"* to *"does it do the right thing?"*
 
-### The Task
-Switch roles or test conditions so you can compare your earlier feedback with a new round of evaluation.
+### Part 1 — Evaluation switch (roles reversed)
+Yesterday's users now test; yesterday's testers now use.
+1. Run a **second round** with new users or a new scenario.
+2. Compare against yesterday's findings — did your Day-1 fix actually help, or move the problem?
+3. Decide: is the project merely **usable**, or actually **effective** at serving its intended value?
 
-1. Run the project through a second set of users or a new test scenario.
-2. Compare this round against the Week 3 Day 1 feedback.
-3. Decide whether the project is merely usable or actually effective at supporting the intended value.
-4. Make a final revision based on what you learned.
+### Part 2 — Values at Play discovery canvas
+Work the [VAP canvas](https://pitechethics.github.io/) on your final project:
+- **Values:** list the values your project embeds (e.g. privacy, autonomy, fairness, accessibility, sustainability). Which did you choose deliberately? Which arrived by default from the tool or a template?
+- **Stakeholders:** who is affected — including people who never use it directly?
+- **Conflicts:** where do two values collide (e.g. personalization vs. privacy)? How did you resolve it, and who loses?
+- **Gaps:** which value did you *claim* to serve but the user test showed you don't?
 
-This is the day to ask whether the project does the right thing, not just whether it works.
+### Part 3 — Final revision
+Make one change that either resolves a value conflict or closes a gap the test exposed.
+Commit it.
 
-### Submission: The Vibe Report
-Document the validation step in `vibe-report.md`.
-
-Your report should include:
-1. The test setup for the second round.
-2. What changed from the first round of feedback.
-3. Whether the project achieved its intended value.
-4. What you would improve with more time.
-5. A link to your `log_deliverable/history.md` or other trace.
-6. The course authenticity statement.
+## Submission: The Vibe Report
+Document the validation in `vibe-report.md`:
+1. The second-round test setup and what changed from Round 1.
+2. Usable vs. effective: did the project achieve its intended value? Evidence, not opinion.
+3. Your VAP canvas: values (chosen vs. default), stakeholders, conflicts, and gaps.
+4. The final change you made and why.
+5. A link to your AI usage trace, and the course authenticity statement.
 
 ### Deliverables
-- `code_deliverable/` with the final revised project
-- `log_deliverable/` with notes, transcripts, or screenshots
-- `vibe-report.md` with your reflection and trace
+- `code_deliverable/` — the final revised project
+- `log_deliverable/` — notes, transcripts, or screenshots
+- `vibe-report.md` — reflection, VAP canvas, and trace
 
 ### Canvas Submission
-When you submit on Canvas, upload a zip of the entire `week3/7_28/` folder and copy and paste the link to your deployed project.
-
-The zip upload is the only file submission we need on Canvas. We will review the corresponding GitHub commit history for your work, and we will use the commit state that matches the time you submit the link.
-
-If you submit late, only commits made up to the time you submit the Canvas link will count toward the graded submission. Any commits pushed after that submission time will not be included, even if they are in the zip you upload later.
-
----
-
-*A project is only successful if it survives testing with real people and real goals.*
+Upload a zip of the entire `week3/7_28/` folder and paste the link to your deployed
+project. The zip is the only file submission needed; we review the matching GitHub
+commit history at your submission time. Commits pushed after you submit the Canvas
+link don't count.
 
 
 <!-- READINGS:START (generated by scripts/sync_readings.py — edit activities-manifest.json instead) -->
