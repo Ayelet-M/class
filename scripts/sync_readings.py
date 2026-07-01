@@ -97,7 +97,10 @@ def build_instructions_block(act, rel_readings_path):
     for r in readings:
         lines.append(reading_line(r))
     lines.append("")
-    lines.append(f"**Full course reading list:** [readings.md]({rel_readings_path})")
+    lines.append("**Full course reading list:** "
+                 "[Course readings — all sessions]"
+                 "(https://vibe-coding-ethics.tech.cornell.edu/instructions.html"
+                 "?file=planning/readings.md&title=Course%20Readings)")
     lines.append(END)
     return "\n".join(lines)
 

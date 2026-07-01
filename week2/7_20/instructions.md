@@ -153,5 +153,5 @@ Upload a zip of `week2/7_20/` and paste the deployed URL into Canvas. The graded
 - **Optional** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Ch. 1: Groundwork for Values in Games.](https://drive.google.com/file/d/14fTIg05HNcARYP5JrEJ87KC29D2QAgqM/view?usp=drive_link)
 - **Optional** 🟢 — [Karpus, J. et al. 2021. Algorithm exploitation: Humans are keen to exploit benevolent AI. iScience 24(6).](https://doi.org/10.1016/j.isci.2021.102679)
 
-**Full course reading list:** [readings.md](../../planning/readings.md)
+**Full course reading list:** [Course readings — all sessions](https://vibe-coding-ethics.tech.cornell.edu/instructions.html?file=planning/readings.md&title=Course%20Readings)
 <!-- READINGS:END -->

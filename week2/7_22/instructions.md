@@ -68,5 +68,5 @@ If you submit late, only commits made up to the time you submit the Canvas link 
 - **Primary** 🟢 — [Brunton, F., Nissenbaum, H. 2015. Obfuscation: A User's Guide for Privacy and Protest. MIT Press — Ch. 1.](https://direct.mit.edu/books/book/3112/ObfuscationA-User-s-Guide-for-Privacy-and-Protest)
 - **Pair** 🟢 — [Franchi, M., Sandhaus, H. et al. 2025. Privacy of Groups in Dense Street Imagery. FAccT '25.](https://doi.org/10.1145/3715275.3732185)
 
-**Full course reading list:** [readings.md](../../planning/readings.md)
+**Full course reading list:** [Course readings — all sessions](https://vibe-coding-ethics.tech.cornell.edu/instructions.html?file=planning/readings.md&title=Course%20Readings)
 <!-- READINGS:END -->

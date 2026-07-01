@@ -68,5 +68,5 @@ link don't count.
 - **Reference** 🔵 — [PIT Tech Ethics — Values at Play workshop.](https://pitechethics.github.io/)
 - **Optional** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — full digital book.](https://drive.google.com/drive/folders/1qZ8x8MXbJaex-7LnnrBUVR0_H87oBz24?usp=share_link)
 
-**Full course reading list:** [readings.md](../../planning/readings.md)
+**Full course reading list:** [Course readings — all sessions](https://vibe-coding-ethics.tech.cornell.edu/instructions.html?file=planning/readings.md&title=Course%20Readings)
 <!-- READINGS:END -->

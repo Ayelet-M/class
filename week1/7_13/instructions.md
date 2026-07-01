@@ -116,5 +116,5 @@ You must include the Authenticity Statement from the template:
 - **Optional** 🟢 — [Sandhaus, H., Gu, Q., Parreira, M.T., Ju, W. 2025. Co-Designing with Transformers: GenAI in Interactive System Design Education. DIS '25.](https://arxiv.org/abs/2410.14048)
 - **Optional** 🟢 — [Xia, Q. et al. 2026. "If you're very clever, no one knows you've used it": Social dynamics of GenAI literacy in the workplace. CHIWORK '26.](https://arxiv.org/abs/2602.01386)
 
-**Full course reading list:** [readings.md](../../planning/readings.md)
+**Full course reading list:** [Course readings — all sessions](https://vibe-coding-ethics.tech.cornell.edu/instructions.html?file=planning/readings.md&title=Course%20Readings)
 <!-- READINGS:END -->

@@ -84,5 +84,5 @@ Canvas link don't count.
 - **Pair** 🟢 — [Sandhaus, H. 2023. Promoting Bright Patterns. CHI '23 Workshop (the constructive counterpoint).](https://arxiv.org/abs/2304.01157)
 - **Optional** 🟢 — [Bright Patterns: Strategies Towards A More Conscious Use Of Our Phones. 2025. Utrecht Univ. thesis.](https://studenttheses.uu.nl/handle/20.500.12932/50311)
 
-**Full course reading list:** [readings.md](../../planning/readings.md)
+**Full course reading list:** [Course readings — all sessions](https://vibe-coding-ethics.tech.cornell.edu/instructions.html?file=planning/readings.md&title=Course%20Readings)
 <!-- READINGS:END -->
