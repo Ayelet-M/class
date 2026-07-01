@@ -45,7 +45,7 @@
           "shortDescription": "Probe several vibe coding tools for biased defaults — whose UI patterns, stock images, names, and example data show up when you don't specify?",
           "readings": [
             { "role": "primary", "cite": "Hao, K. 2019. This is how AI bias really happens — and why it's so hard to fix. MIT Technology Review.", "url": "https://www.technologyreview.com/2019/02/04/137602/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/", "tag": "proposed" },
-            { "role": "primary", "cite": "Buolamwini, J., Gebru, T. 2018. Gender Shades (project site + short video).", "url": "http://gendershades.org/", "tag": "proposed" },
+            { "role": "optional", "cite": "Buolamwini, J., Gebru, T. 2018. Gender Shades (project site + short video).", "url": "http://gendershades.org/", "tag": "proposed" },
             { "role": "optional", "cite": "Angwin, J. et al. 2016. Machine Bias. ProPublica.", "url": "https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing", "tag": "proposed" },
             { "role": "optional", "cite": "Eleftheriou, E. et al. 2026. Confidence without competence in AI-assisted knowledge work. CHIWORK '26.", "url": "", "tag": "provided" }
           ]

@@ -151,7 +151,7 @@ If you submit late, only commits made up to the time you submit the Canvas link 
 ## 📖 Reading
 
 - **Primary** 🟡 — [Hao, K. 2019. This is how AI bias really happens — and why it's so hard to fix. MIT Technology Review.](https://www.technologyreview.com/2019/02/04/137602/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/)
-- **Primary** 🟡 — [Buolamwini, J., Gebru, T. 2018. Gender Shades (project site + short video).](http://gendershades.org/)
+- **Optional** 🟡 — [Buolamwini, J., Gebru, T. 2018. Gender Shades (project site + short video).](http://gendershades.org/)
 - **Optional** 🟡 — [Angwin, J. et al. 2016. Machine Bias. ProPublica.](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
 - **Optional** 🟢 — Eleftheriou, E. et al. 2026. Confidence without competence in AI-assisted knowledge work. CHIWORK '26.
 
