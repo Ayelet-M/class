@@ -93,7 +93,7 @@ def build_instructions_block(act, rel_readings_path):
     for r in readings:
         lines.append(reading_line(r))
     lines.append("")
-    lines.append(f"_Full course reading list: [readings.md]({rel_readings_path})._")
+    lines.append(f"**Full course reading list:** [readings.md]({rel_readings_path})")
     lines.append(END)
     return "\n".join(lines)
 

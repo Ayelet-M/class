@@ -133,5 +133,5 @@ link don't count.
 - **Reference** 🟡 — [Anthropic. Prompt engineering overview.](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
 - **Optional** 🟢 — Arun, S.K., Fischer, J.E. 2026. Encouraging thought before completion: task-specific selective friction in AI-assisted knowledge work. CHIWORK '26.
 
-_Full course reading list: [readings.md](../../planning/readings.md)._
+**Full course reading list:** [readings.md](../../planning/readings.md)
 <!-- READINGS:END -->

@@ -68,5 +68,5 @@ link don't count.
 - **Reference** 🟢 — [UEQ — User Experience Questionnaire (evaluation instrument).](https://www.ueq-online.org/)
 - **Optional** 🟢 — Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW).
 
-_Full course reading list: [readings.md](../../planning/readings.md)._
+**Full course reading list:** [readings.md](../../planning/readings.md)
 <!-- READINGS:END -->

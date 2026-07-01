@@ -155,5 +155,5 @@ If you submit late, only commits made up to the time you submit the Canvas link 
 - **Optional** 🟡 — [Angwin, J. et al. 2016. Machine Bias. ProPublica.](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
 - **Optional** 🟢 — Eleftheriou, E. et al. 2026. Confidence without competence in AI-assisted knowledge work. CHIWORK '26.
 
-_Full course reading list: [readings.md](../../planning/readings.md)._
+**Full course reading list:** [readings.md](../../planning/readings.md)
 <!-- READINGS:END -->

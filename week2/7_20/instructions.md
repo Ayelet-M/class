@@ -153,5 +153,5 @@ Upload a zip of `week2/7_20/` and paste the deployed URL into Canvas. The graded
 - **Optional** 🔵 — Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — intro chapter (course textbook).
 - **Optional** 🟢 — [Karpus, J. et al. 2021. Algorithm exploitation: Humans are keen to exploit benevolent AI. iScience 24(6).](https://doi.org/10.1016/j.isci.2021.102679)
 
-_Full course reading list: [readings.md](../../planning/readings.md)._
+**Full course reading list:** [readings.md](../../planning/readings.md)
 <!-- READINGS:END -->

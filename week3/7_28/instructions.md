@@ -66,5 +66,5 @@ link don't count.
 - **Primary** 🔵 — Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — the Values-at-Play method chapter (course textbook).
 - **Reference** 🔵 — [PIT Tech Ethics — Values at Play workshop.](https://pitechethics.github.io/)
 
-_Full course reading list: [readings.md](../../planning/readings.md)._
+**Full course reading list:** [readings.md](../../planning/readings.md)
 <!-- READINGS:END -->
