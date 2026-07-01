@@ -196,12 +196,9 @@
         }
 
         .activity-readings {
-            margin-top: 2px;
+            margin-top: 6px;
             padding-top: 8px;
             border-top: 1px dashed var(--rule-paper);
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
         }
 
         .readings-label {
@@ -211,26 +208,26 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--ink-soft);
-            margin-bottom: 2px;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
         }
+
+        .readings-label::-webkit-details-marker { display: none; }
+        .readings-label::after { content: '▾'; margin-left: auto; font-size: 0.7rem; transition: transform 0.2s ease; }
+        .activity-readings[open] .readings-label::after { transform: rotate(180deg); }
+        .activity-readings[open] .readings-label { margin-bottom: 6px; }
 
         .reading-item {
             font-size: 0.78rem;
             line-height: 1.35;
             color: var(--ink-soft);
+            margin-top: 3px;
         }
 
-        .reading-item .role {
-            font-weight: 700;
-            color: var(--ink);
-        }
-
-        .reading-item a {
-            color: var(--ink);
-            text-decoration: none;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-        }
-
+        .reading-item .role { font-weight: 700; color: var(--ink); }
+        .reading-item a { color: var(--ink); text-decoration: none; border-bottom: 1px solid rgba(0, 0, 0, 0.25); }
         .reading-item a:hover { border-color: var(--ink); }
 
         .actions {
@@ -473,22 +470,21 @@
 
         function buildReadings(readings) {
             if (!Array.isArray(readings) || readings.length === 0) return null;
-            const wrap = el('div', { class: 'activity-readings' }, [
-                el('div', { class: 'readings-label', text: 'Reading' }),
-            ]);
-            [...readings]
-                .sort((a, b) => (ROLE_RANK[a.role] ?? 9) - (ROLE_RANK[b.role] ?? 9))
-                .forEach(r => {
-                    const item = el('div', { class: 'reading-item' });
-                    item.appendChild(el('span', { class: 'role', text: (ROLE_LABEL[r.role] || 'Reading') + ': ' }));
-                    if (r.url) {
-                        item.appendChild(el('a', { href: r.url, target: '_blank', rel: 'noopener noreferrer', text: r.cite }));
-                    } else {
-                        item.appendChild(document.createTextNode(r.cite));
-                    }
-                    wrap.appendChild(item);
-                });
-            return wrap;
+            const sorted = [...readings].sort((a, b) => (ROLE_RANK[a.role] ?? 9) - (ROLE_RANK[b.role] ?? 9));
+            const details = el('details', { class: 'activity-readings' });
+            const summary = el('summary', { class: 'readings-label', text: `Reading (${sorted.length})` });
+            details.appendChild(summary);
+            sorted.forEach(r => {
+                const item = el('div', { class: 'reading-item' });
+                item.appendChild(el('span', { class: 'role', text: (ROLE_LABEL[r.role] || 'Reading') + ': ' }));
+                if (r.url) {
+                    item.appendChild(el('a', { href: r.url, target: '_blank', rel: 'noopener noreferrer', text: r.cite }));
+                } else {
+                    item.appendChild(document.createTextNode(r.cite));
+                }
+                details.appendChild(item);
+            });
+            return details;
         }
 
         function buildActivityCard(weekId, activity) {
