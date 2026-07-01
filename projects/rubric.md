@@ -29,4 +29,4 @@ The daily activities use a different rubric ([activity_rubric.md](../planning/ac
 ## Notes
 
 - **Team grade with individual accountability.** A visibly one-sided prompt log or git history can move an individual's grade.
-- **Late policy:** commits after your Canvas submission time don't count — see the per-project `instructions.md`.
+- **Late policy:** commits after the deadline don't count — see each project's `deadline.json` and `instructions.md`.

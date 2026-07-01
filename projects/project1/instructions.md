@@ -32,7 +32,5 @@ Graded against the [Project Rubric](../rubric.md).
 - **Static (HTML/CSS/JS):** GitHub Pages — repo *Settings → Pages → main branch*.
 - **Framework (React/Vue/Next):** Vercel — connect the team repo for auto-deploy.
 
-## Submit (Canvas)
-Upload a zip of the entire `projects/project1/` folder and paste your live link.
-We review the team repo's commit history at your submission time. **Commits pushed
-after you submit the Canvas link do not count**, even if they're in a later zip.
+## Submit
+Your team repo **is** your submission — nothing to upload. Commit and push your `projects/project1/` folder; host via GitHub Pages (static) or Vercel (frameworks) and put the live link in your report. We grade from the team repo's commit history and your live link, so push before the deadline in `deadline.json` — the last commit before it is what counts.
