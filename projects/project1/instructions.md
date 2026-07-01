@@ -36,6 +36,3 @@ Graded against the [Project Rubric](../rubric.md).
 Upload a zip of the entire `projects/project1/` folder and paste your live link.
 We review the team repo's commit history at your submission time. **Commits pushed
 after you submit the Canvas link do not count**, even if they're in a later zip.
-
----
-*This class is about the process. A finished-but-simple app with an honest, well-documented build beats an ambitious broken one.*

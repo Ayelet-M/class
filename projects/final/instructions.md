@@ -39,6 +39,3 @@ Each team shows, in a tight slot:
 GitHub Pages (static) or Vercel (frameworks). Upload a zip of `projects/final/` to
 Canvas with your live link before presentations. Bring the demo on the hosted link,
 not localhost — have a screen-recording backup in `presentation/` in case Wi-Fi fails.
-
----
-*"Benefits someone else, durably" is the whole assignment. Optimize for a real person who will still open your app next month.*

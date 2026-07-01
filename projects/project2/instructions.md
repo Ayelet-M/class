@@ -34,6 +34,3 @@ Graded against the [Project Rubric](../rubric.md).
 Same as Project 1: GitHub Pages (static) or Vercel (frameworks). Upload a zip of
 `projects/project2/` to Canvas with your live link. Commits after your submission
 time don't count.
-
----
-*Name the value out loud. A modest tool that clearly serves one value beats a feature pile that serves none.*
