@@ -1,0 +1,32 @@
+# Project Rubric
+
+Applies to **Project 1, Project 2, and the Final Project**. Mirrored from the
+[syllabus](../planning/syllabus.md); if the two ever disagree, the syllabus wins.
+The daily activities use a different rubric ([activity_rubric.md](../planning/activity_rubric.md)).
+
+| Component | Weight | What "Excellent" looks like |
+| :--- | :--- | :--- |
+| **Good Vibes — Concept & Planning** | 20% | Novel concept and real exploration of the design space. A convincing argument for *why* this should be built, with planning that came before the coding. |
+| **Good Code — Functionality & Execution** | 20% | The system works and is technically well executed. Hosted and runnable; not a placeholder or a broken demo. |
+| **Live Demo — User Testing** | 15% | You planned, ran, and documented an iterative test of the design and system **with real users** (classmates count), and used what you learned to understand the system's limits and broader impacts. |
+| **Deep Ethical Reflection** | 25% | Genuine engagement with the values, tensions, stakeholders, and harms your project touches. **AI writing is impermissible here except for grammar checking.** |
+| **Communication & Documentation** | 20% | Text, video, and photos that clearly show what the system does and document the plan and process. A reader who never saw the demo understands it. |
+
+## Required deliverables (all projects)
+
+1. **Hosted app** — live link, source under `code_deliverable/`.
+2. **AI interaction log** — `log_deliverable/history.md` via the Vibe-Trace rule.
+3. **Project report** — `project-report.md` (from [project-report-template.md](project-report-template.md)), including the ethical reflection (human-written).
+
+## Additional for Project 2 & Final
+
+4. **User-test writeup** — `user-test.md` (from [user-test-template.md](user-test-template.md)). Project 2 is user-tested during Week 3; the Final Project needs its own round.
+
+## Additional for the Final Project
+
+5. **Presentation** — slides and/or a demo video in `final/presentation/`, presented Thu Jul 30. Graded as its own 15% (Final Presentation) on top of the 25% project grade.
+
+## Notes
+
+- **Team grade with individual accountability.** A visibly one-sided prompt log or git history can move an individual's grade.
+- **Late policy:** commits after your Canvas submission time don't count — see the per-project `instructions.md`.

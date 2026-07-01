@@ -316,6 +316,7 @@
             const params = new URLSearchParams(window.location.search);
             const week = params.get('week');
             const project = params.get('project');
+            const file = params.get('file');
             const docKey = params.get('doc') || 'instructions';
             const profile = DOC_PROFILES[docKey] || DOC_PROFILES.instructions;
 
@@ -323,6 +324,23 @@
             const meta = document.getElementById('projectMeta');
             const titleEl = document.getElementById('docTitle');
             const noticeEl = document.getElementById('roleNotice');
+
+            // Generic mode: render any markdown file passed via ?file=path (&title=...)
+            if (file) {
+                const safeFile = file.replace(/^\/+/, '').replace(/\.\.(\/|\\)/g, '');
+                const pageTitle = params.get('title') || safeFile.split('/').pop();
+                titleEl.textContent = pageTitle;
+                noticeEl.innerHTML = `This page renders <strong>${escapeHtml(safeFile)}</strong>.`;
+                document.title = `${pageTitle} — Vibe Coding`;
+                meta.textContent = safeFile;
+                try {
+                    const { markdown } = await fetchFirstAvailable([`./${safeFile}`]);
+                    content.innerHTML = `${renderMarkdown(markdown)}<a class="back-link" href="./index.html">← Back to activities</a>`;
+                } catch (error) {
+                    content.innerHTML = `<div class="error">${escapeHtml(error.message)}</div><a class="back-link" href="./index.html">← Back to activities</a>`;
+                }
+                return;
+            }
 
             titleEl.textContent = profile.title;
             noticeEl.innerHTML = profile.notice;
