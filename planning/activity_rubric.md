@@ -26,7 +26,3 @@ Every in-class activity submission must include:
 - Activities with no submission receive 0; partial submissions are graded against `Completion` only.
 - The 20% bucket is the unweighted average of all activity scores across the three weeks.
 - Late submissions: see course late policy.
-
-## Notes for Activity Authors
-
-When writing an `instructions.md` for a new activity, only override the rubric if you have a specific reason (e.g., a paired group activity where AI-use documentation is replaced by group-process notes). Otherwise, point students at this file.

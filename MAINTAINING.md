@@ -62,6 +62,13 @@ changes, and rebuild.
   the deploy serves their committed built output as-is. If you replace an example
   with a framework app, either pre-build it to static or re-add `package.json` and
   confirm it builds *and* uses relative asset paths.
+- **Activity rubric:** one rubric applies to every activity
+  (`planning/activity_rubric.md`). Only override it in an activity's `instructions.md`
+  for a specific reason (e.g. a paired group activity where AI-use documentation is
+  replaced by group-process notes).
+- **Keep maintainer notes out of rendered files.** `planning/*.md` render publicly via
+  the reader — don't put internal workflow notes in the syllabus, rubric, or activity
+  briefs; they belong here.
 
 ## Deliverables / grading model
 
