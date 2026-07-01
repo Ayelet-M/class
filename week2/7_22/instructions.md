@@ -33,6 +33,18 @@ Advanced AI scrapers (like OpenAIbot or Google-Extended) often use headless brow
 > [!TIP]
 > See the full walkthrough and code snippets in the [Example Project](examples/activity1_obfuscation-example/README.md).
 
+### Or pick another "AI against AI" angle
+Scraper-poisoning is the guided example, but the theme is broader — defending humans from
+AI harms *using* AI/code. You may instead build one of these:
+- **Style cloaking for images:** a page that explains and demos Glaze/Nightshade-style perturbation so your art resists being trained on (conceptual demo is fine).
+- **Privacy noise (TrackMeNot-style):** a tool that floods a profile or search with plausible fake activity to bury the real signal.
+- **Anti-surveillance patterns:** prototype a page demonstrating how adversarial patterns defeat face detection — and discuss the arms race.
+- **Block the bots properly:** `robots.txt` + `<meta name="robots">` + per-bot rules (GPTBot, Google-Extended, CCBot); verify each with `curl -A "GPTBot"`.
+- **AI-vs-AI detector:** a small tool that flags likely AI-generated text or images and explains its tells.
+- **Automation-surveillance pushback:** inspired by [workers using AI against workplace monitoring](https://officechai.com/ai/chinas-workers-are-weaponizing-ai-against-each-other-through-colleague-skill-files-and-fighting-back/) — prototype something that protects a worker's autonomy.
+
+Whatever you pick, keep the ethical question in view: **defense vs. deception**, and who your technique could harm as well as protect.
+
 ---
 
 ## Submission: The Vibe Report

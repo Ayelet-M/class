@@ -22,23 +22,31 @@
         right: '20px',
         bottom: '20px',
         zIndex: '9999',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        color: 'white',
+        background: '#0e101a',
+        color: '#00ff41',
         textDecoration: 'none',
         fontWeight: '700',
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-        padding: '10px 16px',
+        fontSize: '13px',
+        letterSpacing: '0.04em',
+        textTransform: 'uppercase',
+        fontFamily: "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+        padding: '10px 18px',
         borderRadius: '999px',
-        boxShadow: '0 10px 24px rgba(102, 126, 234, 0.4)',
-        border: '1px solid rgba(255, 255, 255, 0.3)'
+        boxShadow: '0 8px 24px rgba(0, 255, 65, 0.25)',
+        border: '1px solid rgba(0, 255, 65, 0.4)',
+        transition: 'all 0.2s ease'
     });
 
     button.addEventListener('mouseenter', () => {
-        button.style.filter = 'brightness(1.05)';
+        button.style.background = '#00ff41';
+        button.style.color = '#05170a';
+        button.style.borderColor = '#00ff41';
     });
 
     button.addEventListener('mouseleave', () => {
-        button.style.filter = 'none';
+        button.style.background = '#0e101a';
+        button.style.color = '#00ff41';
+        button.style.borderColor = 'rgba(0, 255, 65, 0.4)';
     });
 
     document.body.appendChild(button);
