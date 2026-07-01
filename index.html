@@ -195,6 +195,44 @@
             line-height: 1.5;
         }
 
+        .activity-readings {
+            margin-top: 2px;
+            padding-top: 8px;
+            border-top: 1px dashed var(--rule-paper);
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .readings-label {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.62rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--ink-soft);
+            margin-bottom: 2px;
+        }
+
+        .reading-item {
+            font-size: 0.78rem;
+            line-height: 1.35;
+            color: var(--ink-soft);
+        }
+
+        .reading-item .role {
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .reading-item a {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+        }
+
+        .reading-item a:hover { border-color: var(--ink); }
+
         .actions {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -353,7 +391,10 @@
                 <img src="assets/T-Neon-Green.png" alt="Cornell T">
                 <span>TECHIE 1121 Ethical Vibe Coding <span class="term">· Cornell Tech 2026SU</span></span>
             </a>
-            <a class="top-link" href="https://cornell-tech-vibe-coding-summer-2026.github.io/website/" target="_blank" rel="noopener noreferrer">Course site →</a>
+            <span style="display:inline-flex;gap:10px;flex-wrap:wrap;">
+                <a class="top-link" href="projects/index.html">Group projects →</a>
+                <a class="top-link" href="https://cornell-tech-vibe-coding-summer-2026.github.io/website/" target="_blank" rel="noopener noreferrer">Course site →</a>
+            </span>
         </div>
 
         <h1 class="page-title">Individual Activities <span class="you" id="studentName"></span></h1>
@@ -427,6 +468,29 @@
             return node;
         }
 
+        const ROLE_LABEL = { primary: 'Primary', reference: 'Reference', pair: 'Pair', optional: 'Optional' };
+        const ROLE_RANK = { primary: 0, reference: 1, pair: 2, optional: 3 };
+
+        function buildReadings(readings) {
+            if (!Array.isArray(readings) || readings.length === 0) return null;
+            const wrap = el('div', { class: 'activity-readings' }, [
+                el('div', { class: 'readings-label', text: 'Reading' }),
+            ]);
+            [...readings]
+                .sort((a, b) => (ROLE_RANK[a.role] ?? 9) - (ROLE_RANK[b.role] ?? 9))
+                .forEach(r => {
+                    const item = el('div', { class: 'reading-item' });
+                    item.appendChild(el('span', { class: 'role', text: (ROLE_LABEL[r.role] || 'Reading') + ': ' }));
+                    if (r.url) {
+                        item.appendChild(el('a', { href: r.url, target: '_blank', rel: 'noopener noreferrer', text: r.cite }));
+                    } else {
+                        item.appendChild(document.createTextNode(r.cite));
+                    }
+                    wrap.appendChild(item);
+                });
+            return wrap;
+        }
+
         function buildActivityCard(weekId, activity) {
             const submissionHref = `${weekId}/${activity.folder}/code_deliverable/`;
             const instructionsHref = `instructions.html?week=${weekId}&project=${activity.folder}`;
@@ -436,6 +500,7 @@
                 el('div', { class: 'activity-meta', text: activity.date }),
                 el('div', { class: 'activity-title', text: activity.title }),
                 el('div', { class: 'activity-desc', text: activity.shortDescription }),
+                buildReadings(activity.readings),
                 (() => {
                     const actions = el('div', { class: 'actions' });
                     actions.appendChild(el('a', { class: 'action primary', href: submissionHref, text: 'Submission' }));

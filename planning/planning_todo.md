@@ -5,7 +5,10 @@ Internal planning notes for instructors. The student-facing syllabus lives in [s
 ## ToDo
 
 - [ ] Finalize reading list per session (only Tuesday Week 1 confirmed: *Why Johnny Can't Prompt*)
-- [ ] Confirm remaining guest speakers (Heonjun Park and Ria Gualano confirmed)
+- [ ] Confirm remaining guest speakers. Planned/confirmed:
+  - Heonjun Park — vibe coded [CityDogs](https://apps.apple.com/us/app/citydogs/id6761141597), a dog-meetup app on the App Store (W1 Tue, Prompt Engineering)
+  - Remy Stewart — data scientist at Figma AI (suggested W1 Wed, Bias in vibe coding)
+  - Ria Gualano — accessible technology (W2 Mon, accessibility); Jonathan also planning an accessibility speaker — confirm if same person
 - [ ] Slide decks: [Class Slides](https://docs.google.com/presentation/d/1kJovDXzbHG12Wt93PgF0VlkouO8Th9EJpe50vyaeVFc/edit?usp=drive_web&ouid=105453448070897359356)
 - [ ] Course website
   - Planning document copy on github: <https://github.com/Cornell-Tech-Vibe-Coding-Summer-2026/class/blob/main/planning/syllabus.md>

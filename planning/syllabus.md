@@ -118,11 +118,13 @@ Topics covered:
 * Ethics: Doing the right thing  
 * Outcomes: Designing systems that are useful and empowering
 
+> **Readings** are maintained in one place — [`planning/readings.md`](readings.md), generated from `activities-manifest.json`. Edit readings there and run `python3 scripts/sync_readings.py`; the website and each activity brief update automatically. Treat `readings.md` as canonical; the Reading column below may lag.
+
 | Theme | Weekday | Topic | Project/Activity | Speaker | Reading |
 | :---- | :---- | :---- | :---- | :---- | :---- |
 | Vibe Coding: Gaining Control | Week 1 Monday | What is vibe coding? | Activity: Build and submit a personal "about you" page (hosted on GitHub) on Canvas | TBD | TBD |
 |  | Week 1 Tuesday | Prompt Engineering | Activity: Test different prompts and compare outcomes | Heonjun Park — Cornell graduate lawyer who vibe coded [CityDogs](https://apps.apple.com/us/app/citydogs/id6761141597), a dog-meetup platform | [Why Johnny Can't Prompt (CHI 2023)](https://dl.acm.org/doi/10.1145/3544548.3581388) |
-|  | Week 1 Wednesday | Bias in vibe coding | Activity: Test different vibe coding tools and compare outcomes | TBD | TBD |
+|  | Week 1 Wednesday | Bias in vibe coding | Activity: Test different vibe coding tools and compare outcomes | Remy Stewart — data scientist at Figma AI | TBD |
 |  | Week 1 Thursday | Project Day | **Project 1:** Vibe code something you want or need | — | — |
 |  |  |  |  |  |  |
 | Ethics: Doing the right thing | Week 2 Monday | Values in Vibe Coding (Light) — AI as Moral Assistant | Activity: Lightweight discussion of what moral, ethical, and political values get embedded in the tools we use, then build a personal Vibe Coding Footprint Calculator (CO₂, energy, water from your last week of AI use, compared to meal references such as tofu vs. beef) | Ria Gualano — Cornell Communication PhD student working on accessible technology | TBD |

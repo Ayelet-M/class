@@ -19,6 +19,8 @@
 
 # Activity Outline
 
+> **Single source of truth:** activity titles, short descriptions, and readings live in `activities-manifest.json` (which drives the website). After editing it, run `python3 scripts/sync_readings.py` to refresh [`readings.md`](readings.md) and every activity `instructions.md`. Keep this table's Readings column in sync manually, or treat `readings.md` as canonical.
+
 | Theme | Weekday | Activity Title | Short Description | Readings | Detailed Description |
 | :---- | :---- | :---- | :---- | :---- | :---- |
 | Vibe Coding: Gaining Control | Week 1 Monday | **Personal Portfolio / About Me** | Set up Antigravity + GitHub and vibe code a hosted "about you" page — then debate whether copying a classmate's structure counts as plagiarism when an AI did the work. | [Example Portfolio](week1/activity1_example/index.html) | **Activity: Personal Portfolio / About Me.** Welcome to the course. Students will set up Antigravity and GitHub. <br><br> **Task:** Create an 'About Me' page. Must include: Who you are, hobbies, and a 'Professional' section. <br><br> **The Moral Twist:** We encourage 'stealing' or copying a fellow student's or the instructor's portfolio structure. Is it plagiarism if you vibe code it? Discuss attribution vs. inspiration. <br><br> **Deliverable:** Link to hosted GitHub Page and a Reflection in the vibe log. |
