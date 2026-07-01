@@ -1,56 +1,44 @@
+# User Testing II — Does It Do the Right Thing? (Values)
+
+Yesterday you tested whether people *can use* your project. Today you test the harder
+thing: whether it actually **does the right thing** — whether it delivers the value you
+claim, for the person you claim to serve. Then you iterate one last time before the final.
+
 ## Pre-Class Setup
+- Bring your final project **with yesterday's usability fixes**, plus the notes in your `user-test.md`.
+- Be ready for new rotations — you'll test other teams' projects again.
 
-### Tooling Preparation
-- Continue from the project and feedback from Week 3 Day 1.
-- Bring the notes and user-test findings you collected yesterday.
-- Keep your project easy to run so you can compare versions quickly.
+## Name the value (a light values check)
+No heavy framework today — just answer three questions as a team, one or two sentences
+each. (This is the lightweight version of the [Values at Play](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link) discovery idea.)
 
-### Folder Structure
-```text
-week3/7_28/
-├── code_deliverable/
-├── log_deliverable/
-└── vibe-report.md
-```
+1. **What value** does this project serve? (privacy · accessibility · sustainability · fairness · dignity · honesty · care …)
+2. **For whom** — who specifically benefits, and who might be excluded or harmed?
+3. **How would you know** it's working — what would a user *do* or *feel* if it delivers?
 
----
+## Test the value, not just the clicks
+Rotate testers between teams again. This round, the tester and observer probe the
+**value**, not usability:
+- Does the tool actually move the user toward the value? (Does the sustainability tool change a choice? Does the accessible design actually include *this* person?)
+- Ask the user: *did it feel like it was on your side?* Where did it nudge you somewhere you didn't want to go?
+- Note anyone it would exclude, mislead, or quietly harm — even people who never use it directly.
 
-## Values at Play — Full Canvas + Evaluation Switch
+> **Usable vs. right.** A project can be perfectly usable and still do the wrong thing. The gap between *"they could use it"* and *"it served them well"* is today's whole point.
 
-Two things today. First, groups **switch roles** from yesterday so everyone both
-tests and gets tested. Second, you run the **Values at Play discovery canvas** on your
-final project to surface the values you're building in — including the ones you didn't
-choose on purpose. The question shifts from *"does it work?"* to *"does it do the right thing?"*
+## Then iterate
+Find the biggest gap between what you **claim** and what testers **experienced**, and
+change the project to close it. Commit it. This is your last structured feedback before
+the final — spend it well.
 
-### Part 1 — Evaluation switch (roles reversed)
-Yesterday's users now test; yesterday's testers now use.
-1. Run a **second round** with new users or a new scenario.
-2. Compare against yesterday's findings — did your Day-1 fix actually help, or move the problem?
-3. Decide: is the project merely **usable**, or actually **effective** at serving its intended value?
+## Deliverable
+Your `vibe-report.md`:
+1. Your team's three-question values check.
+2. What the value-test revealed: did it deliver? for whom? who's excluded or nudged?
+3. The change you made to close the biggest claim-vs-reality gap (link the commit).
+4. A link to your AI usage trace, and the course authenticity statement.
 
-### Part 2 — Values at Play discovery canvas
-Work the [VAP canvas](https://pitechethics.github.io/) on your final project:
-- **Values:** list the values your project embeds (e.g. privacy, autonomy, fairness, accessibility, sustainability). Which did you choose deliberately? Which arrived by default from the tool or a template?
-- **Stakeholders:** who is affected — including people who never use it directly?
-- **Conflicts:** where do two values collide (e.g. personalization vs. privacy)? How did you resolve it, and who loses?
-- **Gaps:** which value did you *claim* to serve but the user test showed you don't?
-
-### Part 3 — Final revision
-Make one change that either resolves a value conflict or closes a gap the test exposed.
-Commit it.
-
-## Submission: The Vibe Report
-Document the validation in `vibe-report.md`:
-1. The second-round test setup and what changed from Round 1.
-2. Usable vs. effective: did the project achieve its intended value? Evidence, not opinion.
-3. Your VAP canvas: values (chosen vs. default), stakeholders, conflicts, and gaps.
-4. The final change you made and why.
-5. A link to your AI usage trace, and the course authenticity statement.
-
-### Deliverables
-- `code_deliverable/` — the final revised project
-- `log_deliverable/` — notes, transcripts, or screenshots
-- `vibe-report.md` — reflection, VAP canvas, and trace
+Your **team** also fills the *Values* half of the final project's `user-test.md`
+(from the [user-test template](../../projects/user-test-template.md)).
 
 ### Submission
 Your repo **is** your submission — there's nothing to upload. Commit and push your `week3/7_28/` folder: your `code_deliverable/` (auto-hosted from your repo via GitHub Pages), `log_deliverable/history.md`, and `vibe-report.md`. We grade from your commit history and your hosted page, so push before the deadline in `deadline.json` — the last commit before it is what counts.
@@ -60,9 +48,9 @@ Your repo **is** your submission — there's nothing to upload. Commit and push 
 
 ## 📖 Reading
 
-- **Primary** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Ch. 5: Discovery (the values-discovery canvas).](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link)
-- **Reference** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Ch. 7: Verification.](https://drive.google.com/file/d/1bHp2N78YO2r2mOB6XR2H8lbbvBXqnCWJ/view?usp=sharing)
-- **Reference** 🔵 — [PIT Tech Ethics — Values at Play workshop.](https://pitechethics.github.io/)
+- **Primary** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Ch. 5: Discovery (the values-discovery idea).](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link)
+- **Reference** 🔵 — [PIT Tech Ethics — Values at Play workshop (light canvas).](https://pitechethics.github.io/)
+- **Reference** 🟢 — [Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW, preprint).](https://osf.io/nw2tj/files/g2ctu)
 - **Optional** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — full digital book.](https://drive.google.com/drive/folders/1qZ8x8MXbJaex-7LnnrBUVR0_H87oBz24?usp=share_link)
 
 **Full course reading list:** [Course readings — all sessions](https://vibe-coding-ethics.tech.cornell.edu/instructions.html?file=planning/readings.md&title=Course%20Readings)

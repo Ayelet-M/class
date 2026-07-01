@@ -45,13 +45,12 @@ Legend: 🟢 Suggested by the instructors  ·  🔵 Already listed in the syllab
 
 ## Week 3 — Outcomes: Designing Systems That Are Useful and Empowering
 
-### Mon · Jul 27 — User-Centered Evaluation (Half 1)
+### Mon · Jul 27 — User Testing I — Does It Work? (Usability)
 - **Primary** 🟡 — [Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.](https://www.nngroup.com/articles/ten-usability-heuristics/)
 - **Reference** 🟢 — [UEQ — User Experience Questionnaire (evaluation instrument).](https://www.ueq-online.org/)
-- **Reference** 🟢 — [Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW, preprint).](https://osf.io/nw2tj/files/g2ctu)
 
-### Tue · Jul 28 — Values at Play — Full Canvas + Evaluation Switch
-- **Primary** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Ch. 5: Discovery (the values-discovery canvas).](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link)
-- **Reference** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Ch. 7: Verification.](https://drive.google.com/file/d/1bHp2N78YO2r2mOB6XR2H8lbbvBXqnCWJ/view?usp=sharing)
-- **Reference** 🔵 — [PIT Tech Ethics — Values at Play workshop.](https://pitechethics.github.io/)
+### Tue · Jul 28 — User Testing II — Does It Do the Right Thing? (Values)
+- **Primary** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Ch. 5: Discovery (the values-discovery idea).](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link)
+- **Reference** 🔵 — [PIT Tech Ethics — Values at Play workshop (light canvas).](https://pitechethics.github.io/)
+- **Reference** 🟢 — [Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW, preprint).](https://osf.io/nw2tj/files/g2ctu)
 - **Optional** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — full digital book.](https://drive.google.com/drive/folders/1qZ8x8MXbJaex-7LnnrBUVR0_H87oBz24?usp=share_link)

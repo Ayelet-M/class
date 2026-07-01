@@ -1,57 +1,44 @@
+# User Testing I — Does It Work? (Usability)
+
+This week your **team drives its final project to done** by testing it with real users
+and iterating. There are two rounds:
+
+- **Today (usability):** can someone actually *use* it?
+- **Tomorrow (values):** does it do the *right thing* for that user?
+
+Both days end the same way — you **change the project** based on what you saw. Testing
+only counts if it moves the build.
+
 ## Pre-Class Setup
+- Have your team's final project running from its **hosted link** (not localhost).
+- Set up one laptop as a "testing station."
+- Have a way to capture notes or a screen recording. Do **not** help testers mid-task.
 
-### Tooling Preparation
-- Bring the project you want to test (your Project 2, or the latest version you have).
-- Be ready to watch someone use your interface **without helping them**.
-- Have a way to capture notes, screenshots, or a screen recording.
+## Rotating peer tests
+Everyone tests, and everyone gets tested — so each team gets **several fresh users**.
 
-### Folder Structure
-```text
-week3/7_27/
-├── code_deliverable/
-├── log_deliverable/
-└── vibe-report.md
-```
+1. **Write one task.** Your team writes a single concrete task a first-time user should be able to finish (e.g. *"sign up and log your first entry"*). Give the *task*, not instructions.
+2. **Rotate.** Go sit at another team's station and attempt their task while one of their members observes in silence — **no hints, no "just click there."** Then swap. Aim for **3+ testers** on your project.
+3. **Observe like a scientist.** The user thinks aloud; the observer records what the user *did*, not what they said they liked:
 
----
-
-## User-Centered Evaluation (Half 1)
-
-Today half the class tests; half acts as users. You watch real people use your
-project and learn where your assumptions were wrong. The rule that makes this work:
-**when they get stuck, stay silent.** A test where you rescue the user teaches you nothing.
-
-### Roles
-- **Testers (Group A):** set up a task and observe. No hints, no "you just click there."
-- **Users (Group B):** think aloud as you go — say what you expect before you click.
-- You'll switch roles tomorrow (7/28), so both groups test and get tested.
-
-### Run the test
-1. **Write one task** the user should accomplish (e.g. *"Sign up and log your first entry"*). Give them the task, not instructions.
-2. **Watch and record** where they hesitate, misread a label, or do something you didn't expect. Capture what they *expected* vs. what happened:
-
-   | # | Task step | What the user did | Where they got stuck | Your read |
+   | # | Task step | What the user did | Where they got stuck | Heuristic it breaks |
    | :- | :--- | :--- | :--- | :--- |
 
-3. **Score against Nielsen's heuristics** (see reading). For each breakdown, name the heuristic it violates — e.g. *visibility of system status*, *match with the real world*, *error prevention*.
-4. **Optional quick metric:** have users rate the experience with a short [UEQ](https://www.ueq-online.org/) scale for a number you can compare tomorrow.
-5. **Make one concrete change** based on what you saw, and commit it.
+4. **Name the breakdowns** against [Nielsen's 10 heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/) — *visibility of system status*, *match with the real world*, *error prevention*, etc. Optionally grab a quick [UEQ](https://www.ueq-online.org/) rating for a number to compare against tomorrow.
 
-> **User-centered vs. humanity-centered:** as you watch, ask not only *"can they use it?"* but *"is this what this person actually needs?"* — the gap between the two is the week's theme.
+## Then iterate
+Before class ends, your team: (1) pools all testers' notes, (2) picks the **top 2–3**
+usability problems, and (3) **starts fixing** — commit at least one improvement today.
 
-## Submission: The Vibe Report
-Document the session in `vibe-report.md`:
-1. Who tested it and the task you gave them.
-2. Your observation table — the breakdowns you saw.
-3. The Nielsen heuristic each breakdown violated.
-4. The change you made in response (link the commit if you can).
-5. What "user-centered design" concretely meant for your project.
-6. A link to your AI usage trace, and the course authenticity statement.
+## Deliverable
+Your `vibe-report.md`:
+1. The task your team tested, and what your testers actually did.
+2. Your observation notes from testing **another** team, with the heuristic each breakdown breaks.
+3. The top usability problems on your own project, and the fix your team shipped today (link the commit).
+4. A link to your AI usage trace, and the course authenticity statement.
 
-### Deliverables
-- `code_deliverable/` — the revised project
-- `log_deliverable/` — observation notes, transcripts, or screenshots
-- `vibe-report.md` — reflection and trace
+Your **team** also fills the *Usability* half of the final project's `user-test.md`
+(from the [user-test template](../../projects/user-test-template.md)).
 
 ### Submission
 Your repo **is** your submission — there's nothing to upload. Commit and push your `week3/7_27/` folder: your `code_deliverable/` (auto-hosted from your repo via GitHub Pages), `log_deliverable/history.md`, and `vibe-report.md`. We grade from your commit history and your hosted page, so push before the deadline in `deadline.json` — the last commit before it is what counts.
@@ -63,7 +50,6 @@ Your repo **is** your submission — there's nothing to upload. Commit and push 
 
 - **Primary** 🟡 — [Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.](https://www.nngroup.com/articles/ten-usability-heuristics/)
 - **Reference** 🟢 — [UEQ — User Experience Questionnaire (evaluation instrument).](https://www.ueq-online.org/)
-- **Reference** 🟢 — [Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW, preprint).](https://osf.io/nw2tj/files/g2ctu)
 
 **Full course reading list:** [Course readings — all sessions](https://vibe-coding-ethics.tech.cornell.edu/instructions.html?file=planning/readings.md&title=Course%20Readings)
 <!-- READINGS:END -->

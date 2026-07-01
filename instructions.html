@@ -132,6 +132,14 @@
         }
         .content h1 { font-size: 1.7rem; font-weight: 800; }
         .content h2 { font-size: 1.3rem; font-weight: 700; padding-bottom: 6px; border-bottom: 1px solid var(--rule-paper); }
+
+        .content details.fold { border: 1px solid var(--rule-paper); border-radius: 10px; margin-top: 26px; background: rgba(0, 0, 0, 0.02); }
+        .content details.fold summary { cursor: pointer; list-style: none; padding: 12px 16px; font-weight: 700; font-size: 1.15rem; color: var(--ink); display: flex; align-items: center; justify-content: space-between; }
+        .content details.fold summary::-webkit-details-marker { display: none; }
+        .content details.fold summary::after { content: '▾'; color: var(--ink-soft); transition: transform 0.2s ease; }
+        .content details.fold[open] summary::after { transform: rotate(180deg); }
+        .content details.fold .fold-body { padding: 0 16px 14px; }
+        .content details.fold .fold-body > *:first-child { margin-top: 6px; }
         .content h3 { font-size: 1.08rem; font-weight: 700; }
         .content > *:first-child { margin-top: 0; }
 
@@ -232,11 +240,11 @@
 <body>
     <div class="container">
         <div class="top-bar">
-            <a class="brand" href="index.html">
+            <a class="brand" id="brandLink" href="index.html">
                 <img src="assets/T-Neon-Green.png" alt="Cornell T">
                 <span>TECHIE 1121 Ethical Vibe Coding <span class="term">· Reader</span></span>
             </a>
-            <a class="top-link" href="index.html">← Activities</a>
+            <a class="top-link" id="topLink" href="index.html">← Activities</a>
         </div>
         <div class="card">
             <div class="header">
@@ -302,6 +310,7 @@
             const html = [];
             let i = 0;
             let para = [];
+            let foldOpen = false;
             const flushPara = () => {
                 if (para.length) { html.push(`<p>${renderInline(para.join(' '))}</p>`); para = []; }
             };
@@ -326,7 +335,17 @@
                 if (heading) {
                     flushPara();
                     const level = heading[1].length;
-                    html.push(`<h${level}>${renderInline(heading[2].trim())}</h${level}>`);
+                    const htext = heading[2].trim();
+                    // Fold the auto-generated Reading section (it gets long) into a collapsible.
+                    const isReading = level === 2 && /^(📖\s*)?Reading$/i.test(htext);
+                    if (foldOpen && !isReading) { html.push('</div></details>'); foldOpen = false; }
+                    if (isReading) {
+                        html.push(`<details class="fold"><summary>${renderInline(htext)}</summary><div class="fold-body">`);
+                        foldOpen = true;
+                        i++;
+                        continue;
+                    }
+                    html.push(`<h${level}>${renderInline(htext)}</h${level}>`);
                     i++;
                     continue;
                 }
@@ -390,6 +409,7 @@
             }
 
             flushPara();
+            if (foldOpen) html.push('</div></details>');
             return html.join('\n');
         }
 
@@ -432,6 +452,10 @@
             const inProjects = week === 'projects' || /^\.?\/?projects\//.test(file || '');
             const backHref = inProjects ? './projects/index.html' : './index.html';
             const backLabel = inProjects ? '← Back to projects' : '← Back to activities';
+            document.getElementById('brandLink').href = inProjects ? 'projects/index.html' : 'index.html';
+            const topNav = document.getElementById('topLink');
+            topNav.href = inProjects ? 'projects/index.html' : 'index.html';
+            topNav.textContent = inProjects ? '← Group projects' : '← Activities';
             const docKey = params.get('doc') || 'instructions';
             const profile = DOC_PROFILES[docKey] || DOC_PROFILES.instructions;
 
