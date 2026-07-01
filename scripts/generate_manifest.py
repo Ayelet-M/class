@@ -3,6 +3,17 @@ from pathlib import Path
 
 manifest = []
 
+
+def is_placeholder(index_html):
+    """True for empty/TODO stub examples that shouldn't be surfaced on the site."""
+    try:
+        text = index_html.read_text(encoding="utf-8", errors="ignore")
+    except OSError:
+        return True
+    if len(text.strip()) < 400 and ("<title>TODO</title>" in text or "<h1>TODO</h1>" in text):
+        return True
+    return False
+
 def process_directory(parent_dir, label, folder_prefix=""):
     if not parent_dir.exists():
         return
@@ -28,7 +39,8 @@ def process_directory(parent_dir, label, folder_prefix=""):
                     if activity_name == "code_deliverable":
                         continue  # Skip, this is direct structure
 
-                    if (activity_dir / "code_deliverable" / "index.html").exists():
+                    nested_index = activity_dir / "code_deliverable" / "index.html"
+                    if nested_index.exists() and not is_placeholder(nested_index):
                         examples.append(
                             {
                                 "folder": activity_name,
@@ -39,7 +51,8 @@ def process_directory(parent_dir, label, folder_prefix=""):
                         )
 
             # Check for direct examples (examples/code_deliverable)
-            if (examples_dir / "code_deliverable" / "index.html").exists():
+            direct_index = examples_dir / "code_deliverable" / "index.html"
+            if direct_index.exists() and not is_placeholder(direct_index):
                 examples.append(
                     {
                         "folder": "code_deliverable",

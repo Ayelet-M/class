@@ -36,12 +36,6 @@
     "examples": [
       {
         "folder": "code_deliverable",
-        "name": "Example",
-        "nested": false,
-        "path": "week1/7_14/examples/code_deliverable/"
-      },
-      {
-        "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
         "path": "week1/7_14/code_deliverable/",
@@ -53,12 +47,6 @@
     "week": "week1",
     "folder": "7_15",
     "examples": [
-      {
-        "folder": "code_deliverable",
-        "name": "Example",
-        "nested": false,
-        "path": "week1/7_15/examples/code_deliverable/"
-      },
       {
         "folder": "code_deliverable",
         "name": "Main Submission",
@@ -73,16 +61,16 @@
     "folder": "7_20",
     "examples": [
       {
-        "folder": "vibe-coding-offset-calculator",
-        "name": "Vibe Coding Offset Calculator",
-        "nested": true,
-        "path": "week2/7_20/examples/vibe-coding-offset-calculator/code_deliverable/"
-      },
-      {
         "folder": "protein-suffering-calculator",
-        "name": "Protein Suffering Index",
+        "name": "protein-suffering-calculator",
         "nested": true,
         "path": "week2/7_20/examples/protein-suffering-calculator/code_deliverable/"
+      },
+      {
+        "folder": "vibe-coding-offset-calculator",
+        "name": "vibe-coding-offset-calculator",
+        "nested": true,
+        "path": "week2/7_20/examples/vibe-coding-offset-calculator/code_deliverable/"
       },
       {
         "folder": "code_deliverable",
@@ -99,12 +87,6 @@
     "examples": [
       {
         "folder": "code_deliverable",
-        "name": "Example",
-        "nested": false,
-        "path": "week2/7_21/examples/code_deliverable/"
-      },
-      {
-        "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
         "path": "week2/7_21/code_deliverable/",
@@ -116,12 +98,6 @@
     "week": "week2",
     "folder": "7_22",
     "examples": [
-      {
-        "folder": "code_deliverable",
-        "name": "Example",
-        "nested": false,
-        "path": "week2/7_22/examples/code_deliverable/"
-      },
       {
         "folder": "code_deliverable",
         "name": "Main Submission",
@@ -137,12 +113,6 @@
     "examples": [
       {
         "folder": "code_deliverable",
-        "name": "Example",
-        "nested": false,
-        "path": "week3/7_27/examples/code_deliverable/"
-      },
-      {
-        "folder": "code_deliverable",
         "name": "Main Submission",
         "nested": false,
         "path": "week3/7_27/code_deliverable/",
@@ -154,12 +124,6 @@
     "week": "week3",
     "folder": "7_28",
     "examples": [
-      {
-        "folder": "code_deliverable",
-        "name": "Example",
-        "nested": false,
-        "path": "week3/7_28/examples/code_deliverable/"
-      },
       {
         "folder": "code_deliverable",
         "name": "Main Submission",
