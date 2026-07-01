@@ -26,7 +26,7 @@ Legend: 🟢 Suggested by the instructors  ·  🔵 Already listed in the syllab
 
 ### Mon · Jul 20 — Values in Vibe Coding (Light) — AI as Moral Assistant
 - **Primary** 🟢 — [Common Cause Foundation. 2023. The Values Map.](https://commoncausefoundation.org/_resources/the-values-map/)
-- **Optional** 🔵 — Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — intro chapter (course textbook).
+- **Optional** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Ch. 1: Groundwork for Values in Games.](https://drive.google.com/file/d/14fTIg05HNcARYP5JrEJ87KC29D2QAgqM/view?usp=drive_link)
 - **Optional** 🟢 — [Karpus, J. et al. 2021. Algorithm exploitation: Humans are keen to exploit benevolent AI. iScience 24(6).](https://doi.org/10.1016/j.isci.2021.102679)
 
 ### Tue · Jul 21 — Red-Teaming AI Safety: Dark Patterns On Purpose
@@ -47,5 +47,7 @@ Legend: 🟢 Suggested by the instructors  ·  🔵 Already listed in the syllab
 - **Optional** 🟢 — Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW).
 
 ### Tue · Jul 28 — Values at Play — Full Canvas + Evaluation Switch
-- **Primary** 🔵 — Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — the Values-at-Play method chapter (course textbook).
+- **Primary** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Ch. 5: Discovery (the values-discovery canvas).](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link)
+- **Reference** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Ch. 7: Verification.](https://drive.google.com/file/d/1bHp2N78YO2r2mOB6XR2H8lbbvBXqnCWJ/view?usp=sharing)
 - **Reference** 🔵 — [PIT Tech Ethics — Values at Play workshop.](https://pitechethics.github.io/)
+- **Optional** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — full digital book.](https://drive.google.com/drive/folders/1qZ8x8MXbJaex-7LnnrBUVR0_H87oBz24?usp=share_link)

@@ -24,7 +24,7 @@
 
 **Course Frequency:** Offered Summer 2026
 
-**Textbook(s) and/or Other Required Materials:**  Personal Laptops, a digital version of [Values at Play by Flanagan and Nissenbaum](https://drive.google.com/file/d/14fTIg05HNcARYP5JrEJ87KC29D2QAgqM/view?usp=drive_link) will be provided.
+**Textbook(s) and/or Other Required Materials:**  Personal Laptops, a digital version of [Values at Play by Flanagan and Nissenbaum](https://drive.google.com/drive/folders/1qZ8x8MXbJaex-7LnnrBUVR0_H87oBz24?usp=share_link) will be provided (Cornell netID required).
 
 **Prerequisites:** Familiarity with git version control (github.com)
 

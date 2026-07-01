@@ -64,7 +64,7 @@
           "shortDescription": "Lightweight intro to values embedded in technology, then vibe code a small tool that helps someone make a more moral decision — own the value it argues for and cite where your numbers or framing come from.",
           "readings": [
             { "role": "primary", "cite": "Common Cause Foundation. 2023. The Values Map.", "url": "https://commoncausefoundation.org/_resources/the-values-map/", "tag": "provided" },
-            { "role": "optional", "cite": "Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — intro chapter (course textbook).", "url": "", "tag": "syllabus" },
+            { "role": "optional", "cite": "Flanagan, M., Nissenbaum, H. Values at Play — Ch. 1: Groundwork for Values in Games.", "url": "https://drive.google.com/file/d/14fTIg05HNcARYP5JrEJ87KC29D2QAgqM/view?usp=drive_link", "tag": "syllabus" },
             { "role": "optional", "cite": "Karpus, J. et al. 2021. Algorithm exploitation: Humans are keen to exploit benevolent AI. iScience 24(6).", "url": "https://doi.org/10.1016/j.isci.2021.102679", "tag": "provided" }
           ]
         },
@@ -114,8 +114,10 @@
           "title": "Values at Play — Full Canvas + Evaluation Switch",
           "shortDescription": "Groups switch user-test roles from Monday; in parallel, work the full VAP discovery canvas on your final project to surface the values you're embedding (and missing).",
           "readings": [
-            { "role": "primary", "cite": "Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — the Values-at-Play method chapter (course textbook).", "url": "", "tag": "syllabus" },
-            { "role": "reference", "cite": "PIT Tech Ethics — Values at Play workshop.", "url": "https://pitechethics.github.io/", "tag": "syllabus" }
+            { "role": "primary", "cite": "Flanagan, M., Nissenbaum, H. Values at Play — Ch. 5: Discovery (the values-discovery canvas).", "url": "https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link", "tag": "syllabus" },
+            { "role": "reference", "cite": "Flanagan, M., Nissenbaum, H. Values at Play — Ch. 7: Verification.", "url": "https://drive.google.com/file/d/1bHp2N78YO2r2mOB6XR2H8lbbvBXqnCWJ/view?usp=sharing", "tag": "syllabus" },
+            { "role": "reference", "cite": "PIT Tech Ethics — Values at Play workshop.", "url": "https://pitechethics.github.io/", "tag": "syllabus" },
+            { "role": "optional", "cite": "Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — full digital book.", "url": "https://drive.google.com/drive/folders/1qZ8x8MXbJaex-7LnnrBUVR0_H87oBz24?usp=share_link", "tag": "syllabus" }
           ]
         }
       ]

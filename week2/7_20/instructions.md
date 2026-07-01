@@ -150,7 +150,7 @@ Upload a zip of `week2/7_20/` and paste the deployed URL into Canvas. The graded
 ## 📖 Reading
 
 - **Primary** 🟢 — [Common Cause Foundation. 2023. The Values Map.](https://commoncausefoundation.org/_resources/the-values-map/)
-- **Optional** 🔵 — Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — intro chapter (course textbook).
+- **Optional** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Ch. 1: Groundwork for Values in Games.](https://drive.google.com/file/d/14fTIg05HNcARYP5JrEJ87KC29D2QAgqM/view?usp=drive_link)
 - **Optional** 🟢 — [Karpus, J. et al. 2021. Algorithm exploitation: Humans are keen to exploit benevolent AI. iScience 24(6).](https://doi.org/10.1016/j.isci.2021.102679)
 
 **Full course reading list:** [readings.md](../../planning/readings.md)
