@@ -4,6 +4,8 @@
 
 Legend: 🟢 Suggested by the instructors  ·  🔵 Already listed in the syllabus  ·  🟡 Proposed addition — accessible / official source. Thursdays are project days (no new reading).
 
+**Roles:** **Primary** = required reading before class; Reference / Pair / Optional = recommended or background, read as time and the activity's intensity allow.
+
 ## Week 1 — Vibe Coding: Gaining Control
 
 ### Mon · Jul 13 — Personal Portfolio / About Me
@@ -44,7 +46,7 @@ Legend: 🟢 Suggested by the instructors  ·  🔵 Already listed in the syllab
 ### Mon · Jul 27 — User-Centered Evaluation (Half 1)
 - **Primary** 🟡 — [Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.](https://www.nngroup.com/articles/ten-usability-heuristics/)
 - **Reference** 🟢 — [UEQ — User Experience Questionnaire (evaluation instrument).](https://www.ueq-online.org/)
-- **Optional** 🟢 — Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW).
+- **Reference** 🟢 — [Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW, preprint).](https://osf.io/nw2tj/files/g2ctu)
 
 ### Tue · Jul 28 — Values at Play — Full Canvas + Evaluation Switch
 - **Primary** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Ch. 5: Discovery (the values-discovery canvas).](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link)

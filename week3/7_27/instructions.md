@@ -66,7 +66,7 @@ link don't count.
 
 - **Primary** 🟡 — [Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.](https://www.nngroup.com/articles/ten-usability-heuristics/)
 - **Reference** 🟢 — [UEQ — User Experience Questionnaire (evaluation instrument).](https://www.ueq-online.org/)
-- **Optional** 🟢 — Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW).
+- **Reference** 🟢 — [Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW, preprint).](https://osf.io/nw2tj/files/g2ctu)
 
 **Full course reading list:** [readings.md](../../planning/readings.md)
 <!-- READINGS:END -->

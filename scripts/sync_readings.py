@@ -71,6 +71,10 @@ def build_readings_md(manifest):
                           ("proposed", legend.get("proposed", "proposed addition"))])
     out.append(f"Legend: {marks}. Thursdays are project days (no new reading).")
     out.append("")
+    out.append("**Roles:** **Primary** = required reading before class; "
+               "Reference / Pair / Optional = recommended or background, read as time and "
+               "the activity's intensity allow.")
+    out.append("")
     for week in manifest["weeks"]:
         out.append(f"## {week['label']} — {week['theme']}")
         out.append("")

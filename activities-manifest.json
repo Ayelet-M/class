@@ -105,7 +105,7 @@
           "readings": [
             { "role": "primary", "cite": "Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.", "url": "https://www.nngroup.com/articles/ten-usability-heuristics/", "tag": "proposed" },
             { "role": "reference", "cite": "UEQ — User Experience Questionnaire (evaluation instrument).", "url": "https://www.ueq-online.org/", "tag": "provided" },
-            { "role": "optional", "cite": "Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW).", "url": "", "tag": "provided" }
+            { "role": "reference", "cite": "Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW, preprint).", "url": "https://osf.io/nw2tj/files/g2ctu", "tag": "provided" }
           ]
         },
         {
