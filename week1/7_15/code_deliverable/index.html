@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Vibe Starter</title>
-    <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            text-align: center;
-            background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #1a1a1a;
-        }
-
-        p {
-            color: #666;
-            line-height: 1.6;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Submission · Ethical Vibe Coding</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128994;</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{ --bg:#050505; --neon:#00ff41; --ink:rgba(255,255,255,.92); }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      color:var(--ink); min-height:100vh; display:flex; justify-content:center; align-items:center;
+      padding:24px; text-align:center;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(0,255,65,.06), transparent 60%),
+        radial-gradient(900px 500px at -10% 110%, rgba(0,255,65,.04), transparent 60%),
+        var(--bg);
+    }
+    .container{ max-width:600px; width:100%; background:#0e101a; border:1px solid rgba(0,255,65,.25);
+      border-radius:16px; padding:44px 36px; box-shadow:0 20px 50px rgba(0,0,0,.5); }
+    .tag{ font-family:'JetBrains Mono',ui-monospace,monospace; font-size:.72rem; font-weight:600;
+      letter-spacing:.14em; text-transform:uppercase; color:var(--neon); margin-bottom:16px; }
+    h1{ font-size:1.9rem; font-weight:800; letter-spacing:-.02em; margin-bottom:12px; }
+    h1 .accent{ color:var(--neon); }
+    p{ color:rgba(255,255,255,.62); line-height:1.65; font-size:1rem; }
+    code{ font-family:'JetBrains Mono',ui-monospace,monospace; color:var(--neon);
+      background:rgba(0,255,65,.08); padding:1px 6px; border-radius:5px; font-size:.9em; }
+    ul.files{ list-style:none; text-align:left; margin:22px 0 4px; display:flex; flex-direction:column; gap:8px; }
+    ul.files li a{ display:block; padding:11px 14px; border:1px solid rgba(0,255,65,.22); border-radius:10px;
+      color:var(--ink); text-decoration:none; font-weight:600; transition:all .15s; }
+    ul.files li a:hover{ background:rgba(0,255,65,.1); border-color:var(--neon); }
+    ul.files li a span{ display:block; font-weight:400; font-size:.85rem; color:rgba(255,255,255,.5); margin-top:2px; }
+    .hint{ font-size:.85rem; color:rgba(255,255,255,.4); margin-top:18px; }
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>Let's get started!</h1>
-        <p>This is your starting point. Use your AI collaborator to transform this page.</p>
-    </div>
-    <script src="../../../scripts/submission-instructions-button.js"></script>
+  <div class="container">
+    <div class="tag">// compare vibe coding tools</div>
+    <h1>My <span class="accent">tool</span> comparison</h1>
+    <p>Run the same task in each tool and save every result as its own file here, linked below. Replace these example rows with your real files.</p>
+    <ul class="files">
+      <li><a href="tool-cursor.html">Tool: Cursor <span>tool-cursor.html</span></a></li>
+      <li><a href="tool-copilot.html">Tool: GitHub Copilot <span>tool-copilot.html</span></a></li>
+    </ul>
+    <p class="hint">Your side-by-side evaluation goes in the vibe report.</p>
+  </div>
+  <script src="../../../scripts/submission-instructions-button.js"></script>
 </body>
-
 </html>

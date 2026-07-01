@@ -251,12 +251,38 @@
                 .replace(/'/g, '&#039;');
         }
 
+        // Base folder of the doc being rendered, so relative links (which are correct
+        // for GitHub) also resolve correctly inside this reader (served at site root).
+        let LINK_BASE = '';
+        function resolveHref(href) {
+            href = href.trim();
+            if (/^(https?:|mailto:|tel:|data:|#)/i.test(href)) return href;
+            if (href.startsWith('/')) return href.replace(/^\/+/, '');
+            const trailingSlash = href.endsWith('/');
+            const parts = [];
+            for (const seg of (LINK_BASE + href).split('/')) {
+                if (seg === '..') parts.pop();
+                else if (seg && seg !== '.') parts.push(seg);
+            }
+            let resolved = parts.join('/');
+            // Route markdown docs through this styled reader instead of raw .md.
+            let m = resolved.match(/^(week\d)\/([^/]+)\/instructions\.md$/);
+            if (m) return `instructions.html?week=${m[1]}&project=${m[2]}`;
+            m = resolved.match(/^projects\/([^/]+)\/instructions\.md$/);
+            if (m) return `instructions.html?week=projects&project=${m[1]}`;
+            if (/\.md$/i.test(resolved)) {
+                return `instructions.html?file=${resolved}&title=${encodeURIComponent(resolved.split('/').pop())}`;
+            }
+            return resolved + (trailingSlash && !resolved.endsWith('/') ? '/' : '');
+        }
+
         function renderInline(text) {
             let result = escapeHtml(text);
             result = result.replace(/`([^`]+)`/g, '<code>$1</code>');
             result = result.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
             result = result.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-            result = result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+            result = result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, txt, href) =>
+                `<a href="${resolveHref(href)}" target="_blank" rel="noopener noreferrer">${txt}</a>`);
             return result;
         }
 
@@ -410,6 +436,7 @@
             // Generic mode: render any markdown file passed via ?file=path (&title=...)
             if (file) {
                 const safeFile = file.replace(/^\/+/, '').replace(/\.\.(\/|\\)/g, '');
+                LINK_BASE = safeFile.replace(/[^/]*$/, '');
                 const pageTitle = params.get('title') || safeFile.split('/').pop();
                 titleEl.textContent = pageTitle;
                 noticeEl.innerHTML = `This page renders <strong>${escapeHtml(safeFile)}</strong>.`;
@@ -435,6 +462,7 @@
             }
 
             meta.textContent = `${week}/${project}`;
+            LINK_BASE = `${week}/${project}/`;
 
             try {
                 const { path, markdown } = await fetchFirstAvailable(profile.paths(week, project));

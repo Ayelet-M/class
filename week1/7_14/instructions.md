@@ -8,7 +8,7 @@
 ## Pre-Class Setup
 
 ### Tooling Preparation
-- Have your hosted Week 1 Day 1 site from [week1/7_13](../7_13/) ready, or a fresh small web project you can edit.
+- Have your hosted [Week 1 Day 1 site](../7_13/code_deliverable/) ready, or a fresh small web project you can edit.
 - You may use any configured vibe coding tool (see the tool table in [7_13 instructions](../7_13/instructions.md)).
 - Bring the [`prompt-log.md`](#prompt-log-required) discipline below — you'll record *why* you change each prompt, not just what you change.
 - Do the **Reading** (bottom of this page) first — the activity uses the Anthropic toolkit and the *Why Johnny Can't Prompt* failure modes directly.
