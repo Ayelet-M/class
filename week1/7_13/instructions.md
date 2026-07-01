@@ -112,9 +112,9 @@ You must include the Authenticity Statement from the template:
 
 ## 📖 Reading
 
-- **Primary** 🟢 — Li, J. et al. 2026. Vibe coding in product teams: Reconfiguring AI-assisted workflows, prototyping, and collaboration. CHIWORK '26.
+- **Primary** 🟢 — [Li, J. et al. 2026. Vibe coding in product teams: Reconfiguring AI-assisted workflows, prototyping, and collaboration. CHIWORK '26.](https://arxiv.org/abs/2509.10652)
 - **Optional** 🟢 — [Sandhaus, H., Gu, Q., Parreira, M.T., Ju, W. 2025. Co-Designing with Transformers: GenAI in Interactive System Design Education. DIS '25.](https://arxiv.org/abs/2410.14048)
-- **Optional** 🟢 — Xia, Q. et al. 2026. "If you're very clever, no one knows you've used it": Social dynamics of GenAI literacy in the workplace. CHIWORK '26.
+- **Optional** 🟢 — [Xia, Q. et al. 2026. "If you're very clever, no one knows you've used it": Social dynamics of GenAI literacy in the workplace. CHIWORK '26.](https://arxiv.org/abs/2602.01386)
 
 **Full course reading list:** [readings.md](../../planning/readings.md)
 <!-- READINGS:END -->

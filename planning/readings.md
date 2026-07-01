@@ -9,20 +9,20 @@ Legend: 🟢 Suggested by the instructors  ·  🔵 Already listed in the syllab
 ## Week 1 — Vibe Coding: Gaining Control
 
 ### Mon · Jul 13 — Personal Portfolio / About Me
-- **Primary** 🟢 — Li, J. et al. 2026. Vibe coding in product teams: Reconfiguring AI-assisted workflows, prototyping, and collaboration. CHIWORK '26.
+- **Primary** 🟢 — [Li, J. et al. 2026. Vibe coding in product teams: Reconfiguring AI-assisted workflows, prototyping, and collaboration. CHIWORK '26.](https://arxiv.org/abs/2509.10652)
 - **Optional** 🟢 — [Sandhaus, H., Gu, Q., Parreira, M.T., Ju, W. 2025. Co-Designing with Transformers: GenAI in Interactive System Design Education. DIS '25.](https://arxiv.org/abs/2410.14048)
-- **Optional** 🟢 — Xia, Q. et al. 2026. "If you're very clever, no one knows you've used it": Social dynamics of GenAI literacy in the workplace. CHIWORK '26.
+- **Optional** 🟢 — [Xia, Q. et al. 2026. "If you're very clever, no one knows you've used it": Social dynamics of GenAI literacy in the workplace. CHIWORK '26.](https://arxiv.org/abs/2602.01386)
 
 ### Tue · Jul 14 — Prompts that Steer the Vibe
 - **Primary** 🔵 — [Zamfirescu-Pereira, J.D. et al. 2023. Why Johnny Can't Prompt. CHI '23.](https://dl.acm.org/doi/10.1145/3544548.3581388)
 - **Reference** 🟡 — [Anthropic. Prompt engineering overview.](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
-- **Optional** 🟢 — Arun, S.K., Fischer, J.E. 2026. Encouraging thought before completion: task-specific selective friction in AI-assisted knowledge work. CHIWORK '26.
+- **Optional** 🟢 — [Arun, S.K., Fischer, J.E. 2026. Encouraging thought before completion: task-specific selective friction in AI-assisted knowledge work. CHIWORK '26.](https://doi.org/10.1145/3808045.3808049)
 
 ### Wed · Jul 15 — Bias in Vibe Coding
 - **Primary** 🟡 — [Hao, K. 2019. This is how AI bias really happens — and why it's so hard to fix. MIT Technology Review.](https://www.technologyreview.com/2019/02/04/137602/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/)
 - **Optional** 🟡 — [Buolamwini, J., Gebru, T. 2018. Gender Shades (project site + short video).](http://gendershades.org/)
 - **Optional** 🟡 — [Angwin, J. et al. 2016. Machine Bias. ProPublica.](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
-- **Optional** 🟢 — Eleftheriou, E. et al. 2026. Confidence without competence in AI-assisted knowledge work. CHIWORK '26.
+- **Optional** 🟢 — [Eleftheriou, E. et al. 2026. Confidence without competence in AI-assisted knowledge work. CHIWORK '26.](https://arxiv.org/abs/2604.09444)
 
 ## Week 2 — Ethics: Doing the Right Thing
 
@@ -38,7 +38,7 @@ Legend: 🟢 Suggested by the instructors  ·  🔵 Already listed in the syllab
 - **Optional** 🟢 — [Bright Patterns: Strategies Towards A More Conscious Use Of Our Phones. 2025. Utrecht Univ. thesis.](https://studenttheses.uu.nl/handle/20.500.12932/50311)
 
 ### Wed · Jul 22 — AI Against AI
-- **Primary** 🟢 — Brunton, F., Nissenbaum, H. 2015. Obfuscation: A User's Guide for Privacy and Protest. MIT Press — Ch. 1.
+- **Primary** 🟢 — [Brunton, F., Nissenbaum, H. 2015. Obfuscation: A User's Guide for Privacy and Protest. MIT Press — Ch. 1.](https://direct.mit.edu/books/book/3112/ObfuscationA-User-s-Guide-for-Privacy-and-Protest)
 - **Pair** 🟢 — [Franchi, M., Sandhaus, H. et al. 2025. Privacy of Groups in Dense Street Imagery. FAccT '25.](https://doi.org/10.1145/3715275.3732185)
 
 ## Week 3 — Outcomes: Designing Systems That Are Useful and Empowering

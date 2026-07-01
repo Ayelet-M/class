@@ -131,7 +131,7 @@ link don't count.
 
 - **Primary** 🔵 — [Zamfirescu-Pereira, J.D. et al. 2023. Why Johnny Can't Prompt. CHI '23.](https://dl.acm.org/doi/10.1145/3544548.3581388)
 - **Reference** 🟡 — [Anthropic. Prompt engineering overview.](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
-- **Optional** 🟢 — Arun, S.K., Fischer, J.E. 2026. Encouraging thought before completion: task-specific selective friction in AI-assisted knowledge work. CHIWORK '26.
+- **Optional** 🟢 — [Arun, S.K., Fischer, J.E. 2026. Encouraging thought before completion: task-specific selective friction in AI-assisted knowledge work. CHIWORK '26.](https://doi.org/10.1145/3808045.3808049)
 
 **Full course reading list:** [readings.md](../../planning/readings.md)
 <!-- READINGS:END -->

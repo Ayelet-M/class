@@ -396,6 +396,9 @@
             const week = params.get('week');
             const project = params.get('project');
             const file = params.get('file');
+            const inProjects = week === 'projects' || /^\.?\/?projects\//.test(file || '');
+            const backHref = inProjects ? './projects/index.html' : './index.html';
+            const backLabel = inProjects ? '← Back to projects' : '← Back to activities';
             const docKey = params.get('doc') || 'instructions';
             const profile = DOC_PROFILES[docKey] || DOC_PROFILES.instructions;
 
@@ -414,9 +417,9 @@
                 meta.textContent = safeFile;
                 try {
                     const { markdown } = await fetchFirstAvailable([`./${safeFile}`]);
-                    content.innerHTML = `${renderMarkdown(markdown)}<a class="back-link" href="./index.html">← Back to activities</a>`;
+                    content.innerHTML = `${renderMarkdown(markdown)}<a class="back-link" href="${backHref}">${backLabel}</a>`;
                 } catch (error) {
-                    content.innerHTML = `<div class="error">${escapeHtml(error.message)}</div><a class="back-link" href="./index.html">← Back to activities</a>`;
+                    content.innerHTML = `<div class="error">${escapeHtml(error.message)}</div><a class="back-link" href="${backHref}">${backLabel}</a>`;
                 }
                 return;
             }
@@ -436,9 +439,9 @@
             try {
                 const { path, markdown } = await fetchFirstAvailable(profile.paths(week, project));
                 meta.textContent = `${week}/${project} — ${path.replace(/^\.\//, '')}`;
-                content.innerHTML = `${renderMarkdown(markdown)}<a class="back-link" href="./index.html">← Back to activities</a>`;
+                content.innerHTML = `${renderMarkdown(markdown)}<a class="back-link" href="${backHref}">${backLabel}</a>`;
             } catch (error) {
-                content.innerHTML = `<div class="error">${escapeHtml(error.message)}</div><a class="back-link" href="./index.html">← Back to activities</a>`;
+                content.innerHTML = `<div class="error">${escapeHtml(error.message)}</div><a class="back-link" href="${backHref}">${backLabel}</a>`;
             }
         }
 
