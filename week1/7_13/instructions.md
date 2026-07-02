@@ -1,3 +1,5 @@
+# Personal Portfolio / About Me
+
 ## Pre-Class Setup
 
 ### Set up your AI tool and GitHub accounts

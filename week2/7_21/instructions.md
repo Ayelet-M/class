@@ -1,3 +1,5 @@
+# Red-Teaming AI Safety: Dark Patterns On Purpose
+
 ## Pre-Class Setup
 
 ### Tooling Preparation

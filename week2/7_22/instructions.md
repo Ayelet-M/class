@@ -1,3 +1,5 @@
+# AI Against AI
+
 ## Pre-Class Setup
 
 ### Tooling Preparation
