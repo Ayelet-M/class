@@ -1,110 +1,74 @@
-# Student Submissions -  Setup
+# Ethical Vibe Coding — TECHIE 1121 (Cornell Tech, Summer 2026)
 
+Welcome! This is **your** copy of the course repository. You'll use AI coding tools
+to "vibe code" small web apps — and, just as importantly, pay attention to *how* you
+build with AI: the prompts, the choices, and the ethics.
 
-This directory is configured to automatically deploy to GitHub Pages with a landing page that links to all student homework submissions.
+> **"Vibe coding"** = building software by describing what you want to an AI coding
+> assistant in plain language, then steering, testing, and refining what it gives you.
 
-## Directory Structure
+## Start here
 
-```bash
-class/
-├── index.html                          # Main landing page
-├── .github/workflows/deploy.yml         # GitHub Actions deployment
-├── week1/
-│   ├── 7_13/
-│   │   ├── code_deliverable/
-│   │   ├── log_deliverable/
-│   │   ├── examples/
-│   ├── 7_14/
-│   │   ├── code_deliverable/
-│   │   ├── log_deliverable/
-│   │   ├── examples/
-│   └── 7_15/
-│   │   ├── code_deliverable/
-│   │   ├── log_deliverable/
-│   │   ├── examples/
-├── week2/
-│   ├── 7_20/
-│   │   ├── code_deliverable/
-│   │   ├── log_deliverable/
-│   │   ├── examples/
-│   ├── 7_21/
-│   │   ├── code_deliverable/
-│   │   ├── log_deliverable/
-│   │   ├── examples/
-│   └── 7_22/
-│   │   ├── code_deliverable/
-│   │   ├── log_deliverable/
-│   │   ├── examples/
-└── week3/
-    ├── 7_27/
-    │   ├── code_deliverable/
-    │   ├── log_deliverable/
-    │   ├── examples/
-    └── 7_28/
-        ├── code_deliverable/
-        ├── log_deliverable/
-        ├── examples/
+1. **Join the class on GitHub Classroom** (link is in the first activity below) so you
+   get your own repo. Accepting gives you an independent copy — later changes we make
+   to the course won't overwrite your work.
+2. **Pick an AI coding tool.** You can use any of them — the repo is pre-configured for
+   all of them. **Mind the age limits:** Claude Code and Antigravity are **18+**;
+   **GitHub Copilot, Cursor, and Windsurf are 13+**. Full table is in the first activity.
+3. **Open the first activity:** [`week1/7_13/instructions.md`](week1/7_13/instructions.md)
+   (or read it on the hosted course site your instructor shares). It walks you through
+   setup and your first build.
 
+## How the course works
+
+Every activity lives in a dated folder like `week1/7_13/` with the same shape:
+
+```text
+week1/7_13/
+├── code_deliverable/    # the app you build goes here (HTML/CSS/JS)
+├── log_deliverable/     # history.md — your AI prompt log (the "Vibe-Trace")
+└── vibe-report.md       # your short reflection (use vibe-report-template.md)
 ```
 
-## How It Works
+- **Build inside `code_deliverable/`.** Put your `index.html` and assets there.
+- **The Vibe-Trace (this is graded).** Every time your AI tool changes files in a
+  `code_deliverable/`, it logs the prompt to `log_deliverable/history.md`. The repo
+  already contains the rule file for each tool, so this happens automatically for
+  agent tools like Claude Code, Cursor, Windsurf, and Antigravity. **If you use a
+  web-only or autocomplete tool (Copilot, v0, Replit), you must paste your prompts
+  into `history.md` yourself.** Check that it's filling up as you work.
+- **Write your `vibe-report.md`** using [`vibe-report-template.md`](vibe-report-template.md).
+- **Group projects** live separately under [`projects/`](projects/).
 
-### Landing Page
+## How to preview and submit
 
-The root `index.html` displays a directory of all student submissions organized by week. Each submission links to its `code_deliverable` folder.
+- **Preview locally:** open your `index.html` in a browser, or run a tiny web server
+  in the repo folder — `python3 -m http.server 8000` — and visit `http://localhost:8000`.
+- **Publish it live (GitHub Pages):** in your repo, go to **Settings → Pages** and set
+  **Source = "GitHub Actions."** Then every push builds your site and gives you a live
+  URL. Your apps in each `code_deliverable/` folder are reachable there.
+- **Submitting = your repo.** There's no zip and no Canvas upload. Your GitHub repo
+  *is* your submission — we grade from your commit history and your hosted page. Each
+  folder has a `deadline.json`; your last commit before that time counts.
 
-### Supported Site Types
+## Getting help
 
-#### Static HTML/CSS/JS
+- Course readings and the syllabus are on the hosted course site (your instructor
+  shares the link) — or see [`planning/`](planning/).
+- Stuck on a tool or the setup? The first activity has an age-appropriate tool table
+  and step-by-step setup.
 
-Place your HTML files directly in the `code_deliverable` folder:
+---
 
-```bash
-week1/7_13/code_deliverable/
-├── index.html
-├── style.css
-└── script.js
-```
+<details>
+<summary>For maintainers / instructors</summary>
 
-### React Apps
+This repo deploys to GitHub Pages via `.github/workflows/deploy.yml` (auto-detects and
+builds React/Vite apps, otherwise serves static files; publishes the whole repo). The
+committed `CNAME` is used only by the canonical `Cornell-Tech-Vibe-Coding-Summer-2026/class`
+repo — the workflow strips it in student copies so their forks deploy to their own
+`github.io/<repo>/` URL. See **[`MAINTAINING.md`](MAINTAINING.md)** for how the repo is
+wired (readings single-source, the two repos, structural rules, the deliverable model,
+and updating content mid-term).
 
-If your submission is a React app with a `package.json`:
-
-```bash
-week1/7_13/code_deliverable/
-├── package.json
-├── src/
-└── public/
-
-```
-
-The GitHub Actions workflow will automatically build it and serve the build output.
-
-## Important Notes
-
-- The workflow publishes the entire repository to GitHub Pages
-- For React apps with sub folders in package.json (like `"homepage": "/repo-name/week1/7_13/code_deliverable/"`), ensure they're properly configured
-- Static HTML sites don't need any special configuration
-- Each submission can be a completely independent project
-
-## Instructions Files
-
-Each project folder has one instruction file:
-
-- `instructions.md` → guidance for completing the assignment
-
-The site renders student-facing instructions through `instructions.html` and links to it from the overview page and each submission page.
-
-## Testing Locally
-
-To test the landing page locally, open `index.html` in your browser or use a local server:
-
-```bash
-# Using Python 3
-python -m http.server 8000
-
-# Using Node.js http-server
-npx http-server
-```
-
-Then visit `http://localhost:8000`
+</details>

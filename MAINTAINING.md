@@ -76,6 +76,23 @@ Repo-only: the student/team GitHub Classroom repo **is** the submission (no zip,
 Canvas upload). Graded from commit history + the GitHub-Pages-hosted page; deadline =
 last commit before each folder's `deadline.json`.
 
+## Student-fork deployment (GitHub Pages)
+
+Two things must be right for a student's Classroom copy to publish:
+
+- **CNAME.** The committed `CNAME` (`vibe-coding-ethics.tech.cornell.edu`) belongs only
+  to this canonical repo. `deploy.yml` strips it in any repo whose `github.repository`
+  isn't `Cornell-Tech-Vibe-Coding-Summer-2026/class`, so student forks publish to their
+  own `https://<owner>.github.io/<repo>/`. If you rename the canonical repo, update that
+  `if:` guard.
+- **Pages source.** Each student repo must have **Settings → Pages → Source = "GitHub
+  Actions"** — Classroom does not set this reliably. Enable it via the Classroom template,
+  a `gh api` script, or tell students to flip it once (it's in the student README + the
+  first activity). Until then their `deploy` job fails with an environment error.
+
+Student apps themselves are subpath-safe (all asset paths are relative), so nothing else
+needs changing for the `/<repo>/` hosting.
+
 ## Updating during the term
 
 GitHub Classroom gives each student an **independent** copy at accept time; pushes
