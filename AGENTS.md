@@ -40,7 +40,7 @@ this template:
 
 **Metadata & Annotations**:
 - **Time**: [Local time]
-- **Tool**: [e.g. Claude Code / Cursor / Copilot / Antigravity / Windsurf / v0 / Replit]
+- **Tool**: [e.g. GitHub Copilot / Codex / Claude Code / Cursor / Gemini / Windsurf / v0 / Replit]
 - **Annotations**: [Any instructions or context attached to the prompt]
 
 **Input Files**:

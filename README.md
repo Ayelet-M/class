@@ -12,9 +12,11 @@ build with AI: the prompts, the choices, and the ethics.
 1. **Join the class on GitHub Classroom** (link is in the first activity below) so you
    get your own repo. Accepting gives you an independent copy — later changes we make
    to the course won't overwrite your work.
-2. **Pick an AI coding tool.** You can use any of them — the repo is pre-configured for
-   all of them. **Mind the age limits:** Claude Code and Antigravity are **18+**;
-   **GitHub Copilot, Cursor, and Windsurf are 13+**. Full table is in the first activity.
+2. **Pick an AI coding tool.** We recommend **GitHub Copilot** — it's free for students
+   (**13+**) via the [GitHub Student Developer Pack](https://education.github.com/pack/join),
+   runs in VS Code or a Codespace, and its agent mode vibe-codes across your repo.
+   **Codex** is a good second choice. A few tools (Claude Code, Cursor) are **18+** — fine
+   if you're older. The repo is pre-configured for all of them; full table is in the first activity.
 3. **Open the first activity:** [`week1/7_13/instructions.md`](week1/7_13/instructions.md)
    (or read it on the hosted course site your instructor shares). It walks you through
    setup and your first build.
@@ -34,7 +36,7 @@ week1/7_13/
 - **The Vibe-Trace (this is graded).** Every time your AI tool changes files in a
   `code_deliverable/`, it logs the prompt to `log_deliverable/history.md`. The repo
   already contains the rule file for each tool, so this happens automatically for
-  agent tools like Claude Code, Cursor, Windsurf, and Antigravity. **If you use a
+  agent tools like GitHub Copilot (agent mode), Codex, Claude Code, and Cursor. **If you use a
   web-only or autocomplete tool (Copilot, v0, Replit), you must paste your prompts
   into `history.md` yourself.** Check that it's filling up as you work.
 - **Write your `vibe-report.md`** using [`vibe-report-template.md`](vibe-report-template.md).

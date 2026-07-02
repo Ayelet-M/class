@@ -5,25 +5,27 @@
 ### Set up your AI tool and GitHub accounts
 
 > [!IMPORTANT]
-> **Under 18?** Antigravity and Claude Code require you to be **18+**. If you're younger, use **GitHub Copilot, Cursor, or Windsurf** instead (all 13+) — see the tool table below. Everything in this course works with any of these tools, so pick whatever fits your age and budget.
+> **Our recommended tool is GitHub Copilot.** It's **free for students (13+)** through the [GitHub Student Developer Pack](https://education.github.com/pack/join), runs right inside **VS Code or a GitHub Codespace**, and its **agent mode** can plan and edit across your whole repo — that's the "vibe coding" part. A solid second option is **Codex** (it reads `AGENTS.md`).
+>
+> **A few tools are 18+.** Claude Code and Cursor require you to be **18+**. If you're older and prefer one, go ahead — the repo works with all of them (see the table). **If you're under 18, use GitHub Copilot.**
 
-If you're 18+, our recommended tool is **Antigravity**: get a one-year free trial with your Cornell student email, download the Google Antigravity IDE, and set up its Chrome extension.
+**Get set up:**
 
-Sign up for github and fork this repository. 
+1. Sign up for [GitHub](https://github.com/signup) and join the [GitHub Student Developer Pack](https://education.github.com/pack/join) with your school email — this unlocks GitHub Copilot for free.
+2. Accept the course GitHub Classroom assignment here: [https://classroom.github.com/a/8NQcxGyr](https://classroom.github.com/a/8NQcxGyr). This gives you your own copy of the repo.
+3. Open your repo in **VS Code** (with the Copilot extension) or in a **Codespace** (green "Code" button → Codespaces), and turn on Copilot **agent mode**.
 
-Join the course GitHub Classroom for this assignment here: [https://classroom.github.com/a/8NQcxGyr](https://classroom.github.com/a/8NQcxGyr). Add yourself to the classroom before you begin the project.
-
-**You can use any of the supported tools** — the repo is pre-configured so the required prompt-logging ("Vibe-Trace") works out of the box in each. When you clone the repo you already have the matching rule file for your tool:
+**You can use any of the supported tools** — the repo is pre-configured so the required prompt-logging ("Vibe-Trace") works out of the box in each. When you open the repo you already have the matching rule file for your tool:
 
 | Tool | Config file (already in the repo) |
 | :--- | :--- |
-| Antigravity / Gemini Code Assist | `.agent/rules/vibe-trace.md`, `GEMINI.md` |
-| Claude Code | `CLAUDE.md` |
-| Cursor | `.cursor/rules/vibe-trace.mdc` |
-| Windsurf | `.windsurf/rules/vibe-trace.md` |
-| GitHub Copilot | `.github/copilot-instructions.md` |
+| **GitHub Copilot** — *recommended, 13+* | `.github/copilot-instructions.md` |
 | Codex / Amp / Jules / other agents | `AGENTS.md` |
+| Gemini Code Assist | `GEMINI.md` |
 | Replit Agent | `replit.md` |
+| Claude Code — *18+* | `CLAUDE.md` |
+| Cursor — *18+* | `.cursor/rules/vibe-trace.mdc` |
+| Windsurf | `.windsurf/rules/vibe-trace.md` |
 
 All of these tell the AI the same thing: whenever it edits your `code_deliverable/`, log the prompt to `log_deliverable/history.md`. Web-only tools (v0, Rork, Bolt) can't read these files — if you use one, paste your prompt history into `log_deliverable/history.md` yourself. See [AGENTS.md](../../AGENTS.md) for the full rule.
 

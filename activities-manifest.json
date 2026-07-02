@@ -20,7 +20,7 @@
           "folder": "7_13",
           "date": "Mon · Jul 13",
           "title": "Personal Portfolio / About Me",
-          "shortDescription": "Set up Antigravity + GitHub and vibe code a hosted \"about you\" page — then debate whether copying a classmate's structure counts as plagiarism when an AI did the work.",
+          "shortDescription": "Set up GitHub Copilot + GitHub and vibe code a hosted \"about you\" page — then debate whether copying a classmate's structure counts as plagiarism when an AI did the work.",
           "readings": [
             { "role": "primary", "cite": "Li, J. et al. 2026. Vibe coding in product teams: Reconfiguring AI-assisted workflows, prototyping, and collaboration. CHIWORK '26.", "url": "https://arxiv.org/abs/2509.10652", "tag": "provided" },
             { "role": "optional", "cite": "Sandhaus, H., Gu, Q., Parreira, M.T., Ju, W. 2025. Co-Designing with Transformers: GenAI in Interactive System Design Education. DIS '25.", "url": "https://arxiv.org/abs/2410.14048", "tag": "provided" },

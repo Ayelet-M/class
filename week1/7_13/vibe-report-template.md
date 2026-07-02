@@ -49,7 +49,7 @@ Students shall learn to be deliberate about their AI collaborations.
 
 ### Primary Vibe Coding Tool
 <!-- 
-Link to your primary vibe coding tool (e.g. Antigravity/Cursor/etc.)
+Link to your primary vibe coding tool (e.g. GitHub Copilot/Codex/etc.)
 Throughout the semester we will be using a variety of tools. Make sure the tools you use are configured to leave a trace. If you notice a tool not leaving a trace, please nudge it to do so.
 -->
 - [Link to your local history log](log_deliverable/history.md)

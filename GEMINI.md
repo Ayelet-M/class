@@ -1,8 +1,7 @@
 # GEMINI.md — Ethical Vibe Coding (TECHIE 1121)
 
-Instructions for **Gemini CLI** and **Antigravity / Gemini Code Assist** in this
-repository. Antigravity also reads `.agent/rules/vibe-trace.md`. The full canonical
-version is in [AGENTS.md](AGENTS.md) — read it too.
+Instructions for **Gemini CLI** and **Gemini Code Assist** in this repository. The
+full canonical version is in [AGENTS.md](AGENTS.md) — read it too.
 
 ## THE VIBE-TRACE RULE (required)
 
@@ -20,7 +19,7 @@ log the interaction to the sibling `log_deliverable/history.md` (e.g.
 
 **Metadata & Annotations**:
 - **Time**: [Local time]
-- **Tool**: Antigravity / Gemini
+- **Tool**: Gemini
 - **Annotations**: [Any instructions or context attached to the prompt]
 
 **Input Files**:
