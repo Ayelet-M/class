@@ -3,44 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Submission · Ethical Vibe Coding</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128994;</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <title>CO2 Accountability</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128663;</text></svg>">
   <style>
-    :root{ --bg:#050505; --neon:#00ff41; --ink:rgba(255,255,255,.92); }
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      color:var(--ink); min-height:100vh; display:flex; justify-content:center; align-items:center;
-      padding:24px; text-align:center;
-      background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(0,255,65,.06), transparent 60%),
-        radial-gradient(900px 500px at -10% 110%, rgba(0,255,65,.04), transparent 60%),
-        var(--bg);
+    :root {
+      --bg: #dceef8;
+      --card: #f7fbff;
+      --text: #12324a;
+      --muted: #4d6472;
+      --accent: #2f8fda;
+      --accent-strong: #1f6fa9;
+      --accent-soft: #e5f4ff;
     }
-    .container{ max-width:600px; width:100%; background:#0e101a; border:1px solid rgba(0,255,65,.25);
-      border-radius:16px; padding:44px 36px; box-shadow:0 20px 50px rgba(0,0,0,.5); }
-    .tag{ font-family:'JetBrains Mono',ui-monospace,monospace; font-size:.72rem; font-weight:600;
-      letter-spacing:.14em; text-transform:uppercase; color:var(--neon); margin-bottom:16px; }
-    h1{ font-size:1.9rem; font-weight:800; letter-spacing:-.02em; margin-bottom:12px; }
-    h1 .accent{ color:var(--neon); }
-    p{ color:rgba(255,255,255,.62); line-height:1.65; font-size:1rem; }
-    code{ font-family:'JetBrains Mono',ui-monospace,monospace; color:var(--neon);
-      background:rgba(0,255,65,.08); padding:1px 6px; border-radius:5px; font-size:.9em; }
-    ul.files{ list-style:none; text-align:left; margin:22px 0 4px; display:flex; flex-direction:column; gap:8px; }
-    ul.files li a{ display:block; padding:11px 14px; border:1px solid rgba(0,255,65,.22); border-radius:10px;
-      color:var(--ink); text-decoration:none; font-weight:600; transition:all .15s; }
-    ul.files li a:hover{ background:rgba(0,255,65,.1); border-color:var(--neon); }
-    ul.files li a span{ display:block; font-weight:400; font-size:.85rem; color:rgba(255,255,255,.5); margin-top:2px; }
-    .hint{ font-size:.85rem; color:rgba(255,255,255,.4); margin-top:18px; }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #e8f4fc 0%, #d6eaf7 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: min(100%, 560px);
+      background: rgba(247, 251, 255, 0.95);
+      border: 1px solid rgba(47, 143, 218, 0.2);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 20px 50px rgba(18, 50, 74, 0.16);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 16px;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+      background: #ffffff;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+
+    .result {
+      background: var(--accent-soft);
+      border: 1px solid rgba(47, 143, 218, 0.2);
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 1.05rem;
+      margin-top: 8px;
+    }
+
+    .result strong {
+      color: var(--accent);
+    }
+
+    .source {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      color: #94a3b8;
+    }
+
+    .note {
+      margin-top: 14px;
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.7;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #f0f8ff;
+      border: 1px solid rgba(47, 143, 218, 0.15);
+    }
+
+    .source a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .source a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="tag">// your submission</div>
-    <h1>Let's <span class="accent">vibe</span> code.</h1>
-    <p>This is your starting point. Use your AI collaborator to transform this page into your deliverable, then commit it to your repo — replace this file in <code>code_deliverable/</code>.</p>
-  </div>
-  <script src="../../../scripts/submission-instructions-button.js"></script>
+  <main class="card">
+    <h1>CO2 Accountability</h1>
+    <p><span class="highlight">Cars emit around 400 grams of tailpipe CO2 per mile driven.</span> Try a bike!</p>
+
+    <label for="miles">How many miles is the trip?</label>
+    <input id="miles" type="number" min="0" step="0.1" placeholder="e.g. 12.5" />
+
+    <button id="calculate">Calculate CO2 emissions</button>
+
+    <div id="result" class="result">Enter a mileage value to estimate your emissions.</div>
+    <p id="bike-note" class="note">Biking guidance will appear here.</p>
+
+    <p class="source">
+      Sources: <a href="https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle" target="_blank" rel="noopener noreferrer">EPA — Greenhouse gas emissions, typical passenger vehicle</a> and <a href="https://macfoxbike.com/blogs/news/biking-to-work-distance" target="_blank" rel="noopener noreferrer">Macfox — How Far Is Too Far to Bike to Work?</a>
+    </p>
+  </main>
+
+  <script>
+    const milesInput = document.getElementById('miles');
+    const resultBox = document.getElementById('result');
+    const bikeNote = document.getElementById('bike-note');
+    const calculateButton = document.getElementById('calculate');
+
+    const emissionPerMile = 400;
+    const gramsToPounds = 0.00220462;
+
+    function formatNumber(value) {
+      return new Intl.NumberFormat('en-US', {
+        maximumFractionDigits: 2,
+      }).format(value);
+    }
+
+    function getBikeAdvice(miles) {
+      if (miles <= 3) {
+        return {
+          label: 'easy for most riders',
+          details: 'This is a very comfortable distance for a bike commute.'
+        };
+      }
+      if (miles <= 6) {
+        return {
+          label: 'manageable for daily riding',
+          details: 'It is a realistic bike commute if you have a safe route and a little buffer.'
+        };
+      }
+      if (miles <= 10) {
+        return {
+          label: 'reasonable with planning',
+          details: 'A 7–10 mile ride can work well if the route is safe and you plan around weather, clothing, and traffic.'
+        };
+      }
+      if (miles <= 15) {
+        return {
+          label: 'long but possible',
+          details: 'This distance can work, but it usually needs route planning, pacing, and a backup option for bad weather.'
+        };
+      }
+      return {
+        label: 'demanding for daily use',
+        details: 'A ride this long is usually better as an occasional trip or with an e-bike and a backup plan.'
+      };
+    }
+
+    function getBikeTime(miles) {
+      const at10mph = miles / 10 * 60;
+      const at12mph = miles / 12 * 60;
+      const at15mph = miles / 15 * 60;
+      const buffer = 10;
+      return {
+        min: Math.round(at12mph + buffer),
+        range: `${Math.round(at10mph + 5)}–${Math.round(at15mph + 15)} minutes`
+      };
+    }
+
+    function updateResult() {
+      const miles = Number(milesInput.value);
+
+      if (!miles || miles < 0) {
+        resultBox.innerHTML = 'Please enter a valid number of miles.';
+        bikeNote.textContent = 'Biking guidance will appear here.';
+        return;
+      }
+
+      const grams = miles * emissionPerMile;
+      const pounds = grams * gramsToPounds;
+      const bikeAdvice = getBikeAdvice(miles);
+      const bikeTime = getBikeTime(miles);
+
+      resultBox.innerHTML = `Driving <strong>${formatNumber(miles)}</strong> miles produces about <strong>${formatNumber(grams)}</strong> grams of CO2, or <strong>${formatNumber(pounds)}</strong> pounds.`;
+      bikeNote.innerHTML = `Based on the Macfox article, a trip of <strong>${formatNumber(miles)}</strong> miles is <strong>${bikeAdvice.label}</strong> for biking. <strong>${bikeAdvice.details}</strong> A practical estimate is about <strong>${bikeTime.min}</strong> minutes at a steady pace, and a realistic range of <strong>${bikeTime.range}</strong> once stops and buffers are included.`;
+    }
+
+    calculateButton.addEventListener('click', updateResult);
+    milesInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        updateResult();
+      }
+    });
+  </script>
 </body>
 </html>

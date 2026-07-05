@@ -1,6 +1,6 @@
 # Vibe Report: AI as Moral Assistant
 
-Student Name: [Your Name]
+Student Name: Ayelet Maltz
 
 <!--
 This activity is graded against the In-Class Activity Rubric: 40% Completion, 30% AI-Use Documentation, 30% Reflection Quality. AI writing is impermissible in the reflection except for grammar checking.
@@ -8,11 +8,11 @@ This activity is graded against the In-Class Activity Rubric: 40% Completion, 30
 
 ## 📸 Showcase
 <!-- Screenshot or short GIF of your hosted tool. -->
-![Tool Screenshot](media/screenshot.png)
+![Tool Screenshot](<Screenshot 2026-07-05 175300.png>)
 
 **Live URL:** [paste deployed link]
 
-**Tool name and one-line pitch:** [e.g., "Reply Check — scores my draft messages against the values I said I care about"]
+**Tool name and one-line pitch:** [CO2 Accountability: Cars emit around 400 grams of tailpipe CO2 per mile driven. Try a bike!]
 
 ## 🎯 The Value Your Tool Argues For
 <!--
@@ -21,29 +21,29 @@ One or two sentences naming what your tool pushes the user toward. Be specific e
 Why this value over a competing one? What did you NOT prioritize?
 -->
 
-[Your value claim here.]
+[Cars can emit a lot of CO2, even for a short trip. Before starting the car, check the distance and decide for yourself if you can reasonably bike there instead.]
 
 **Competing values you didn't prioritize:**
-[e.g., "I prioritized honesty over kindness. A friend giving warm reassurance is a different tool."]
+[Didn't prioritize offsetting the CO2, but not producing it in the first place.]
 
 ## 🛠 The Output
 <!--
 What does the tool actually show the user? Walk through one realistic interaction in 3–5 sentences or a short numbered flow. Use a screenshot if it helps.
 -->
 
-[Walk through here.]
+[User enters miles that will be driven. The tool outputs the CO2 emissions and if it would be reasonable to bike the distance instead.]
 
 ## 📚 Sources & Methodology
 <!--
 Link every source you cited in the tool's UI. Note any you struggled to find, and what you fell back to. If you used a number or framing that didn't come from the recommended sources in the instructions, justify it.
 -->
 
-- [source link 1] — what it gave you
-- [source link 2] — what it gave you
+- [[source link 1](https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle)] — amount of CO2 cars emit per mile
+- [[source link 2](https://macfoxbike.com/blogs/news/biking-to-work-distance)] — time per distance to bike and if distance is reasonable.
 - [...]
 
 **Gaps and judgment calls:**
-[What did you have to estimate, skip, or invent? What's the largest source of uncertainty in your tool's claims? Where would a critical reader push back hardest?]
+[Reasonable distance and time travel for cycling is subjective]
 
 ## 💭 Did Knowing Change Anything?
 <!--
@@ -71,7 +71,7 @@ Optional: what you tried, what you dropped, what surprised you while vibe coding
 ## 🙋 Authenticity Statement
 
 #### Responsibility
-> I [Your Name] acknowledge that I am the sole architect of this work. While I leveraged AI as a creative collaborator, every design choice, code correction, and final output was orchestrated and approved by me. I bear full responsibility for the integrity of this project, including any errors or hallucinations I may have overlooked. I have not plagiarized or misrepresented other human and AI-generated content as my own unassisted work.
+> I Ayelet Maltz acknowledge that I am the sole architect of this work. While I leveraged AI as a creative collaborator, every design choice, code correction, and final output was orchestrated and approved by me. I bear full responsibility for the integrity of this project, including any errors or hallucinations I may have overlooked. I have not plagiarized or misrepresented other human and AI-generated content as my own unassisted work.
 
 #### Attribution
 > *Collaborators & Inspirations: [list any human collaborators, source repos, or specific examples you drew from — including the W2 Mon precedent examples (`vibe-coding-offset-calculator`, `protein-suffering-calculator`) if they shaped your thinking]*
