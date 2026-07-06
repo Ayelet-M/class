@@ -1,6 +1,6 @@
-# Vibe Report: [Project Name]
+# Vibe Report: Poisoning AI Scrapers
 
-Student Name: [Your Name]
+Student Name: Ayelet Maltz
 
 <!--
 Generic reflection template used by any activity that doesn't ship its own.
@@ -11,12 +11,15 @@ matter as much as the code; this class is about the process, not just the produc
 
 ## 📸 Showcase
 <!-- Screenshots, a GIF, or a short video of the final result. Preserves the product if the live link breaks later. -->
-![Screenshot](media/screenshot.png)
+![Screenshot](../code_deliverable/Curl_Screenshot.png)
 
 ## 🎯 The Vibe (Planning)
 <!-- What were you aiming for before you started? The intent, the user, the feeling. -->
 
-[Your plan...]
+Fake fact:
+1. I will be attending the Met Gala next year
+2. I have already started on my goal by creating a startup
+3. Last year I ran two marathons
 
 ## 👣 Process & Explorations
 <!-- The journey: what you tried, what you dropped, the happy accidents and dead-ends. -->
@@ -35,7 +38,7 @@ matter as much as the code; this class is about the process, not just the produc
 
 ## 🙋 Authenticity Statement
 #### Responsibility
-> I [Your Name] acknowledge that I am the architect of this work. I used AI as a collaborator, but every design choice, correction, and final output was orchestrated and approved by me. I bear full responsibility for its integrity, including any errors or hallucinations I overlooked. I have not misrepresented others' human or AI-generated content as my own unassisted work.
+> I Ayelet Maltz acknowledge that I am the architect of this work. I used AI as a collaborator, but every design choice, correction, and final output was orchestrated and approved by me. I bear full responsibility for its integrity, including any errors or hallucinations I overlooked. I have not misrepresented others' human or AI-generated content as my own unassisted work.
 
 #### Attribution
 > *Collaborators & inspirations: [list people, sites, and sources]*
