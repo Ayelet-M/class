@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Arcade Login</title>
+  <style>
+    :root {
+      --cyan: #32f5ff;
+      --pink: #ff4fd8;
+      --purple: #7f4dff;
+      --ink: #05020f;
+      --text: #f7f0ff;
+      --muted: #bca7e8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 79, 216, 0.3), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(50, 245, 255, 0.25), transparent 35%),
+        linear-gradient(135deg, #03010b 0%, #14052f 45%, #06030e 100%);
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    body::before {
+      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 36px 36px;
+      opacity: 0.25;
+    }
+
+    body::after {
+      background: radial-gradient(circle, rgba(255, 79, 216, 0.18), transparent 60%);
+      filter: blur(40px);
+      animation: pulse 5s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(0.95); opacity: 0.7; }
+      to { transform: scale(1.04); opacity: 1; }
+    }
+
+    .login-card {
+      position: relative;
+      width: min(92vw, 420px);
+      padding: 2.2rem;
+      border-radius: 24px;
+      background: rgba(7, 5, 19, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow:
+        0 0 0 1px rgba(50, 245, 255, 0.2),
+        0 0 30px rgba(127, 77, 255, 0.35),
+        inset 0 0 24px rgba(255, 79, 216, 0.1);
+      backdrop-filter: blur(15px);
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      border: 1px solid rgba(50, 245, 255, 0.35);
+      box-shadow: 0 0 12px rgba(50, 245, 255, 0.28);
+    }
+
+    h1 {
+      margin: 0 0 0.4rem;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(255, 79, 216, 0.8), 0 0 24px rgba(50, 245, 255, 0.45);
+    }
+
+    .subtitle {
+      margin: 0 0 1.4rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.92rem;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(50, 245, 255, 0.3);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      outline: none;
+      transition: 180ms ease;
+      box-shadow: inset 0 0 10px rgba(50, 245, 255, 0.12);
+    }
+
+    input:focus {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 2px rgba(255, 79, 216, 0.18), 0 0 16px rgba(255, 79, 216, 0.35);
+    }
+
+    button {
+      margin-top: 0.5rem;
+      padding: 0.95rem 1rem;
+      border: none;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #08010f;
+      cursor: pointer;
+      background: linear-gradient(90deg, var(--cyan), var(--pink));
+      box-shadow: 0 0 16px rgba(50, 245, 255, 0.35), 0 0 24px rgba(255, 79, 216, 0.35);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 0 24px rgba(50, 245, 255, 0.5), 0 0 32px rgba(255, 79, 216, 0.45);
+    }
+
+    .footer {
+      margin-top: 1rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="login-card">
+    <div class="badge">Midnight Arcade</div>
+    <h1>Arcade Access</h1>
+    <p class="subtitle">Enter the glow. Start the game.</p>
+
+    <form>
+      <label>
+        Username
+        <input type="text" placeholder="Player One" />
+      </label>
+
+      <label>
+        Password
+        <input type="password" placeholder="••••••••" />
+      </label>
+
+      <button type="submit">Enter Stage</button>
+    </form>
+
+    <p class="footer">A neon welcome for the late-night run.</p>
+  </main>
+</body>
+</html>

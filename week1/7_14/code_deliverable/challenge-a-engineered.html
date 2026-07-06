@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engineered Pomodoro Timer</title>
+  <style>
+    :root {
+      --bg: #f4f7f8;
+      --panel: #ffffff;
+      --text: #22313f;
+      --accent: #2ecc71;
+      --accent-2: #e74c3c;
+      --muted: #7f8c8d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #f7fbfc, #eef5f6);
+      color: var(--text);
+      padding: 24px;
+    }
+
+    .card {
+      width: min(460px, 100%);
+      padding: 28px;
+      border-radius: 20px;
+      background: var(--panel);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+      font-size: 1.8rem;
+    }
+
+    .mode {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .display {
+      font-size: 4.6rem;
+      font-weight: 700;
+      margin: 12px 0 18px;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: white;
+      background: var(--accent);
+    }
+
+    button.secondary {
+      background: #95a5a6;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 14px;
+      background: #e5ecef;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 1s linear, background 0.5s ease;
+    }
+
+    .status {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Pomodoro Timer</h1>
+    <div class="mode" id="mode">Focus Session</div>
+    <div class="display" id="display">25:00</div>
+    <div class="controls">
+      <button id="start">Start</button>
+      <button id="reset" class="secondary">Reset</button>
+    </div>
+    <div class="progress-track">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="status" id="status">Press Start to begin your focus session.</div>
+  </div>
+
+  <script>
+    const focusDuration = 25 * 60;
+    const breakDuration = 5 * 60;
+    let totalSeconds = focusDuration;
+    let remainingSeconds = focusDuration;
+    let timerId = null;
+    let isRunning = false;
+    let isBreak = false;
+
+    const display = document.getElementById('display');
+    const modeLabel = document.getElementById('mode');
+    const status = document.getElementById('status');
+    const progressBar = document.getElementById('progressBar');
+
+    function formatTime(seconds) {
+      const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const secs = String(seconds % 60).padStart(2, '0');
+      return `${mins}:${secs}`;
+    }
+
+    function updateDisplay() {
+      display.textContent = formatTime(remainingSeconds);
+      const progressPercent = (remainingSeconds / totalSeconds) * 100;
+      progressBar.style.width = `${progressPercent}%`;
+
+      if (isBreak) {
+        progressBar.style.background = 'linear-gradient(90deg, #f39c12, #e74c3c)';
+      } else {
+        progressBar.style.background = 'linear-gradient(90deg, #2ecc71, #e74c3c)';
+      }
+    }
+
+    function startTimer() {
+      if (isRunning) return;
+      isRunning = true;
+      status.textContent = isBreak ? 'Break time. Relax briefly.' : 'Focus session in progress.';
+      timerId = setInterval(() => {
+        remainingSeconds--;
+        updateDisplay();
+
+        if (remainingSeconds <= 0) {
+          clearInterval(timerId);
+          isRunning = false;
+          console.log(`${isBreak ? 'Break' : 'Focus'} session completed.`);
+
+          if (isBreak) {
+            isBreak = false;
+            totalSeconds = focusDuration;
+            remainingSeconds = focusDuration;
+            modeLabel.textContent = 'Focus Session';
+            status.textContent = 'Break finished. Start another focus session.';
+          } else {
+            isBreak = true;
+            totalSeconds = breakDuration;
+            remainingSeconds = breakDuration;
+            modeLabel.textContent = 'Break Session';
+            status.textContent = 'Focus session complete. Time for a short break.';
+          }
+
+          updateDisplay();
+        }
+      }, 1000);
+    }
+
+    document.getElementById('start').addEventListener('click', startTimer);
+
+    document.getElementById('reset').addEventListener('click', () => {
+      clearInterval(timerId);
+      isRunning = false;
+      isBreak = false;
+      totalSeconds = focusDuration;
+      remainingSeconds = focusDuration;
+      modeLabel.textContent = 'Focus Session';
+      status.textContent = 'Reset complete. Press Start to begin.';
+      updateDisplay();
+    });
+
+    updateDisplay();
+  </script>
+</body>
+</html>
