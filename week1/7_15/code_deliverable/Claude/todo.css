@@ -1,0 +1,313 @@
+/* =========================================================================
+   Tokens
+   ========================================================================= */
+:root{
+  --paper: #efe8d6;
+  --paper-dark: #e4dbc4;
+  --ink: #26392b;
+  --ink-soft: #4a5c4d;
+  --brass: #a9823f;
+  --stamp-red: #a13d2e;
+  --charcoal: #2e2a24;
+  --rule: #c9bfa5;
+  --hole: #d8cfb4;
+}
+
+*{ box-sizing:border-box; }
+
+/* =========================================================================
+   Page shell
+   ========================================================================= */
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 3px),
+    #d9d0b8;
+  font-family:'Courier Prime', monospace;
+  color:var(--charcoal);
+  padding:32px 16px;
+}
+
+.card{
+  position:relative;
+  width:100%;
+  max-width:520px;
+  background:var(--paper);
+  border:1px solid var(--rule);
+  box-shadow: 0 1px 0 #fff inset, 0 18px 40px rgba(30,25,15,0.25);
+  padding:36px 32px 28px;
+  overflow:hidden;
+}
+
+/* punch holes, like a library catalog card */
+.card::before{
+  content:"";
+  position:absolute;
+  top:18px; left:14px;
+  width:10px; height:10px;
+  border-radius:50%;
+  background: radial-gradient(circle at 35% 30%, #fff8, transparent 40%), var(--hole);
+  box-shadow: 0 462px 0 var(--hole);
+  opacity:0.9;
+}
+
+/* =========================================================================
+   Header + creation stamp
+   ========================================================================= */
+header{
+  padding-left:26px;
+  margin-bottom:22px;
+  border-bottom:2px solid var(--ink);
+  padding-bottom:14px;
+}
+
+.eyebrow{
+  font-family:'Special Elite', monospace;
+  font-size:11px;
+  letter-spacing:.22em;
+  color:var(--brass);
+  text-transform:uppercase;
+  margin:0 0 4px;
+}
+
+h1{
+  font-family:'Special Elite', monospace;
+  font-size:26px;
+  margin:0;
+  color:var(--ink);
+  letter-spacing:.03em;
+}
+
+.date-stamp{
+  position:absolute;
+  top:30px; right:28px;
+  font-family:'Special Elite', monospace;
+  font-size:11px;
+  color:var(--ink-soft);
+  text-align:right;
+  line-height:1.6;
+}
+.date-stamp-label{
+  display:block;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--brass);
+  font-size:10px;
+}
+
+/* =========================================================================
+   Filter tabs (cut like catalog guide cards, stepped heights)
+   ========================================================================= */
+.tabs{
+  display:flex;
+  gap:6px;
+  padding-left:26px;
+  margin-bottom:18px;
+}
+.tab{
+  font-family:'Special Elite', monospace;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  background:var(--paper-dark);
+  border:1px solid var(--rule);
+  border-bottom:none;
+  color:var(--ink-soft);
+  padding:7px 14px 9px;
+  cursor:pointer;
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%);
+}
+.tab:nth-child(1){ transform: translateY(0px); }
+.tab:nth-child(2){ transform: translateY(3px); }
+.tab:nth-child(3){ transform: translateY(6px); }
+.tab:hover{ color:var(--ink); }
+.tab.active{
+  background:var(--paper);
+  color:var(--ink);
+  font-weight:700;
+  border-color:var(--ink);
+  box-shadow: 0 2px 0 var(--paper);
+  z-index:2;
+}
+
+/* =========================================================================
+   Add-entry form
+   ========================================================================= */
+form{
+  display:flex;
+  gap:8px;
+  padding-left:26px;
+  margin-bottom:22px;
+}
+input[type="text"]{
+  flex:1;
+  font-family:'Courier Prime', monospace;
+  font-size:14px;
+  padding:10px 10px;
+  background:transparent;
+  border:none;
+  border-bottom:1px dashed var(--ink-soft);
+  color:var(--charcoal);
+  outline:none;
+}
+input[type="text"]::placeholder{ color:#8a8168; }
+input[type="text"]:focus{ border-bottom:1px solid var(--ink); }
+
+button{
+  font-family:'Special Elite', monospace;
+  cursor:pointer;
+}
+
+.file-btn{
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  background:var(--ink);
+  color:var(--paper);
+  border:1px solid var(--ink);
+  padding:0 16px;
+}
+.file-btn:hover{ background:var(--ink-soft); }
+.file-btn:focus-visible, .tab:focus-visible, .clear-btn:focus-visible, .remove-btn:focus-visible{
+  outline:2px solid var(--stamp-red);
+  outline-offset:2px;
+}
+
+/* =========================================================================
+   Entry list
+   ========================================================================= */
+ul.entries{
+  list-style:none;
+  margin:0 0 18px;
+  padding:0 8px 0 26px;
+  min-height:60px;
+}
+
+.entry{
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:12px 4px;
+  border-bottom:1px solid var(--rule);
+}
+.entry:first-child{ padding-top:2px; }
+
+.check{
+  flex:none;
+  width:18px; height:18px;
+  margin-top:2px;
+  border:1.5px solid var(--ink);
+  background:var(--paper);
+  cursor:pointer;
+  position:relative;
+  appearance:none;
+  -webkit-appearance:none;
+}
+.check:checked::after{
+  content:"✕";
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  color:var(--ink);
+  font-family:'Special Elite', monospace;
+}
+
+.entry-text{
+  flex:1;
+  font-size:14px;
+  line-height:1.5;
+  padding-top:1px;
+  word-break:break-word;
+}
+.entry.done .entry-text{
+  color:var(--ink-soft);
+  text-decoration: line-through;
+  text-decoration-color: var(--stamp-red);
+  text-decoration-thickness: 1.5px;
+}
+
+.stamp{
+  position:absolute;
+  right:36px;
+  top:6px;
+  font-family:'Special Elite', monospace;
+  font-size:11px;
+  letter-spacing:.12em;
+  color:var(--stamp-red);
+  border:2px solid var(--stamp-red);
+  padding:2px 6px;
+  border-radius:2px;
+  transform: rotate(-9deg);
+  opacity:0;
+  transition:opacity .15s ease;
+  pointer-events:none;
+  text-transform:uppercase;
+  mix-blend-mode:multiply;
+}
+.entry.done .stamp{ opacity:.75; }
+
+.remove-btn{
+  flex:none;
+  background:none;
+  border:none;
+  color:var(--ink-soft);
+  font-size:15px;
+  line-height:1;
+  padding:2px 4px;
+}
+.remove-btn:hover{ color:var(--stamp-red); }
+
+.empty-note{
+  padding:18px 4px 24px;
+  font-family:'Special Elite', monospace;
+  font-size:13px;
+  color:var(--ink-soft);
+  text-align:center;
+}
+
+/* =========================================================================
+   Footer
+   ========================================================================= */
+footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-left:26px;
+  padding-top:12px;
+  border-top:1px dashed var(--rule);
+  font-size:12px;
+  color:var(--ink-soft);
+}
+.clear-btn{
+  background:none;
+  border:none;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  color:var(--ink-soft);
+  font-family:'Courier Prime', monospace;
+  font-size:12px;
+}
+.clear-btn:hover:not(:disabled){ color:var(--stamp-red); }
+.clear-btn:disabled{ opacity:.4; cursor:default; text-decoration:none; }
+
+/* =========================================================================
+   Accessibility & responsive
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; }
+}
+
+@media (max-width:480px){
+  .card{ padding:28px 18px 22px; }
+  header, .tabs, form, ul.entries, footer{ padding-left:14px; }
+  .date-stamp{ position:static; text-align:left; margin-top:8px; }
+  h1{ font-size:22px; }
+}

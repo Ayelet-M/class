@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Daily Docket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="todo.css">
+</head>
+<body>
+
+<div class="card">
+  <div class="date-stamp">
+    <span class="date-stamp-label">Filed</span>
+    <span id="createdStamp"></span>
+  </div>
+  <header>
+    <p class="eyebrow">Catalog No. 001 — Personal Records</p>
+    <h1>The Daily Docket</h1>
+  </header>
+
+  <div class="tabs" role="tablist" aria-label="Filter entries">
+    <button class="tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+    <button class="tab" data-filter="active" role="tab" aria-selected="false">Active</button>
+    <button class="tab" data-filter="done" role="tab" aria-selected="false">Done</button>
+  </div>
+
+  <form id="addForm">
+    <input type="text" id="entryInput" placeholder="File a new entry…" maxlength="140" autocomplete="off">
+    <button type="submit" class="file-btn">File</button>
+  </form>
+
+  <ul class="entries" id="entriesList"></ul>
+
+  <footer>
+    <span id="countLabel">0 open</span>
+    <button class="clear-btn" id="clearBtn">Clear done</button>
+  </footer>
+</div>
+
+<script src="todo.js"></script>
+
+</body>
+</html>
