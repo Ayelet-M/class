@@ -1,3 +1,22 @@
+## [Local Time: 2026-07-06 00:00:00]
+
+**User Prompt**:
+> fix my list of files at the bottom index.html with the other files i have in code_deliverable
+
+**Metadata & Annotations**:
+- **Time**: 2026-07-06 00:00:00
+- **Tool**: GitHub Copilot
+- **Annotations**: Updated the file list on the submission page so it matches the actual files present in the deliverable folder.
+
+**Input Files**:
+- week1/7_14/code_deliverable/index.html
+- week1/7_14/log_deliverable/history.md
+
+**Action Summary**:
+- Replaced the placeholder file links in the landing page with the real files from the folder, including the Python scripts and the correctly named HTML files.
+
+---
+
 ## [Local Time: 2026-07-05 13:45:00]
 
 **User Prompt**:
