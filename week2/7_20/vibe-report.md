@@ -60,9 +60,11 @@ Optional: what you tried, what you dropped, what surprised you while vibe coding
 <!-- Mandatory. Link to your local prompt history and any external AI tools you used. -->
 
 ### Primary Vibe Coding Tool
+- Model/tool used: [e.g. GitHub Copilot, OpenAI Codex, ChatGPT GPT-5, Claude, Gemini, v0]
 - [Link to your local history log](log_deliverable/history.md)
 
 ### External AI Tools
+- [Tool/model name] — [what it generated or helped with] — [link/transcript]
 - [Tool Name] (Link or transcript)
 
 ## 🙋 Authenticity Statement

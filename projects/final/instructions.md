@@ -36,4 +36,4 @@ Each team shows, in a tight slot:
 - **Afterlife** — who keeps using/maintaining it, and how.
 
 ## Host & Submit
-Host via GitHub Pages (static) or Vercel (frameworks); put the live link in your report. Your team repo **is** your submission — commit and push your `projects/final/` folder before presentations. Demo from the hosted link, not localhost, and keep a screen-recording backup in `presentation/` in case Wi-Fi fails.
+Host via GitHub Pages (static) or Vercel (frameworks), and put the live link in your report. Commit and push your `projects/final/` folder in the team GitHub Classroom repo before presentations. Submit whatever the Canvas final-project page asks for, usually the live link and/or a zip snapshot. Demo from the hosted link, not localhost, and keep a screen-recording backup in `presentation/` in case Wi-Fi fails.

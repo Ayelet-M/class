@@ -119,7 +119,7 @@ Document your comparison in `vibe-report.md`:
 - `vibe-report.md` — comparison + reflection + trace
 
 ### Submission
-Your repo **is** your submission — there's nothing to upload. Commit and push your `week1/7_14/` folder: your `code_deliverable/` (auto-hosted from your repo via GitHub Pages), `log_deliverable/history.md`, and `vibe-report.md`. We grade from your commit history and your hosted page, so push before the deadline in `deadline.json` — the last commit before it is what counts.
+Submit on Canvas: upload a zip of the entire `week1/7_14/` folder and paste your deployed assignment link. Before submitting, commit and push your `code_deliverable/`, `log_deliverable/history.md`, and `vibe-report.md` to your GitHub Classroom repo. We grade the Canvas submission against your GitHub commit history and hosted page; commits pushed after the Canvas submission time do not count unless the instructor asks you to resubmit.
 
 This activity produces **several outputs** — save each as its own file in `code_deliverable/` and list them in `code_deliverable/index.html` (a starter index is provided).
 

@@ -67,10 +67,14 @@ We encourage you to look for inspiration online. Check out sites like [Awwwards]
 ## Host
 
 Once your page is ready, you need to make it live:
-- **Vanilla JS/Static Pages**: Use **GitHub Pages**. Go to your repository settings > Pages and enable it for the `main` branch.
+- **Vanilla JS/Static Pages**: Use **GitHub Pages**. Go to your repository settings > Pages and set the source to **GitHub Actions**.
 - **Frameworks (React, Vue, etc.)**: Use **Vercel**. Connect your GitHub repository to Vercel for automatic deployment.
 
-Your repo **is** your submission — nothing to upload. Enable GitHub Pages (Settings → Pages → `main` branch); your page is served at `https://vibe-coding-ethics.tech.cornell.edu/week1/7_13/code_deliverable/`. Commit and push before the deadline in `deadline.json`; we grade from your commit history and your hosted page.
+Your deployed page should be your own repo's URL, usually `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/week1/7_13/code_deliverable/`.
+
+## Submit on Canvas
+
+Upload a zip of the entire `week1/7_13/` folder and paste your deployed assignment link on Canvas. Before submitting, commit and push `week1/7_13/` to your GitHub Classroom repo. We grade the Canvas submission against your GitHub commit history and hosted page; commits pushed after the Canvas submission time do not count unless the instructor asks you to resubmit.
 
 ---
 

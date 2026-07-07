@@ -13,6 +13,11 @@
     "test": "tests"
   },
   "scripts": {
+    "start": "npm run dev",
+    "dev": "python3 -m http.server 8000",
+    "serve": "npm run dev",
+    "open": "open http://localhost:8000",
+    "build:pages": "bash scripts/build-pages-artifact.sh",
     "test": "jest",
     "test:all": "npm run test --workspaces --if-present",
     "test:7_13": "npm run test -w @class/7_13",

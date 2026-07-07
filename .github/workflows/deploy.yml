@@ -19,94 +19,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '24'
 
-      - name: Build React apps (auto-detect) and prepare folders
-        run: |
-          set -e
-
-          # Function to process a directory
-          process_directory() {
-            local folder="$1"
-            echo "Processing $folder"
-            echo "Listing $folder:"
-            ls -la "$folder"
-
-            if [ -f "$folder/package.json" ]; then
-              # Check if it's a React project
-              if grep -q '"react"' "$folder/package.json" || grep -q '"react-scripts"' "$folder/package.json" || grep -q '"vite"' "$folder/package.json"; then
-                echo "Detected React/Vite app in $folder"
-                pushd "$folder"
-                
-                # Install dependencies
-                if [ -f "package-lock.json" ]; then
-                  npm ci --legacy-peer-deps || npm install --legacy-peer-deps
-                else
-                  npm install --legacy-peer-deps
-                fi
-
-                # Determine build tool and set PUBLIC_URL accordingly
-                local build_dir=""
-                if grep -q '"vite"' "package.json"; then
-                  echo "Building with Vite"
-                  npm run build -- --base=./
-                  if [ -d "dist" ]; then
-                    build_dir="dist"
-                  elif [ -d "build" ]; then
-                    build_dir="build"
-                  else
-                    echo "ERROR: No Vite build output found in dist/ or build/"
-                    ls -la
-                  fi
-                else
-                  echo "Building with React Scripts"
-                  # PUBLIC_URL=. means assets load from current directory
-                  PUBLIC_URL=. npm run build
-                  build_dir="build"
-                fi
-
-                # Copy build output to folder root
-                if [ -n "$build_dir" ] && [ -d "$build_dir" ]; then
-                  echo "Deploying build artifact from $build_dir to root"
-                  ls -la "$build_dir"
-                  
-                  # Remove existing assets to prevent conflicts
-                  rm -rf index.html *.js *.css *.map asset-manifest.json || true
-                  
-                  # Copy new assets
-                  cp -r "$build_dir"/* .
-                  rm -rf "$build_dir"
-                  
-                  echo "Deployment complete for $folder. Content of root:"
-                  ls -la .
-                else
-                  echo "WARNING: Build directory '$build_dir' missing. Skipping deployment for $folder."
-                fi
-                popd
-              else
-                echo "package.json present but not React/Vite; leaving static files as-is in $folder"
-              fi
-            else
-              echo "Static site detected (no package.json) in $folder; no build needed"
-            fi
-          }
-
-          # Process ALL code_deliverable directories (includes examples recursively)
-          echo "=== Processing all code_deliverable directories ==="
-          while IFS= read -r -d '' folder; do
-            process_directory "$folder"
-          done < <(find . -type d -path '*/code_deliverable' -print0)
-
-          # Generate examples manifest for GitHub Pages (which doesn't support directory listings)
-          echo "=== Generating examples manifest ==="
-
-          python3 scripts/generate_manifest.py || echo "⚠ manifest generation skipped (non-fatal)"
-          echo "✓ Generated examples-manifest.json"
+      - name: Build Pages artifact
+        run: bash scripts/build-pages-artifact.sh
 
       # The committed CNAME (vibe-coding-ethics.tech.cornell.edu) belongs ONLY to the
       # canonical course repo. In a student's GitHub Classroom copy it would collide
@@ -115,15 +36,23 @@ jobs:
       # default https://<owner>.github.io/<repo>/ URL.
       - name: Remove custom domain (CNAME) in student copies
         if: github.repository != 'Cornell-Tech-Vibe-Coding-Summer-2026/class'
-        run: rm -f CNAME
+        run: rm -f _site/CNAME
+
+      - name: Enable Pages for GitHub Actions
+        run: |
+          gh api "repos/${GITHUB_REPOSITORY}/pages" >/dev/null 2>&1 || \
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/pages" \
+              --field build_type=workflow >/dev/null
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v6
       
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
-          path: '.'
+          path: '_site'
 
   deploy:
     environment:
@@ -134,4 +63,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

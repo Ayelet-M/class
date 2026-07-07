@@ -30,8 +30,9 @@ matter as much as the code; this class is about the process, not just the produc
 
 ## 📜 AI Usage Trace
 <!-- Mandatory. Link your local log and any external AI tools used. -->
+- Models/tools used: [e.g. GitHub Copilot, OpenAI Codex, ChatGPT GPT-5, Claude, Gemini, v0]
 - [Local history log](log_deliverable/history.md)
-- External tools (ChatGPT, Claude, image generators, etc.): [name + link]
+- External tools (ChatGPT, Claude, image generators, etc.): [tool/model name + what it generated or helped with + link/transcript]
 
 ## 🙋 Authenticity Statement
 #### Responsibility

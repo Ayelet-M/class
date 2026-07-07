@@ -31,4 +31,4 @@ Inside `projects/project2/`:
 Graded against the [Project Rubric](../rubric.md).
 
 ## Host & Submit
-Host via GitHub Pages (static) or Vercel (frameworks); put the live link in your report. Your team repo **is** your submission — commit and push your `projects/project2/` folder before the deadline in `deadline.json`, and the last commit before it is what counts.
+Host via GitHub Pages (static) or Vercel (frameworks), and put the live link in your report. Commit and push your `projects/project2/` folder in the team GitHub Classroom repo before the deadline in `deadline.json`. Submit whatever the Canvas project page asks for, usually the live link and/or a zip snapshot; we grade against the team repo's commit history and your live link.

@@ -50,6 +50,12 @@ site at runtime; its bundled `src/content/syllabus.md` is only an offline fallba
 re-sync it (copy the class file in, keeping the header comment) whenever the syllabus
 changes, and rebuild.
 
+## AI colophon
+
+`COLOPHON.md` is the public provenance note for course materials. Keep it updated
+when the primary generation/editing model changes. Student submissions still use
+their own `log_deliverable/history.md` and report-template AI trace sections.
+
 ## Structural rules
 
 - **Never rename the date folders** (`7_13`, `7_20`, …). They're load-bearing for
@@ -72,9 +78,13 @@ changes, and rebuild.
 
 ## Deliverables / grading model
 
-Repo-only: the student/team GitHub Classroom repo **is** the submission (no zip, no
-Canvas upload). Graded from commit history + the GitHub-Pages-hosted page; deadline =
-last commit before each folder's `deadline.json`.
+Individual activities: Canvas is the formal submission point. Students upload a zip of
+the full assignment folder and paste the deployed link. GitHub Classroom remains the
+source of truth for commit history, AI trace files, and the hosted page; grade the
+commit state that matches the Canvas submission time.
+
+Group projects: use the team repo and live link unless Canvas says otherwise for that
+specific project.
 
 ## Student-fork deployment (GitHub Pages)
 
@@ -92,6 +102,45 @@ Two things must be right for a student's Classroom copy to publish:
 
 Student apps themselves are subpath-safe (all asset paths are relative), so nothing else
 needs changing for the `/<repo>/` hosting.
+
+## Updating the GitHub Classroom starter copy
+
+GitHub Classroom is not using `Cornell-Tech-Vibe-Coding-Summer-2026/class` directly on
+the assignment screen. It created a private starter-copy repo:
+
+```text
+Cornell-Tech-Vibe-Coding-Summer-2026/cornell-tech-vibe-coding-summer-2026-class-repo-class
+```
+
+When the canonical repo changes, first commit and push the canonical repo:
+
+```bash
+git push origin main
+```
+
+Then copy the current files into the Classroom starter-copy repo and make a normal
+commit there:
+
+```bash
+tmpdir=$(mktemp -d)
+git clone git@github.com:Cornell-Tech-Vibe-Coding-Summer-2026/cornell-tech-vibe-coding-summer-2026-class-repo-class.git "$tmpdir"
+rsync -a --delete ./ "$tmpdir"/ \
+  --exclude ".git" \
+  --exclude "node_modules" \
+  --exclude "_site"
+cd "$tmpdir"
+git add -A
+git commit -m "Sync starter from canonical class repo"
+git push origin main
+```
+
+Prefer this copy-and-commit flow over force-pushing. It preserves the Classroom
+starter-copy history, which gives already-accepted student forks a normal update path.
+
+After pushing the starter copy, go back to GitHub Classroom and use **Sync assignments**
+to send the starter-code update toward already-accepted student repos. Students may need
+to merge the generated pull request or sync their fork. Repos accepted before the sync do
+not update silently.
 
 ## Updating during the term
 

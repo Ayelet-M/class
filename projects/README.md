@@ -40,3 +40,4 @@ The **Final Project** also has a `presentation/` folder for slides or a demo vid
 - Projects are graded against the [Project Rubric](rubric.md) (mirrored from the syllabus).
 - **Deep ethical reflection is 25% and AI writing is impermissible there** (grammar-checking only).
 - See each project's `instructions.md` for the exact required deliverables.
+- Course-material AI provenance is documented in [`../COLOPHON.md`](../COLOPHON.md).

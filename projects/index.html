@@ -140,7 +140,7 @@
     </div>
 
     <footer>
-        <p>Cornell Tech · Summer 2026 · <a href="https://cornell-tech-vibe-coding-summer-2026.github.io/website/">Course site</a></p>
+        <p>Cornell Tech · Summer 2026 · <a href="https://cornell-tech-vibe-coding-summer-2026.github.io/website/">Course site</a> · <a href="../instructions.html?file=COLOPHON.md&title=AI%20Colophon">AI colophon</a></p>
     </footer>
 
     <script>
@@ -150,21 +150,24 @@
                 meta: 'Assigned Thu · Jul 16   ·   Due Mon · Jul 20 (before class)',
                 title: 'Project 1 — Vibe Code Something You Want or Need',
                 weight: '15%',
-                desc: 'As a team, build and host a small app that solves a real problem one of you actually has — using the strongest tool + prompt combo from Week 1.'
+                desc: 'As a team, build and host a small app that solves a real problem one of you actually has — using the strongest tool + prompt combo from Week 1.',
+                classroomHref: 'https://classroom.github.com/a/yPpN1K9b'
             },
             {
                 folder: 'project2',
                 meta: 'Assigned Thu · Jul 23   ·   Due Mon · Jul 27 (before class)',
                 title: 'Project 2 — Build for a Human Value',
                 weight: '15%',
-                desc: 'Pick a value (privacy, accessibility, sustainability, dignity…) and ship an app that operationalizes it. User-tested in Week 3.'
+                desc: 'Pick a value (privacy, accessibility, sustainability, dignity…) and ship an app that operationalizes it. User-tested in Week 3.',
+                classroomHref: 'https://classroom.github.com/a/JDt-BTNy'
             },
             {
                 folder: 'final',
                 meta: 'Working day Wed · Jul 29   ·   Presentations Thu · Jul 30',
                 title: 'Final Project — Benefit Someone Outside the Class',
                 weight: '25% + 15%',
-                desc: 'Design, build, test, and present an app that benefits a real external beneficiary — and keeps benefiting society after the course ends.'
+                desc: 'Design, build, test, and present an app that benefits a real external beneficiary — and keeps benefiting society after the course ends.',
+                classroomHref: 'https://classroom.github.com/a/DhCkh7Cz'
             }
         ];
 
@@ -181,10 +184,9 @@
 
         function buildCard(p) {
             const briefHref = `../instructions.html?week=projects&project=${p.folder}`;
-            const folderHref = `./${p.folder}/`;
             const actions = el('div', { class: 'actions' }, [
                 el('a', { class: 'action primary', href: briefHref, text: 'Brief' }),
-                el('a', { class: 'action', href: folderHref, text: 'Folder' }),
+                el('a', { class: 'action', href: p.classroomHref, target: '_blank', rel: 'noopener noreferrer', text: 'GitHub Classroom' }),
             ]);
             return el('div', { class: 'project' }, [
                 el('div', { class: 'project-meta', text: p.meta }),
