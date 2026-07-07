@@ -11,12 +11,12 @@ matter as much as the code; this class is about the process, not just the produc
 
 ## 📸 Showcase
 <!-- Screenshots, a GIF, or a short video of the final result. Preserves the product if the live link breaks later. -->
-![Screenshot](code_deliverable/assets/challange-a-engineered.png) 
-![Screenshot](code_deliverable/assets/challange-a-vibe.png) 
-![Screenshot](code_deliverable/assets/challange-d-aesthetic.png) 
-![Screenshot](code_deliverable/assets/challange-d-technical.png) 
-![Screenshot](code_deliverable/assets/polite.png) 
-![Screenshot](code_deliverable/assets/rude.png)
+[Challange A Engineered](code_deliverable/assets/challange-a-engineered.png) 
+[Challange A Vibe](code_deliverable/assets/challange-a-vibe.png) 
+[Challange D Aesthetic](code_deliverable/assets/challange-d-aesthetic.png) 
+[Challange D Technical](code_deliverable/assets/challange-d-technical.png) 
+[Polite](code_deliverable/assets/polite.png) 
+[Rude](code_deliverable/assets/rude.png)
 
 ## The Comparision
 | Quality marker | Vibe (natural) | Engineered (structured) |
@@ -39,7 +39,8 @@ matter as much as the code; this class is about the process, not just the produc
 
 ## 📜 AI Usage Trace
 <!-- Mandatory. Link your local log and any external AI tools used. -->
-- [Local history log](log_deliverable/history.md)
+- [Local history log](log_deliverable/history.md) 
+- [Prompt log](log_deliverable/prompt-log.md)
 - External tools (ChatGPT, Claude, image generators, etc.): [name + link]
 
 ## 🙋 Authenticity Statement

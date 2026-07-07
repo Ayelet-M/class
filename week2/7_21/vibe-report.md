@@ -27,7 +27,8 @@ matter as much as the code; this class is about the process, not just the produc
 
 ## 📜 AI Usage Trace
 <!-- Mandatory. Link your local log and any external AI tools used. -->
-- [Local history log](log_deliverable/history.md)
+- [Local history log](log_deliverable/history.md) 
+- [Transcripts](log_deliverable/Transcripts.md)
 - External tools (ChatGPT, Claude, image generators, etc.): 
 
 ## 🙋 Authenticity Statement

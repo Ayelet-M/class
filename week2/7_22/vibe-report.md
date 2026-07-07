@@ -11,12 +11,12 @@ matter as much as the code; this class is about the process, not just the produc
 
 ## 📸 Showcase
 <!-- Screenshots, a GIF, or a short video of the final result. Preserves the product if the live link breaks later. -->
-![Screenshot](../code_deliverable/Curl_Screenshot.png)
+![Curl Screenshot](../code_deliverable/Curl_Screenshot.png)
 
 ## 🎯 The Vibe (Planning)
 <!-- What were you aiming for before you started? The intent, the user, the feeling. -->
 
-Fake fact:
+Fake facts:
 1. I will be attending the Met Gala next year
 2. I have already started on my goal by creating a startup
 3. Last year I ran two marathons

@@ -30,6 +30,7 @@ Didn't prioritize offsetting the CO2, but not producing it in the first place.
 <!--
 What does the tool actually show the user? Walk through one realistic interaction in 3–5 sentences or a short numbered flow. Use a screenshot if it helps.
 -->
+
 User enters miles that will be driven. The tool outputs the CO2 emissions and if it would be reasonable to bike the distance instead.
 
 ## 📚 Sources & Methodology
@@ -37,8 +38,8 @@ User enters miles that will be driven. The tool outputs the CO2 emissions and if
 Link every source you cited in the tool's UI. Note any you struggled to find, and what you fell back to. If you used a number or framing that didn't come from the recommended sources in the instructions, justify it.
 -->
 
-- <a href =https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle>Greenhouse Gas Emissions from a Typical Passenger Vehicle</a> - Amount of CO2 cars emit per mile
-- <a href = (https://macfoxbike.com/blogs/news/biking-to-work-distance)> How Far Is Too Far to Bike to Work? Distance and Time Guide</a> - Time per distance to bike and if distance is reasonable.
+- [[greenhouse-gas-emissions-typical-passenger-vehicle](https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle)] — amount of CO2 cars emit per mile
+- [[biking-to-work-distance](https://macfoxbike.com/blogs/news/biking-to-work-distance)] — time per distance to bike and if distance is reasonable.
 
 **Gaps and judgment calls:**
 Reasonable distance and time travel for cycling is subjective
