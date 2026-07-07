@@ -43,8 +43,9 @@ See [user-test.md](user-test.md).
 
 ## 📜 AI Usage Trace
 <!-- Mandatory. Link the team's local log and any external AI tools used. -->
+- Models/tools used: [e.g. GitHub Copilot, OpenAI Codex, ChatGPT GPT-5, Claude, Gemini, v0, image/audio/video generators]
 - [Team AI interaction log](log_deliverable/history.md)
-- External tools (ChatGPT, Claude, Midjourney, etc.): [name + link]
+- External tools (ChatGPT, Claude, Midjourney, etc.): [tool/model name + what it generated or helped with + link/transcript]
 
 ## 🙋 Authenticity Statement
 #### Responsibility

@@ -9,6 +9,11 @@ build with AI: the prompts, the choices, and the ethics.
 
 ## Start here
 
+For local setup, dev commands, and the full "how do I run this on my machine?"
+walkthrough, start with **[`STARTHERE.md`](STARTHERE.md)**. For what to submit on
+Canvas, see **[`SUBMISSION.md`](SUBMISSION.md)**. For how this course repo was made
+with AI, see **[`COLOPHON.md`](COLOPHON.md)**.
+
 1. **Join the class on GitHub Classroom** (link is in the first activity below) so you
    get your own repo. Accepting gives you an independent copy — later changes we make
    to the course won't overwrite your work.
@@ -41,17 +46,20 @@ week1/7_13/
   into `history.md` yourself.** Check that it's filling up as you work.
 - **Write your `vibe-report.md`** using [`vibe-report-template.md`](vibe-report-template.md).
 - **Group projects** live separately under [`projects/`](projects/).
+- **Course-material AI provenance** is documented in [`COLOPHON.md`](COLOPHON.md).
 
 ## How to preview and submit
 
-- **Preview locally:** open your `index.html` in a browser, or run a tiny web server
-  in the repo folder — `python3 -m http.server 8000` — and visit `http://localhost:8000`.
+- **Preview locally:** run `npm run dev` from the repo root and visit
+  `http://localhost:8000`. Full local instructions are in
+  **[`STARTHERE.md`](STARTHERE.md)**.
 - **Publish it live (GitHub Pages):** in your repo, go to **Settings → Pages** and set
   **Source = "GitHub Actions."** Then every push builds your site and gives you a live
-  URL. Your apps in each `code_deliverable/` folder are reachable there.
-- **Submitting = your repo.** There's no zip and no Canvas upload. Your GitHub repo
-  *is* your submission — we grade from your commit history and your hosted page. Each
-  folder has a `deadline.json`; your last commit before that time counts.
+  URL. Your apps in each `code_deliverable/` folder are reachable there. Full deploy
+  instructions are in **[`DEPLOY.md`](DEPLOY.md)**.
+- **Submit on Canvas:** upload a zip of the entire assignment folder and paste your
+  deployed link. We also review the matching GitHub Classroom commits and hosted page.
+  Full submission instructions are in **[`SUBMISSION.md`](SUBMISSION.md)**.
 
 ## Getting help
 
@@ -59,6 +67,8 @@ week1/7_13/
   shares the link) — or see [`planning/`](planning/).
 - Stuck on a tool or the setup? The first activity has an age-appropriate tool table
   and step-by-step setup.
+- Curious how the course repo itself was made? See the AI colophon:
+  [`COLOPHON.md`](COLOPHON.md).
 
 ---
 
@@ -66,7 +76,8 @@ week1/7_13/
 <summary>For maintainers / instructors</summary>
 
 This repo deploys to GitHub Pages via `.github/workflows/deploy.yml` (auto-detects and
-builds React/Vite apps, otherwise serves static files; publishes the whole repo). The
+builds framework apps inside `code_deliverable/`, otherwise serves static files, then
+publishes `_site/`). The
 committed `CNAME` is used only by the canonical `Cornell-Tech-Vibe-Coding-Summer-2026/class`
 repo — the workflow strips it in student copies so their forks deploy to their own
 `github.io/<repo>/` URL. See **[`MAINTAINING.md`](MAINTAINING.md)** for how the repo is

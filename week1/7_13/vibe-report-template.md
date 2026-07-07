@@ -52,6 +52,7 @@ Students shall learn to be deliberate about their AI collaborations.
 Link to your primary vibe coding tool (e.g. GitHub Copilot/Codex/etc.)
 Throughout the semester we will be using a variety of tools. Make sure the tools you use are configured to leave a trace. If you notice a tool not leaving a trace, please nudge it to do so.
 -->
+- Model/tool used: [e.g. GitHub Copilot, OpenAI Codex, ChatGPT GPT-5, Claude, Gemini, v0]
 - [Link to your local history log](log_deliverable/history.md)
 
 ### External AI Tools 
@@ -60,6 +61,7 @@ Link to any other AI platforms you used (e.g. ChatGPT chat history, Claude, Midj
 Even for simple question-answering or benign uses, document it here. 
 If you didn't use external tools, you may remove this section.
 -->
+- [Tool/model name] — [what it generated or helped with] — [link/transcript]
 - [ChatGPT Chat History Name](https://chatgpt.com/share/...)
 - [Tool Name] (Link)
 
@@ -70,4 +72,3 @@ If you didn't use external tools, you may remove this section.
  
 #### Attribution
 > *Collaborators & Inspirations: [List all human collaborators or specific sites you were inspired by here]*
-
