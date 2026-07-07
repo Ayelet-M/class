@@ -1,10 +1,12 @@
 # Deploying Your Course Repo
 
-This repo auto-deploys with GitHub Pages after you enable Pages once.
+This repo auto-deploys with GitHub Pages. The workflow tries to enable Pages for
+GitHub Actions automatically before deploying.
 
 ## One-time setup
 
-In your GitHub repo:
+The workflow should handle this automatically. If GitHub blocks automatic Pages
+setup in your copy, enable it manually once:
 
 1. Go to **Settings -> Pages**.
 2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
