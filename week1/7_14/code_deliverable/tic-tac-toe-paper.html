@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paper Tic-Tac-Toe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f7f0e6;
+      --paper-line: rgba(78, 64, 49, 0.14);
+      --paper-edge: rgba(121, 92, 72, 0.25);
+      --ink: #27211f;
+      --ink-soft: #4b413d;
+      --accent: #8c6c4f;
+      --shadow: rgba(50, 32, 17, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: 'Patrick Hand', 'Indie Flower', cursive, sans-serif;
+      background: radial-gradient(circle at top left, rgba(255,244,226,0.9), transparent 30%),
+                  radial-gradient(circle at bottom right, rgba(206,168,128,0.18), transparent 22%),
+                  linear-gradient(180deg, #f9f3e8 0%, #f1e7d7 100%);
+      color: var(--ink);
+    }
+
+    .paper {
+      width: min(92vw, 520px);
+      background: linear-gradient(180deg, #fbf3e5 0%, #f7ebd9 100%);
+      border: 1px solid rgba(110, 84, 59, 0.22);
+      border-radius: 28px;
+      padding: 30px 28px;
+      box-shadow: 0 24px 50px var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .paper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(120, 97, 71, 0.05) 1px, transparent 1px);
+      background-size: 100% 42px;
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    h1 {
+      position: relative;
+      margin: 0 0 6px;
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      letter-spacing: 0.02em;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .subtitle {
+      position: relative;
+      margin: 0 0 24px;
+      color: var(--ink-soft);
+      text-align: center;
+      z-index: 1;
+      line-height: 1.4;
+    }
+
+    .status {
+      position: relative;
+      margin: 0 auto 18px;
+      width: fit-content;
+      padding: 10px 16px;
+      border: 1px dashed rgba(86, 64, 49, 0.35);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.76);
+      color: var(--ink);
+      font-size: 1rem;
+      z-index: 1;
+    }
+
+    .board {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: rgba(255,255,255,0.85);
+      box-shadow: inset 0 0 0 1px rgba(109, 89, 66, 0.18);
+      border-radius: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .board::before,
+    .board::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(to right, transparent 32%, var(--paper-line) 33%, var(--paper-line) 34%, transparent 34%),
+                  linear-gradient(to bottom, transparent 32%, var(--paper-line) 33%, var(--paper-line) 34%, transparent 34%);
+      background-size: 33.333% 100%, 100% 33.333%;
+    }
+
+    .cell {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: clamp(3rem, 7vw, 5rem);
+      color: var(--ink);
+      transition: background 0.15s ease, transform 0.15s ease;
+      position: relative;
+      text-shadow: 0 0 0 rgba(0,0,0,0);
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .cell:hover {
+      background: rgba(145, 114, 87, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .cell:focus-visible {
+      outline: 3px dashed rgba(136, 101, 72, 0.5);
+      outline-offset: 4px;
+    }
+
+    .cell::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.5) 0%, transparent 18%),
+                        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.5) 0%, transparent 14%);
+    }
+
+    .cell.winner {
+      color: #62493e;
+    }
+
+    .cell span {
+      position: relative;
+      display: inline-block;
+      transform: rotate(-2deg);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.5), 0 2px 0 rgba(0,0,0,0.08);
+    }
+
+    .cell.x span {
+      color: #24201d;
+    }
+
+    .cell.o span {
+      color: #3b3028;
+    }
+
+    .actions {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    button.restart {
+      border: 2px solid rgba(118, 92, 66, 0.4);
+      border-radius: 999px;
+      background: #fff9ef;
+      color: var(--ink);
+      padding: 12px 18px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 10px 18px rgba(83, 60, 35, 0.12);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button.restart:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 20px rgba(83, 60, 35, 0.16);
+    }
+
+    @media (max-width: 480px) {
+      .paper { padding: 24px 20px; }
+      .status { font-size: 0.95rem; }
+      button.restart { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="paper" aria-label="Paper style tic tac toe game">
+    <h1>Paper Tic-Tac-Toe</h1>
+    <p class="subtitle">A pencil-sketched board with Xs and Os that feel hand-drawn.</p>
+    <div class="status" id="status">Player X goes first.</div>
+    <div class="board" id="board" role="grid" aria-label="Game board">
+      <button class="cell" data-index="0" aria-label="Cell 1"><span></span></button>
+      <button class="cell" data-index="1" aria-label="Cell 2"><span></span></button>
+      <button class="cell" data-index="2" aria-label="Cell 3"><span></span></button>
+      <button class="cell" data-index="3" aria-label="Cell 4"><span></span></button>
+      <button class="cell" data-index="4" aria-label="Cell 5"><span></span></button>
+      <button class="cell" data-index="5" aria-label="Cell 6"><span></span></button>
+      <button class="cell" data-index="6" aria-label="Cell 7"><span></span></button>
+      <button class="cell" data-index="7" aria-label="Cell 8"><span></span></button>
+      <button class="cell" data-index="8" aria-label="Cell 9"><span></span></button>
+    </div>
+    <div class="actions">
+      <button class="restart" id="restart">Restart</button>
+    </div>
+  </main>
+
+  <script>
+    const cells = Array.from(document.querySelectorAll('.cell'));
+    const status = document.getElementById('status');
+    const restartButton = document.getElementById('restart');
+
+    let board = Array(9).fill('');
+    let currentPlayer = 'X';
+    let gameActive = true;
+
+    const winningLines = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8],
+      [0, 3, 6], [1, 4, 7], [2, 5, 8],
+      [0, 4, 8], [2, 4, 6]
+    ];
+
+    function updateStatus(message) {
+      status.textContent = message;
+    }
+
+    function highlightWinningCells(line) {
+      line.forEach(index => cells[index].classList.add('winner'));
+    }
+
+    function checkGameEnd() {
+      for (const line of winningLines) {
+        const [a, b, c] = line;
+        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+          highlightWinningCells(line);
+          updateStatus(`Player ${board[a]} wins!`);
+          gameActive = false;
+          return;
+        }
+      }
+
+      if (board.every(cell => cell)) {
+        updateStatus('Draw — no winner.');
+        gameActive = false;
+      }
+    }
+
+    function makeMove(index) {
+      if (!gameActive || board[index]) return;
+
+      board[index] = currentPlayer;
+      const cell = cells[index];
+      cell.classList.add(currentPlayer.toLowerCase());
+      cell.querySelector('span').textContent = currentPlayer;
+      cell.disabled = true;
+
+      checkGameEnd();
+      if (!gameActive) return;
+
+      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      updateStatus(`Player ${currentPlayer}'s turn.`);
+    }
+
+    cells.forEach(cell => {
+      cell.addEventListener('click', () => makeMove(Number(cell.dataset.index)));
+    });
+
+    restartButton.addEventListener('click', () => {
+      board = Array(9).fill('');
+      currentPlayer = 'X';
+      gameActive = true;
+      cells.forEach(cell => {
+        cell.classList.remove('x', 'o', 'winner');
+        cell.querySelector('span').textContent = '';
+        cell.disabled = false;
+      });
+      updateStatus('Player X goes first.');
+    });
+  </script>
+</body>
+</html>

@@ -17,7 +17,8 @@ matter as much as the code; this class is about the process, not just the produc
 [Challange D Technical](code_deliverable/assets/challange-d-technical.png) 
 [Polite](code_deliverable/assets/polite.png) 
 [Rude](code_deliverable/assets/rude.png)
-
+[XML](code_deliverable/assets/XML.png)
+[Thinking](code_deliverable/assets/Thinking.png)
 ## The Comparision
 | Quality marker | Vibe (natural) | Engineered (structured) |
 | :--- | :--- | :--- |
@@ -28,12 +29,11 @@ matter as much as the code; this class is about the process, not just the produc
 | Ease of adding features later |  |  |
 
 
-## 👣 Process & Explorations
-<!-- The journey: what you tried, what you dropped, the happy accidents and dead-ends. -->
+## Johnny findings
 
+## Toolkit effect
 
-## 💭 Reflection
-<!-- Answer the reflection prompts listed in THIS activity's instructions.md. Name a real tension, surprise, value choice, or limitation you hit. -->
+## When to use which
 
 
 

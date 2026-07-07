@@ -1,3 +1,58 @@
+
+# AI Interaction Log
+
+<!--
+Your Vibe-Trace log. Your AI tool prepends a new entry to the TOP of this file
+every time it edits code_deliverable/ (see AGENTS.md / your tool's rule file).
+If a web-only tool can't write here, paste your prompts in yourself. Newest first.
+-->
+
+## [Local Time: 2026-07-07 00:00:00]
+
+**User Prompt**:
+> make a new file <thinking>Tic tac toe game that looks drawn on a paper with the grid and x and os looking like pencil marks</thinking>
+
+**Metadata & Annotations**:
+- **Time**: 2026-07-07 00:00:00
+- **Tool**: GitHub Copilot
+- **Annotations**: Added a paper-style tic-tac-toe page with hand-drawn pencil mark visuals, board lines, and restart logic.
+
+**Input Files**:
+- week1/7_14/code_deliverable/index.html
+- week1/7_14/code_deliverable/tic-tac-toe-paper.html
+
+**Action Summary**:
+- Created `tic-tac-toe-paper.html` and updated the folder landing page listing.
+
+---
+
+## [Local Time: 2026-07-07 00:00:00]
+
+**User Prompt**:
+> create new file: <role>Expert frontend developer</role>
+<game>tic-tac-toe</game>
+<style_guide>Dark mode, paper like background, grid looks drawn</style_guide>
+<requirements>
+- 3x3 grid in center
+- two player game (one x, one o)
+- wins when three of same symbol in a row (or diagonal)
+</requirements>
+
+**Metadata & Annotations**:
+- **Time**: 2026-07-07 00:00:00
+- **Tool**: GitHub Copilot
+- **Annotations**: Built a self-contained tic-tac-toe page with a dark, paper-like interface, a central 3x3 grid, two-player turn handling, and win/draw logic.
+
+**Input Files**:
+- week1/7_14/code_deliverable/index.html
+- week1/7_14/code_deliverable/tic-tac-toe.html
+
+**Action Summary**:
+- Created a polished tic-tac-toe game page and linked it from the submission landing page so it opens directly from the deliverable folder.
+
+---
+
+
 ## [Local Time: 2026-07-06 00:00:00]
 
 **User Prompt**:
@@ -169,10 +224,4 @@
 
 ---
 
-# AI Interaction Log
 
-<!--
-Your Vibe-Trace log. Your AI tool prepends a new entry to the TOP of this file
-every time it edits code_deliverable/ (see AGENTS.md / your tool's rule file).
-If a web-only tool can't write here, paste your prompts in yourself. Newest first.
--->

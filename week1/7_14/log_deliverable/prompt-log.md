@@ -8,6 +8,9 @@
 | 6 | game login. *Make it feel like a 1980s neon arcade at midnight — vaporwave palette, buttons that glow like they're electrified.*|  aesthetic |  |  |
 | 7 | add this link to my linkedin: www.linkedin.com/in/ayelet-maltz on the footer. Make it say linkedin: url. make it fit in |  no politeness |  |  |
 | 8 |please add this in: https://www.linkedin.com/in/ayelet-maltz. thank you! |  polite but vague |  | not so different from rude but direct prompt. Still added the link in the footer |
+| 9 |create new file: <role>Expert frontend developer</role> <game>tic-tac-toe</game> <style_guide>Dark mode, paper like background, grid looks drawn</style_guide> <requirements> - 3x3 grid in center - two player game (one x, one o) - wins when three of same symbol in a row (or diagonal) </requirements>|  XML tag |  |  |
+| 10 |make a new file <thinking>Tic tac toe game that looks drawn on a paper with the grid and x and os looking like pencil marks</thinking>|  Thinking tag |  | Didn't specify grid so the grid is messed up|
+
 
 
 
