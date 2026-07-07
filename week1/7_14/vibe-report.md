@@ -1,6 +1,6 @@
-# Vibe Report: [Prompt Engineering Lab]
+# Vibe Report: Prompt Engineering Lab
 
-Student Name: [Ayelet Maltz]
+Student Name: Ayelet Maltz
 
 <!--
 Generic reflection template used by any activity that doesn't ship its own.
@@ -11,7 +11,12 @@ matter as much as the code; this class is about the process, not just the produc
 
 ## 📸 Showcase
 <!-- Screenshots, a GIF, or a short video of the final result. Preserves the product if the live link breaks later. -->
-![Screenshot](code_deliverable/assets/challange-a-engineered.png) (code_deliverable/assets/challange-a-vibe.png) (code_deliverable/assets/challange-d-aesthetic.png) (code_deliverable/assets/challange-d-technical.png) (code_deliverable/assets/polite.png) (code_deliverable/assets/rude.png)
+![Screenshot](code_deliverable/assets/challange-a-engineered.png) 
+![Screenshot](code_deliverable/assets/challange-a-vibe.png) 
+![Screenshot](code_deliverable/assets/challange-d-aesthetic.png) 
+![Screenshot](code_deliverable/assets/challange-d-technical.png) 
+![Screenshot](code_deliverable/assets/polite.png) 
+![Screenshot](code_deliverable/assets/rude.png)
 
 ## The Comparision
 | Quality marker | Vibe (natural) | Engineered (structured) |
@@ -26,12 +31,11 @@ matter as much as the code; this class is about the process, not just the produc
 ## 👣 Process & Explorations
 <!-- The journey: what you tried, what you dropped, the happy accidents and dead-ends. -->
 
-[Your process...]
 
 ## 💭 Reflection
 <!-- Answer the reflection prompts listed in THIS activity's instructions.md. Name a real tension, surprise, value choice, or limitation you hit. -->
 
-[Your reflection...]
+
 
 ## 📜 AI Usage Trace
 <!-- Mandatory. Link your local log and any external AI tools used. -->
@@ -40,7 +44,7 @@ matter as much as the code; this class is about the process, not just the produc
 
 ## 🙋 Authenticity Statement
 #### Responsibility
-> I [Your Name] acknowledge that I am the architect of this work. I used AI as a collaborator, but every design choice, correction, and final output was orchestrated and approved by me. I bear full responsibility for its integrity, including any errors or hallucinations I overlooked. I have not misrepresented others' human or AI-generated content as my own unassisted work.
+> I Ayelet Maltz acknowledge that I am the architect of this work. I used AI as a collaborator, but every design choice, correction, and final output was orchestrated and approved by me. I bear full responsibility for its integrity, including any errors or hallucinations I overlooked. I have not misrepresented others' human or AI-generated content as my own unassisted work.
 
 #### Attribution
 > *Collaborators & inspirations: [list people, sites, and sources]*

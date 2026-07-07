@@ -24,17 +24,15 @@ Fake fact:
 ## 👣 Process & Explorations
 <!-- The journey: what you tried, what you dropped, the happy accidents and dead-ends. -->
 
-[Your process...]
 
 ## 💭 Reflection
 <!-- Answer the reflection prompts listed in THIS activity's instructions.md. Name a real tension, surprise, value choice, or limitation you hit. -->
 
-[Your reflection...]
 
 ## 📜 AI Usage Trace
 <!-- Mandatory. Link your local log and any external AI tools used. -->
 - [Local history log](log_deliverable/history.md)
-- External tools (ChatGPT, Claude, image generators, etc.): [name + link]
+- External tools (ChatGPT, Claude, image generators, etc.):
 
 ## 🙋 Authenticity Statement
 #### Responsibility

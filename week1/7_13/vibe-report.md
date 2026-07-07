@@ -1,6 +1,6 @@
-# Vibe Report: [Vibe off]
+# Vibe Report: Vibe off
 
-Student Name: [Ayelet Maltz]  
+Student Name: Ayelet Maltz
 
 <!-- 
 Make this documentation yours. Besides the mandatory elements, feel free to add anything else you want to share about your project. Ensure you submit a clean and readable vibe report. Your reflection and documentation matter not just as much as the actual code you write, but actually even more as this class is about the process and not just the product.
@@ -17,7 +17,7 @@ Document your intent here: moodboards, sketches, or a verbal description of the 
 What was the inspiration? What did you want the user to feel?
 -->
 
-[A nice, cute website]
+A nice, cute website
 
 ## 👣 Process & Explorations
 <!-- 
@@ -28,7 +28,7 @@ Document the different versions, pathways you explored, and research you conduct
 - How did the project evolve from your initial plan?
 -->
 
-[Told copilot to make a website with a place holder image and once it finished I uploaded the photo and told it to add it.]
+Told copilot to make a website with a place holder image and once it finished I uploaded the photo and told it to add it.
 
 ## 💭 Reflection
 <!-- 
@@ -38,8 +38,6 @@ REFLECTION PROMPTS (Answer below):
 3. What was the most surprising thing you learned about the AI tool's capabilities or limitations?
 4. How closely does the final website match your original vision? Does it feel authentic to you? How do you see yourself in it?
 -->
-
-[]
 
 ## 📜 AI Usage Trace 
 <!-- 

@@ -1,7 +1,6 @@
 | # | Prompt (verbatim) | Strategy | Why I changed it from #N | What changed in the output |
 | :- | :--- | :--- | :--- | :--- |
-| 1 | Make me a chill Pomodoro timer that feels like a rainy coffee shop, soft colors.
- | vibe |  |  |
+| 1 | Make me a chill Pomodoro timer that feels like a rainy coffee shop, soft colors.| vibe |  |  |
 | 2 | Build a Pomodoro timer in HTML/CSS/JS. Requirements: 25min/5min split, Start + Reset buttons, a progress bar that goes green→red, and a console log per completed session."| engineered  |  |  |
 | 3 | Write a Python script for grade calculation.| persona |  |  |
 | 4 | You are a senior software engineer. Write a clean, PEP8-compliant grade calculator with docstrings, error handling for non-numeric input, and descriptive names.|  rolebased |  |  does not quit code when user puts in incorrect format |

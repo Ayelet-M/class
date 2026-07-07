@@ -123,7 +123,7 @@ Updated history.md with the log entry.
 
 Made changes.
 
-## Prompt 4
+## Prompt 5
 
 Read [](file:///c%3A/Users/yelie/class/week2/7_21/code_deliverable/sneaking.html)
 
